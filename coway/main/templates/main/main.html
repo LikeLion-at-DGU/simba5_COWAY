@@ -10,12 +10,12 @@
 </section>
 
 <section id="main_img">
-    <img src="../image/임시.png" alt="메인 코끼리 사진">
+    <img src="{% static 'images/임시.png' %}" alt="메인 코끼리 사진">
 </section>
 <section id="main_btn">
-    <div> <a href="../simba_road/road_choice.html">길 찾기</a></div>
+    <div> <a href="{% url 'roadchoicepage' %}">길 찾기</a></div>
     <div> <a href="{% url 'convpage' %}">편의시설 안내</a></div>
-    <div> <a href="../simba_stamp/stamp_cafe.html">도장콕</a></div>
+    <div> <a href="{% url 'stpcafepage' %}">도장콕</a></div>
 </section>
 
 {% endblock %}

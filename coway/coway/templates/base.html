@@ -13,24 +13,26 @@
 </head>
 
 <div>
-    <nav id="main_nav">
-        <div> <a href="#"><img src="../static/images/logo.png" alt="logo"></a></div>
-        <div> <a href="../../main/templates/main/main.html">홈</a></div>
-        <div> <a href="../simba_road/road_choice.html">길</a></div>
-        <div> <a href="../simba_conv/convenience.html">편의시설</a></div>
-        <div> <a href="../../main/templates/main/stamp/stamp_cafe.html">도장콕</a></div>
-        <div> <a href="../../main/templates/main/main.html"><i class="far fa-user"></i></a></div>
-    </nav>
-    {% block content %}
+    <div id="wrap">
+        <nav id="main_nav">
+            <div> <a href="#"><img src="../static/images/logo.png" alt="logo"></a></div>
+            <div> <a href="{% url 'mainpage' %}">홈</a></div>
+            <div> <a href="{% url 'roadchoicepage' %}">길</a></div>
+            <div> <a href="{% url 'convpage' %}">편의시설</a></div>
+            <div> <a href="{% url 'stpcafepage' %}">도장콕</a></div>
+            <div> <a href="{% url 'homepage' %}"><i class="far fa-user"></i></a></div>
+        </nav>
+        {% block content %}
 
-    {% endblock %}
-    <footer>
-        빠른 생활 길잡이<br /><br />
-        동국대학교 멋쟁이 사자처럼 심바톤 5팀 | 박서희, 김민경, 윤수민, 조민우, 설현아<br />
-        주소 : 서울시 중구 필동로 1길 30, 동국대학교 학생회관 2층<br /><br />
-        &copy;likelion_dongguk<br />
-        &copy;DGU Likelion. All right reserved.
-    </footer>
+        {% endblock %}
+        <footer>
+            빠른 생활 길잡이<br /><br />
+            동국대학교 멋쟁이 사자처럼 심바톤 5팀 | 박서희, 김민경, 윤수민, 조민우, 설현아<br />
+            주소 : 서울시 중구 필동로 1길 30, 동국대학교 학생회관 2층<br /><br />
+            &copy;likelion_dongguk<br />
+            &copy;DGU Likelion. All right reserved.
+        </footer>
+    </div>
 </div>
 </body>
 

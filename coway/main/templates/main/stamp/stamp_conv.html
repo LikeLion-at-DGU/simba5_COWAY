@@ -5,14 +5,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/stamp/stamp_conv.css' %}">
 
 <section id="title">
-    <div class="back_icon"> <a href="../simba_main/main.html"><i class="fas fa-chevron-left"></i></a></div>
+    <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
 </section>
 
 <section id="stp_nav">
-    <div> <a href="./stamp_cafe.html">카페</a></div>
-    <div class="visited"> <a href="./stamp_conv.html">편의점</a></div>
-    <div> <a href="./stamp_std.html">스터디존</a></div>
-    <div> <a href="./stamp_rest.html">식당</a></div>
+    <div> <a href="{% url 'stpcafepage' %}">카페</a></div>
+    <div class="visited"> <a href="{% url 'stpconvpage' %}">편의점</a></div>
+    <div> <a href="{% url 'stpstdpage' %}">스터디존</a></div>
+    <div> <a href="{% url 'stprestpage' %}">식당</a></div>
 </section>
 
 <section id="stp_board">
