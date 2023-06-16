@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/project.css' %}">
+    <title>CoWay</title>
+</head>
+
+<div>
+    <nav id="main_nav">
+        <div> <a href="#"><img src="../static/images/logo.png" alt="logo"></a></div>
+        <div> <a href="../simba_main/main.html">홈</a></div>
+        <div> <a href="../simba_road/road_choice.html">길</a></div>
+        <div> <a href="../simba_conv/convenience.html">편의시설</a></div>
+        <div> <a href="../simba_stamp/stamp_cafe.html">도장콕</a></div>
+        <div> <a href="../simba_home/home.html"><i class="far fa-user"></i></a></div>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+    <footer>
+        빠른 생활 길잡이<br /><br />
+        동국대학교 멋쟁이 사자처럼 심바톤 5팀 | 박서희, 김민경, 윤수민, 조민우, 설현아<br />
+        주소 : 서울시 중구 필동로 1길 30, 동국대학교 학생회관 2층<br /><br />
+        &copy;likelion_dongguk<br />
+        &copy;DGU Likelion. All right reserved.
+    </footer>
+</div>
+</body>
+
+</html>
