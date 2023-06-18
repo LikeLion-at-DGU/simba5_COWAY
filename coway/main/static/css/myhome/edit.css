@@ -1,0 +1,59 @@
+#title{
+    height: 10vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+    margin: 0 10px;
+}
+.back_icon{
+    float: left;
+}
+.title_name{
+    margin: 0 40px;
+}
+
+#my_kiri{
+    width: 90%;
+    height: 350px;
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 4px;
+    background-color: white;
+    border: 3px solid #FFC148;
+    border-radius: 20px;
+    margin: 30px 20px;
+    margin-bottom: 1vh;
+}
+
+#items{
+    height: 170px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    margin-bottom: 40px;
+}
+#items div{
+    width: 75px;
+    height: 75px;
+    font-size: 1.3em;
+    text-align: center;
+    padding-top: 15px;
+    background-color: white;
+    border: 3px solid #FFC148;
+    border-radius: 20px;
+    padding: 23px 0;
+}
+
+#edit_btn{
+    width: 40%;
+    height: 45px;
+    font-size: 1.3em;
+    text-align: center;
+    background-color: white;
+    border: 3px solid #FFC148;
+    border-radius: 15px;
+    margin: 0 30vw;
+    margin-bottom: 40px;
+}

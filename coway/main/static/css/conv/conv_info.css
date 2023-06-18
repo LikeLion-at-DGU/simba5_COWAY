@@ -1,0 +1,46 @@
+#title{
+    height: 10vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+    margin: 0 10px;
+}
+.back_icon{
+    float: left;
+}
+.title_name{
+    margin: 0 40px;
+}
+
+#conv_img{
+    height: 35vh;
+    margin: 20px 35px;
+    line-height: 5px;
+}
+#conv_img img{
+    height: 70%;
+    width: 100%;
+    padding-bottom: 20px;
+}
+th,td{
+    padding: 5px;
+    text-align:justify;
+    &:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+#menu{
+    height: 50vh;
+    margin: 20px 35px;
+}
+#menu h1{
+    font-size: 1.2em;
+}
+#menu img{
+    height: 90%;
+    width: 100%;    
+    border: 1px solid #FFC148;
+}

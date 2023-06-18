@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login/join.css' %}">
+
+<section id="title">
+    <div class="back_icon"><i class="fas fa-chevron-left"></i></div>
+    <div class="title_name">회원가입</div>
+</section>
+
+<section id="explain">
+    <div>회원가입 후 더 많은 서비스를 이용해보세요!</div>
+</section>
+
+<!-- 기능 부분은 협업 필요함, 우선 화면만 -->
+<form id="join" action="">
+    <input required type="text" id="user_id" placeholder="아이디 입력">
+    <input required type="password" id="user_pw" placeholder="비밀번호 입력">
+    <input required type="password" id="user_pw" placeholder="비밀번호 확인">
+    <input type="submit" id="join_btn" value="확인">
+</form>
+
+{% endblock %}

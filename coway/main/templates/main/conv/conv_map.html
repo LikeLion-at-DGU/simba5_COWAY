@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}">
+
+<section id="title">
+    <div class="back_icon"> <a href="./convenience.html"><i class="fas fa-chevron-left"></i></a></div>
+    <div class="title_name">카페</div>
+</section>
+
+<section id="map">
+    <img src="../image/임시.png" alt="지도">
+</section>
+
+{% endblock %}
+

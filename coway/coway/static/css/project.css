@@ -11,11 +11,11 @@
 html, body {
     height: 100%;
 }
-/* #wrap {
+#wrap {
     min-height: 100%;
     position: relative;
     padding-bottom: 18vh;
-} */
+}
 
 body{
     background-color: #FFF7E8;
@@ -39,6 +39,9 @@ a{
 #main_nav img{
     height: 5vh;
     padding-top: 5px;
+}
+.visited{
+    font-weight: bold;
 }
 
 footer{
