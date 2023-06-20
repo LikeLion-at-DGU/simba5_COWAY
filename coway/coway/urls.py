@@ -41,4 +41,6 @@ urlpatterns = [
     path('easyroad/', views.easyroadpage, name="easyroadpage"),
     path('roadchoice/', views.roadchoicepage, name="roadchoicepage"),
     path('shortroad/', views.shortroadpage, name="shortroadpage"),
+    path('logout/', views.logout, name="logout"),
+    path('create/', views.create, name="create"),
 ]

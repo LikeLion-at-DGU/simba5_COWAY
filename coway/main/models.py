@@ -1,3 +1,29 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nickname = models.TextField(max_length=10)
+    logintime = models.DateTimeField()
+    attendance = models.PositiveIntegerField(default=0)
+
+class Info(models.Model):
+    latitude = models.DecimalField(max_digits=25, decimal_places=20)
+    longitude = models.DecimalField(max_digits=25, decimal_places=20)
+    name = models.CharField(max_length=30, null=False, blank=False)
+    stair = models.IntegerField(blank=True)
+    depart = models.BooleanField(default=False)
+    image = models.ImageField(blank=True)
+    slope = models.IntegerField(default=0)
+    near = models.TextField()
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    pub_date = models.DateTimeField()
+    body = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.title
+    def summary(self):
+        return self.body[:30]
