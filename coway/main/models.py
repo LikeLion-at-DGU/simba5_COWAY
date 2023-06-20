@@ -18,6 +18,15 @@ class Info(models.Model):
     slope = models.IntegerField(default=0)
     near = models.TextField()
 
+class conv(models.Model):
+    latitude = models.DecimalField(max_digits=25, decimal_places=20)
+    longitude = models.DecimalField(max_digits=25, decimal_places=20)
+    name = models.CharField(max_length=30, null=False, blank=False)
+    image = models.ImageField(blank=True)
+    where = models.TextField()
+    time = models.TextField()
+    menu = models.TextField(blank=True)
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField()
