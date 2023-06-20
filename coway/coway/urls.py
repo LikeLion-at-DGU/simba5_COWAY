@@ -15,7 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.mainpage, name="mainpage"),
+    path('/conv', views.convpage, name="convpage"),
+    path('/convinfo', views.convinfopage, name="convinfopage"),
+    path('/convmap', views.convmappage, name="convmappage"),
+    path('/join', views.joinpage, name="joinpage"),
+    path('/login', views.loginpage, name="loginpage"),
+    path('/ask', views.askpage, name="askpage"),
+    path('/edit', views.editpage, name="editpage"),
+    path('/home', views.homepage, name="homepage"),
+    path('/stpcafe', views.stpcafepage, name="stpcafepage"),
+    path('/stpconv', views.stpconvpage, name="stpconvpage"),
+    path('/stprest', views.stprestpage, name="stprestpage"),
+    path('/stpstd', views.stpstdpage, name="stpstdpage"),
+    path('/conv', views.convpage, name="convpage"),
+    path('/convinfo', views.convinfopage, name="convinfopage"),
+    path('/convmap', views.convmappage, name="convmappage"),
+    path('/easyroad', views.easyroadpage, name="easyroadpage"),
+    path('/roadchoice', views.roadchoicepage, name="roadchoicepage"),
+    path('/shortroad', views.shortroadpage, name="shortroadpage"),
 ]

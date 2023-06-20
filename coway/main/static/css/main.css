@@ -1,0 +1,41 @@
+#title{
+    height: 15vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding: 30px 40px;
+}
+#title p{
+    font-size: 0.6em;
+    font-weight: 100;
+}
+
+#main_img{
+    height: 25vh;
+    width: 80vw;
+    margin: 30px 40px 20px 40px;
+}
+#main_img img{
+    height: 100%;
+    width: 100%;
+}
+
+#main_btn{
+    height: 35vh;
+    width: 100vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 30px;
+}
+#main_btn div{
+    width: 75%;
+    height: 70px;
+    font-size: 1.6em;
+    text-align: center;
+    padding-top: 12px;
+    background-color: white;
+    border: 5px solid #FFC148;
+    border-radius: 20px;
+}

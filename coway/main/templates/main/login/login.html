@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login/login.css' %}">
+
+<section id="title">
+    <div class="back_icon"><i class="fas fa-chevron-left"></i></div>
+    <div class="title_name">로그인</div>
+</section>
+
+<section id="explain">
+    <div>로그인 후 사용 가능한 서비스입니다! <br>
+        아직 회원이 아니라면 회원가입을 해주세요.</div>
+</section>
+
+<form id="login" action="">
+    <input required type="text" id="user_id" placeholder="아이디 입력">
+    <input required type="password" id="user_pw" placeholder="비밀번호 입력">
+    <input type="submit" id="login_btn" value="로그인">
+    <a href="./join.html"><input type="button" id="join_btn" value="회원가입"></a>
+</form>
+
+{% endblock %}

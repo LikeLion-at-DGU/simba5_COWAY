@@ -1,0 +1,57 @@
+#title{
+    height: 10vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+    margin: 0 10px;
+}
+.back_icon{
+    float: left;
+}
+/* 컨텐츠 시작 */
+#road_choice{
+    height: 10vh;
+    padding: 0 30px 20px 30px;
+    font-size: 1.4em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    line-height: 35px;
+}
+#road_choice .user_coice{
+    color: #282828;
+    font-size: 0.6em;
+    font-weight: 100;
+    border-top: 2px solid #FFC148;
+}
+
+#map{
+    height: 50vh;
+}
+#map img{
+    height: 90%;
+    width: 100%;
+    border: 1px solid #FFC148;
+    margin: auto;
+}
+
+#select_road{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 20px;
+
+}
+button{
+    width: 40vw;
+    height: 5vh;
+    border-radius: 15px;
+    background-color: white;
+    border: 3px solid #FFC148;
+
+}
+button.select{
+    background-color: #FDDF76;
+}

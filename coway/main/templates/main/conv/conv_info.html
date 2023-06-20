@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_info.css' %}">
+
+<section id="title">
+    <div class="back_icon"><i class="fas fa-chevron-left"></i></div>
+    <div class="title_name">그루터기 카페</div>
+</section>
+
+<section id="conv_img">
+    <img src="../../image/임시.png" alt="편의시설 사진">
+    <table>
+        <tr>
+            <th>장 소:</th><td>경영관 2층,</td><td>사회과학관 1층 앞</td>
+        </tr>
+        <tr>
+            <th>운 영 시 간:</th><td>월화수목금</td><td>09-00 ~ 18:00</td>
+        </tr>
+        <tr>
+            <th></th><td>토 일</td><td>10-00 ~ 14:00</td>
+        </tr>
+    </table>
+</section>
+
+<section id="menu">
+    <h1>메뉴</h1>
+    <img src="../../image/임시.png" alt="메뉴 사진">
+</section>
+
+{% endblock %}

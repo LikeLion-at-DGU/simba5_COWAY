@@ -1,0 +1,58 @@
+#title{
+    height: 10vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+    margin: 0 10px;
+}
+.back_icon{
+    float: left;
+}
+/* 컨텐츠 시작 */
+#road_choice{
+    height: 10vh;
+    margin: 0 30px 20px 30px;
+    font-size: 1.4em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    line-height: 35px;
+}
+#road_choice .user_coice{
+    color: #282828;
+    font-size: 0.6em;
+    font-weight: 100;
+    border-top: 2px solid #FFC148;
+}
+
+#div_building{
+    display: flex;
+    align-items: start;
+    width: 100vw;
+}
+table{
+    border-collapse: collapse;
+}
+.building td{
+    width: 60vw;
+    height: 5vh;
+    text-align: center;
+    border: 1px solid #FFC148;
+    background-color: #ffffff;
+}
+.floor td{
+    width: 40vw;
+    height: 6vh;
+    text-align: center;
+    border: 1px solid #FFC148;
+    background-color: #ffffff;
+}
+.floor td{
+    display: none;
+}
+td:active{
+    background-color: #C2BDB4;
+    /* 선택시 색 변하게 하는 거 못했음..ㅜㅜ */
+}

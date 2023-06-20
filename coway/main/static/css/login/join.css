@@ -1,0 +1,44 @@
+#title{
+    height: 10vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+}
+.back_icon{
+    float: left;
+}
+.title_name{
+    margin: 0 40px;
+}
+
+#explain{
+    font-size: 1em;
+    color: #848484;
+    margin: 0 50px;
+    margin-top: 10px;
+}
+/* 기능 부분은 협업 필요함, 우선 화면만 */
+#join{
+    display: flex;
+    flex-direction: column;
+    margin: 90px 50px;
+}
+#user_id, #user_pw{
+    border: 1px solid #d9d9d9;
+    height: 60px;
+    padding: 5px 0px;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-size: 1.4em;
+    color: #b8b8b8;
+}
+#join_btn{
+    width: 60%;
+    height: 45px;
+    font-size: 1.3em;
+    text-align: center;
+    background-color: white;
+    border: 3px solid #FFC148;
+    border-radius: 15px;
+    margin: 4vh 15vw 5vh 15vw;
+}

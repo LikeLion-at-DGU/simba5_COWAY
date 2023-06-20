@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/myhome/ask.css' %}">
+
+<section id="title">
+    <div class="back_icon"> <a href="{% url 'homepage' %}"><i class="fas fa-chevron-left"></i></a></div>
+    <div class="title_name">문의하기</div>
+</section>
+
+<section id="explain">
+    <div>문의 남겨주시면 이메일로 답변 해드립니다.</div>
+</section>
+
+<form action="" method="POST" id="ask_form">
+    <div id="ask_title">제목 <input type="text" name="ask_title" placeholder="제목을 입력해주세요"></div>
+    <div id="ask_body">내용 <textarea type="text" name="ask_body" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
+    </div>
+    <button type="submit" id="ask_btn">등록하기</button>
+</form>
+
+{% endblock %}

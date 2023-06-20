@@ -1,0 +1,50 @@
+#title{
+    height: 10vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+}
+.back_icon{
+    float: left;
+}
+.title_name{
+    margin: 0 40px;
+}
+
+#explain{
+    font-size: 1em;
+    color: #848484;
+    margin: 0 50px;
+    margin-top: 10px;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    margin: 70px 50px;
+}
+#user_id, #user_pw{
+    border: 1px solid #d9d9d9;
+    height: 60px;
+    padding: 5px 0px;
+    margin-bottom: 2vh;
+    text-align: center;
+    font-size: 1.4em;
+    color: #b8b8b8;
+}
+#login_btn, #join_btn{
+    width: 60%;
+    height: 45px;
+    font-size: 1.3em;
+    text-align: center;
+    background-color: white;
+    border: 3px solid #FFC148;
+    border-radius: 15px;
+}
+#login_btn{
+    margin: 4vh 15vw 2vh 15vw;
+}
+#join_btn{
+    margin: 0 15vw;
+    margin-bottom: 5vh;
+}

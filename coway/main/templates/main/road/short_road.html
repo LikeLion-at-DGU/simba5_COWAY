@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/road/short_road.css' %}">
+
+        <section id="title">
+            <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
+        </section>
+
+        <section id="road_choice">
+            <div>
+                <div>출발</div>
+                <div class="user_coice">출발지를 선택해주세요</div>
+            </div>
+            <div>
+                <div>도착</div>
+                <div class="user_coice">도착지를 선택해주세요</div>
+            </div>
+        </section>
+
+        <section id="map">
+            <img src="../image/임시.png" alt="지도">
+        </section>
+
+        <section id="select_road">
+            <button class="select"><a href="./short_road.html">최소 시간</a></button>
+            <button><a href="./easy_road.html">최소 언덕</a></button>
+        </section>
+
+{% endblock %}

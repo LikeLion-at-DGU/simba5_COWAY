@@ -1,0 +1,61 @@
+#title{
+    height: 10vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+    margin: 0 10px;
+}
+.back_icon{
+    float: left;
+}
+.title_name{
+    margin: 0 40px;
+}
+
+#explain{
+    font-size: 1em;
+    color: #848484;
+    margin: 0 50px;
+    margin-top: 10px;
+}
+
+#ask_form{
+    margin: 0px 25px;
+    margin-top: 60px;
+}
+#ask_form div{
+    padding-left: 20px;
+    font-size: 1.4em;
+    color: #3A3939;
+}
+#ask_title{
+    border-bottom: 3px solid rgba(255, 193, 72, .3);
+}
+#ask_body{
+    margin: 20px 0;
+}
+#ask_form input,textarea{
+    width: 60%;
+    border: none;
+    background-color: #FFF7E8;
+    margin: 0 40px;
+    margin-bottom: 5px;
+    font-family: 'SUIT-Regular';
+    font-size: 1em;
+    padding: 0 5px;
+}
+::placeholder{
+    color: #616161;
+}
+
+#ask_btn{
+    width: 40%;
+    height: 45px;
+    font-size: 1.3em;
+    text-align: center;
+    background-color: white;
+    border: 3px solid #FFC148;
+    border-radius: 15px;
+    margin: 0 25vw;
+    margin-bottom: 40px;
+}

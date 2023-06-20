@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/road/road_choice.css' %}">
+
+<section id="title">
+    <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
+</section>
+
+<section id="road_choice">
+    <div>
+        <div>출발</div>
+        <div class="user_coice">출발지를 선택해주세요</div>
+    </div>
+    <div>
+        <div>도착</div>
+        <div class="user_coice">도착지를 선택해주세요</div>
+    </div>
+</section>
+
+<section id="div_building">
+    <table class="building">
+        <tr><td onclick="choiceB(11)">동대입구역</td></tr>
+        <tr><td onclick="choiceB(22)">충무로역</td></tr>
+        <tr><td onclick="choiceB(1)">가든쿡</td></tr>
+        <tr><td onclick="choiceB(1)">경영관</td></tr>
+        <tr><td onclick="choiceB(1)">계산관A</td></tr>
+        <tr><td onclick="choiceB(1)">계산관B</td></tr>
+        <tr><td onclick="choiceB(1)">과학관</td></tr>
+        <tr><td onclick="choiceB(3)">금강관</td></tr>
+        <tr><td onclick="choiceB(3)">남산학사</td></tr>
+        <tr><td onclick="choiceB(3)">다향관</td></tr>
+        <tr><td onclick="choiceB(3)">만해관</td></tr>
+        <tr><td onclick="choiceB(3)">명진관</td></tr>
+        <tr><td onclick="choiceB(3)">문화관</td></tr>
+        <tr><td onclick="choiceB(3)">반야관</td></tr>
+        <tr><td onclick="choiceB(4)">법학관</td></tr>
+        <tr><td onclick="choiceB(4)">본관</td></tr>
+        <tr><td onclick="choiceB(4)">사회과학관</td></tr>
+        <tr><td onclick="choiceB(4)">상록원</td></tr>
+        <tr><td onclick="choiceB(4)">신공학관</td></tr>
+        <tr><td onclick="choiceB(4)">원흥관</td></tr>
+        <tr><td onclick="choiceB(4)">정보문화관P</td></tr>
+        <tr><td onclick="choiceB(6)">정보문화관Q</td></tr>
+        <tr><td onclick="choiceB(6)">중앙도서관</td></tr>
+        <tr><td onclick="choiceB(6)">학술관</td></tr>
+        <tr><td onclick="choiceB(6)">혜화관</td></tr>
+    </table>
+    <table class="floor">
+        <tr><td class="choiceF_6m">6번 출구</td></tr>
+        <tr><td class="choiceF_1m">1번 출구</td></tr>
+        <tr><td class="choiceF_1">1층</td></tr>
+        <tr><td class="choiceF_2">2층</td></tr>
+        <tr><td class="choiceF_3">3층</td></tr>
+        <tr><td class="choiceF_4">4층</td></tr>
+        <tr><td class="choiceF_5">5층</td></tr>
+        <tr><td class="choiceF_6">6층</td></tr>
+        <tr><td class="choiceF_7">7층</td></tr>
+        <tr><td class="choiceF_8">8층</td></tr>
+        <tr><td class="choiceF_9">9층</td></tr>
+        <tr><td class="choiceF_10">10층</td></tr>
+    </table>
+</section>
+<script src="{% static 'JS/road_choice.js' %}"></script>
+{% endblock %}

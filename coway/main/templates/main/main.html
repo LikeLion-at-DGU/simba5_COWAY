@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+
+
+<section id="title">
+    <div class="title_name">학교안에서 <br /> 길찾기 어려우셨죠?</div>
+    <p>코WAY가 당신의 길을 책임져드립니다</p>
+</section>
+
+<section id="main_img">
+    <div id="map" style="width:800px;height:200px;"></div>
+	        <script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
+	        <script>
+		        var container = document.getElementById('map');
+		        var options = {
+			        center: new kakao.maps.LatLng(37.5582, 127.0006),
+			        level: 3
+		        };
+
+		        var map = new kakao.maps.Map(container, options);
+            </script>
+</section>
+<section id="main_btn">
+    <div> <a href="{% url 'roadchoicepage' %}">길 찾기</a></div>
+    <div> <a href="{% url 'convpage' %}">편의시설 안내</a></div>
+    <div> <a href="{% url 'stpcafepage' %}">도장콕</a></div>
+</section>
+
+{% endblock %}
