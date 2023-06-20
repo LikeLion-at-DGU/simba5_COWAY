@@ -13,9 +13,10 @@
     <div>문의 남겨주시면 이메일로 답변 해드립니다.</div>
 </section>
 
-<form action="" method="POST" id="ask_form">
-    <div id="ask_title">제목 <input type="text" name="ask_title" placeholder="제목을 입력해주세요"></div>
-    <div id="ask_body">내용 <textarea type="text" name="ask_body" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
+<form action="{%url 'create'%}" method="POST" enctype="multipart/form-data" id="ask_form">
+    {% csrf_token %}
+    <div id="ask_title">제목 <input type="text" name="title" placeholder="제목을 입력해주세요"></div>
+    <div id="ask_body">내용 <textarea type="text" name="body" cols="30" rows="10" placeholder="내용을 입력해주세요"></textarea>
     </div>
     <button type="submit" id="ask_btn">등록하기</button>
 </form>
