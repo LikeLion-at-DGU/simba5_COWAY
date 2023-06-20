@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/road/short_road.css' %}">
 
         <section id="title">
-            <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
+            <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
         </section>
 
         <section id="road_choice">
@@ -19,12 +19,12 @@
         </section>
 
         <section id="map">
-            <img src="../image/임시.png" alt="지도">
+            <img src="{% static 'images/임시.png' %}" alt="지도">
         </section>
 
         <section id="select_road">
-            <button class="select"><a href="./short_road.html">최소 시간</a></button>
-            <button><a href="./easy_road.html">최소 언덕</a></button>
+            <button class="select"><a href="{% url 'shortroadpage' %}">최소 시간</a></button>
+            <button><a href="{% url 'easyroadpage' %}">최소 언덕</a></button>
         </section>
 
 {% endblock %}

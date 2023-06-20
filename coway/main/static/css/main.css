@@ -34,8 +34,12 @@
     height: 70px;
     font-size: 1.6em;
     text-align: center;
-    padding-top: 12px;
+    padding-top: 15px;
+
     background-color: white;
     border: 5px solid #FFC148;
     border-radius: 20px;
+}
+#main_btn div:active{
+    background-color: #FDDF76;
 }
