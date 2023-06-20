@@ -43,4 +43,7 @@ urlpatterns = [
     path('shortroad/', views.shortroadpage, name="shortroadpage"),
     path('logout/', views.logout, name="logout"),
     path('create/', views.create, name="create"),
+    path('list/', views.listpage, name="listpage"),
+    path('detail/<int:id>', views.detail, name="detailpage"),
+    path('delete/<int:id>', views.delete, name="delete"),
 ]

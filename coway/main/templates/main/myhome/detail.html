@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/myhome/ask.css' %}">
+
+<section id="title">
+    <div class="back_icon"> <a href="{% url 'listpage' %}"><i class="fas fa-chevron-left"></i></a></div>
+    <div class="title_name">문의내역</div>
+</section>
+
+<h3>{{post.title}}</h3>
+날짜 : {{post.pub_date}}<br>
+
+작성자 : {{post.author.username}}
+<hr>
+내용 : {{post.body}}
+<br>
+<hr>
+<a href="{%url 'delete' post.id%}">삭제하기</a>
+
+{% endblock %}
