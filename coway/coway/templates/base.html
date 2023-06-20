@@ -21,6 +21,8 @@
             <div> <a href="{% url 'convpage' %}">편의시설</a></div>
             {%if user.is_authenticated%}
             <div> <a href="{% url 'stpcafepage' %}">도장콕</a></div>
+            {%else%}
+            <div> <a href="{% url 'loginpage' %}">도장콕</a></div>
             {%endif%}
             <div> 
                 {% if user.is_authenticated %}
