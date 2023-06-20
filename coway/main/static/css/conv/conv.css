@@ -32,3 +32,6 @@
     border: 5px solid #FFC148;
     border-radius: 20px;
 }
+#conv_btn div:active{
+    background-color: #FDDF76;
+}

@@ -7,11 +7,29 @@ def mainpage(request):
 def convpage(request):
     return render(request, 'main/conv/conv.html')
 
-def convinfopage(request):
+def cafeInfopage(request):
+    return render(request, 'main/conv/cafe_info.html')
+
+def cafeMappage(request):
+    return render(request, 'main/conv/cafe_map.html')
+
+def convInfopage(request):
     return render(request, 'main/conv/conv_info.html')
 
-def convmappage(request):
+def convMappage(request):
     return render(request, 'main/conv/conv_map.html')
+
+def restInfopage(request):
+    return render(request, 'main/conv/rest_info.html')
+
+def restMappage(request):
+    return render(request, 'main/conv/rest_map.html')
+
+def stdInfopage(request):
+    return render(request, 'main/conv/std_info.html')
+
+def stdMappage(request):
+    return render(request, 'main/conv/std_map.html')
 
 def joinpage(request):
     return render(request, 'main/login/join.html')
