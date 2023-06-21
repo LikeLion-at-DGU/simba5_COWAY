@@ -9,57 +9,58 @@
 
 <section id="road_choice">
     <div>
-        <div>출발</div>
-        <div class="user_choice">출발지를 선택해주세요</div>
+        <div class="start_b">출발</div>
+        <div class="user_coice start_f">출발지를 선택해주세요</div>
     </div>
     <div>
-        <div>도착</div>
-        <div class="user_choice">도착지를 선택해주세요</div>
+        <div class="end_b">도착</div>
+        <div class="user_coice end_f">도착지를 선택해주세요</div>
     </div>
 </section>
 
 <section id="div_building">
-    <table class="building">
-        <tr><td class="bName" onclick="choiceB(event,11)">동대입구역</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,22)">충무로역</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,1)">가든쿡</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,17)">경영관</td></tr> <!--지하 1층 ~ 5층--> 
-        <tr><td class="bName" onclick="choiceB(event,4)">과학관</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,1)">남산학사</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,3)">다향관</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,12)">만해관</td></tr> <!--지하 1층 ~ 4층-->
-        <tr><td class="bName" onclick="choiceB(event,5)">명진관</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,13)">문화관</td></tr> <!--지하 2층 ~ 4층-->
-        <tr><td class="bName" onclick="choiceB(event,4)">법학관</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,4)">본관</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,14)">사회과학관</td></tr> <!--지하 1층 ~ 6층-->
-        <tr><td class="bName" onclick="choiceB(event,3)">상록원</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,10)">신공학관</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,15)">원흥관</td></tr> <!--지하 2층 ~ 6층-->
-        <tr><td class="bName" onclick="choiceB(event,6)">정보문화관P</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,3)">정보문화관Q</td></tr>
-        <tr><td class="bName" onclick="choiceB(event,16)">중앙도서관</td></tr><!--지하 3층 ~ 4층-->
-        <tr><td class="bName" onclick="choiceB(event,13)">학술관</td></tr><!--지하 2층 ~ 4층-->
-        <tr><td class="bName" onclick="choiceB(event,7)">혜화관</td></tr>
-    </table>
-    <table class="floor">
-        <tr><td class="choiceF_6m"><a href="{% url 'shortroadpage' %}">6번 출구</a></td></tr>
-        <tr><td class="choiceF_1m"><a href="{% url 'shortroadpage' %}">1번 출구</a></td></tr>
-        <tr><td class="choiceF_b3"><a href="{% url 'shortroadpage' %}">B3층</a></td></tr>
-        <tr><td class="choiceF_b2"><a href="{% url 'shortroadpage' %}">B2층</a></td></tr>
-        <tr><td class="choiceF_b1"><a href="{% url 'shortroadpage' %}">B1층</a></td></tr>
-        <tr><td class="choiceF_1"><a href="{% url 'shortroadpage' %}">1층</a></td></tr>
-        <tr><td class="choiceF_2"><a href="{% url 'shortroadpage' %}">2층</a></td></tr>
-        <tr><td class="choiceF_3"><a href="{% url 'shortroadpage' %}">3층</a></td></tr>
-        <tr><td class="choiceF_4"><a href="{% url 'shortroadpage' %}">4층</a></td></tr>
-        <tr><td class="choiceF_5"><a href="{% url 'shortroadpage' %}">5층</a></td></tr>
-        <tr><td class="choiceF_6"><a href="{% url 'shortroadpage' %}">6층</a></td></tr>
-        <tr><td class="choiceF_7"><a href="{% url 'shortroadpage' %}">7층</a></td></tr>
-        <tr><td class="choiceF_8"><a href="{% url 'shortroadpage' %}">8층</a></td></tr>
-        <tr><td class="choiceF_9"><a href="{% url 'shortroadpage' %}">9층</a></td></tr>
-        <tr><td class="choiceF_10"><a href="{% url 'shortroadpage' %}">10층</a></td></tr>
-
-    </table>
+    <!-- <form id="choice" action="{%url 'easyroadpage'%}" method="POST"> -->
+        <table class="building">
+            <tr><td class="bName" onclick="choiceB(event,11)">동대입구역</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,22)">충무로역</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,1)">가든쿡</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,17)">경영관</td></tr> <!--지하 1층 ~ 5층--> 
+            <tr><td class="bName" onclick="choiceB(event,4)">과학관</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,1)">남산학사</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,3)">다향관</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,12)">만해관</td></tr> <!--지하 1층 ~ 4층-->
+            <tr><td class="bName" onclick="choiceB(event,5)">명진관</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,13)">문화관</td></tr> <!--지하 2층 ~ 4층-->
+            <tr><td class="bName" onclick="choiceB(event,4)">법학관</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,4)">본관</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,14)">사회과학관</td></tr> <!--지하 1층 ~ 6층-->
+            <tr><td class="bName" onclick="choiceB(event,3)">상록원</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,10)">신공학관</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,15)">원흥관</td></tr> <!--지하 2층 ~ 6층-->
+            <tr><td class="bName" onclick="choiceB(event,6)">정보문화관P</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,3)">정보문화관Q</td></tr>
+            <tr><td class="bName" onclick="choiceB(event,16)">중앙도서관</td></tr><!--지하 3층 ~ 4층-->
+            <tr><td class="bName" onclick="choiceB(event,13)">학술관</td></tr><!--지하 2층 ~ 4층-->
+            <tr><td class="bName" onclick="choiceB(event,7)">혜화관</td></tr>
+        </table>
+        <table class="floor">
+            <tr><td class="fName choiceF_6m" onclick="choiceF(event)">6번 출구</td></tr>
+            <tr><td class="fName choiceF_1m" onclick="choiceF(event)">1번 출구</td></tr>
+            <tr><td class="fName choiceF_b3" onclick="choiceF(event)">B3층</td></tr>
+            <tr><td class="fName choiceF_b2" onclick="choiceF(event)">B2층</td></tr>
+            <tr><td class="fName choiceF_b1" onclick="choiceF(event)">B1층</td></tr>
+            <tr><td class="fName choiceF_1" onclick="choiceF(event)">1층</td></tr>
+            <tr><td class="fName choiceF_2" onclick="choiceF(event)">2층</td></tr>
+            <tr><td class="fName choiceF_3" onclick="choiceF(event)">3층</td></tr>
+            <tr><td class="fName choiceF_4" onclick="choiceF(event)">4층</td></tr>
+            <tr><td class="fName choiceF_5" onclick="choiceF(event)">5층</td></tr>
+            <tr><td class="fName choiceF_6" onclick="choiceF(event)">6층</td></tr>
+            <tr><td class="fName choiceF_7" onclick="choiceF(event)">7층</td></tr>
+            <tr><td class="fName choiceF_8" onclick="choiceF(event)">8층</td></tr>
+            <tr><td class="fName choiceF_9" onclick="choiceF(event)">9층</td></tr>
+            <tr><td class="fName choiceF_10" onclick="choiceF(event)">10층</td></tr>
+        </table>
+    <!-- </form> -->
 </section>
-<script src="{% static 'JS/road_choice.js' %}"></script>
+<script src="{% static 'JS/road_choice.js' %}?after"></script>
 {% endblock %}
