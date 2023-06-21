@@ -3,6 +3,7 @@
     font-size: 1.6em;
     font-weight: bold;
     padding-top: 5vh;
+    margin: 0 10px;
 }
 .back_icon{
     float: left;
@@ -23,7 +24,7 @@
     flex-direction: column;
     margin: 90px 50px;
 }
-#user_id, #user_pw{
+#join__id, #join__pw, #join__pwcheck{
     border: 1px solid #d9d9d9;
     height: 60px;
     padding: 5px 0px;

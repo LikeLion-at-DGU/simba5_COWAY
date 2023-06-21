@@ -3,6 +3,7 @@
     font-size: 1.6em;
     font-weight: bold;
     padding-top: 5vh;
+    margin: 0 10px;
 }
 .back_icon{
     float: left;
@@ -17,7 +18,7 @@
     margin: 0 50px;
     margin-top: 10px;
 }
-
+/* 아이디입력 ~ */
 #login{
     display: flex;
     flex-direction: column;
@@ -42,9 +43,9 @@
     border-radius: 15px;
 }
 #login_btn{
-    margin: 4vh 15vw 2vh 15vw;
+    margin: 4vh 15vw 3vh 15vw;
 }
 #join_btn{
-    margin: 0 15vw;
-    margin-bottom: 5vh;
+    padding-top: 6px;
+    margin: 0 15vw 8vh 15vw;
 }

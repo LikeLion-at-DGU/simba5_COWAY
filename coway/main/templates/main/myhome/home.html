@@ -19,7 +19,7 @@
 
 <section id="plus">
     <a href="{% url 'askpage' %}"><input type="button" id="ask_btn" value="1:1 문의"></a>
-    <a href=""><input type="button" id="logout_btn" value="로그아웃"></a>
+    <a href="{% url 'logout' %}"><input type="button" id="logout_btn" value="로그아웃"></a>
 </section>
 
 {% endblock %}
