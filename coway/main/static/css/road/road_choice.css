@@ -20,7 +20,8 @@
     text-align: center;
     line-height: 35px;
 }
-#road_choice .user_coice{
+#road_choice .user_choice{
+    width: 31vw;
     color: #282828;
     font-size: 0.6em;
     font-weight: 100;
