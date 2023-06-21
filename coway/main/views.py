@@ -41,9 +41,7 @@ def joinpage(request):
                 username=request.POST['username'],
                 password=request.POST['password']
             )
-            nickname=request.POST['nickname']
-            profile=Profile(user=user, nickname=nickname)
-            profile.logintime = timezone.now()
+            profile=Profile(user=user)
             profile.attendance += 1
             profile.save()
             auth.login(request, user)
@@ -57,10 +55,6 @@ def loginpage(request):
         user = auth.authenticate(request, username = username, password = password)
         if user is not None:
             auth.login(request, user)
-            profile = Profile.objects.filter(user=user)
-            if (timezone.now()-profile.logintime).days >= 1:
-                profile.attendance += 1
-            profile.logintime = timezone.now()
             return redirect('mainpage')
         else:
             return render(request, 'main/login/login.html')
