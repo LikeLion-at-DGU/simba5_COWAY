@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nickname = models.TextField(max_length=10)
-    logintime = models.DateTimeField()
     attendance = models.PositiveIntegerField(default=0)
 
 class Info(models.Model):
