@@ -20,6 +20,7 @@ from main import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.mainpage, name="mainpage"),
+    
     path('conv/', views.convpage, name="convpage"),
     path('cafeinfo/', views.cafeInfopage, name="cafeInfopage"),
     path('cafemap/', views.cafeMappage, name="cafeMappage"),
@@ -29,11 +30,17 @@ urlpatterns = [
     path('stdmap/', views.stdMappage, name="stdMappage"),
     path('restinfo/', views.restInfopage, name="restInfopage"),
     path('restmap/', views.restMappage, name="restMappage"),
+    
     path('join/', views.joinpage, name="joinpage"),
     path('login/', views.loginpage, name="loginpage"),
+    path('logout/', views.logout, name="logout"),
+    
     path('ask/', views.askpage, name="askpage"),
+    path('create/', views.create, name="create"),
+    
     path('edit/', views.editpage, name="editpage"),
     path('home/', views.homepage, name="homepage"),
+    
     path('stpcafe/', views.stpcafepage, name="stpcafepage"),
     path('stpconv/', views.stpconvpage, name="stpconvpage"),
     path('stprest/', views.stprestpage, name="stprestpage"),
@@ -41,9 +48,4 @@ urlpatterns = [
     path('easyroad/', views.easyroadpage, name="easyroadpage"),
     path('roadchoice/', views.roadchoicepage, name="roadchoicepage"),
     path('shortroad/', views.shortroadpage, name="shortroadpage"),
-    path('logout/', views.logout, name="logout"),
-    path('create/', views.create, name="create"),
-    path('list/', views.listpage, name="listpage"),
-    path('detail/<int:id>', views.detail, name="detailpage"),
-    path('delete/<int:id>', views.delete, name="delete"),
 ]
