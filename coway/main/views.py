@@ -41,9 +41,7 @@ def joinpage(request):
                 username=request.POST['username'],
                 password=request.POST['password']
             )
-            nickname=request.POST['nickname']
-            profile=Profile(user=user, nickname=nickname)
-            profile.logintime = timezone.now()
+            profile=Profile(user=user)
             profile.attendance += 1
             profile.save()
             auth.login(request, user)
@@ -57,10 +55,6 @@ def loginpage(request):
         user = auth.authenticate(request, username = username, password = password)
         if user is not None:
             auth.login(request, user)
-            profile = Profile.objects.filter(user=user)
-            if (timezone.now()-profile.logintime).days >= 1:
-                profile.attendance += 1
-            profile.logintime = timezone.now()
             return redirect('mainpage')
         else:
             return render(request, 'main/login/login.html')
@@ -74,27 +68,13 @@ def logout(request):
 def askpage(request):
     return render(request, 'main/myhome/ask.html')
 
-def listpage(request):
-    post = Post.objects.filter(author=request.user)
-    return render(request, 'main/myhome/list.html', {'posts' : post})
-
 def create(request):
     new_post = Post()
     new_post.title = request.POST['title']
-    new_post.pub_date = timezone.now()
     new_post.body = request.POST['body']
     new_post.author = request.user
     new_post.save()
-    return redirect('listpage')
-
-def detail(request, id):
-    post = get_object_or_404(Post, pk=id)
-    return render(request, 'main/myhome/detail.html', {'post':post})
-
-def delete(request, id):
-    delete_post = Post.objects.get(id=id)
-    delete_post.delete()
-    return redirect('listpage')
+    return redirect('homepage')
 
 def editpage(request):
     return render(request, 'main/myhome/edit.html')

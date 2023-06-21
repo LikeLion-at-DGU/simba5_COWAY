@@ -4,8 +4,6 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nickname = models.TextField(max_length=10)
-    logintime = models.DateTimeField()
     attendance = models.PositiveIntegerField(default=0)
 
 class Info(models.Model):
@@ -29,7 +27,6 @@ class conv(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    pub_date = models.DateTimeField()
     body = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):

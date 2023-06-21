@@ -43,3 +43,6 @@
     border-radius: 15px;
     margin: 4vh 15vw 5vh 15vw;
 }
+#join_btn:active{
+    background-color: #FDDF76;
+}

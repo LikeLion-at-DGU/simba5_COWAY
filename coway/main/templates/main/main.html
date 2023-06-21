@@ -23,9 +23,13 @@
 		</script>
 </section>
 <section id="main_btn">
-    <div> <a href="{% url 'roadchoicepage' %}">길 찾기</a></div>
-    <div> <a href="{% url 'convpage' %}">편의시설 안내</a></div>
-    <div> <a href="{% url 'stpcafepage' %}">도장콕</a></div>
+    <a href="{% url 'roadchoicepage' %}">길 찾기</a>
+    <a href="{% url 'convpage' %}">편의시설 안내</a>
+    {%if user.is_authenticated%}
+        <a href="{% url 'stpcafepage' %}">도장콕</a>
+    {%else%}
+        <a href="{% url 'loginpage' %}">도장콕</a>
+    {%endif%}
 </section>
 
 {% endblock %}
