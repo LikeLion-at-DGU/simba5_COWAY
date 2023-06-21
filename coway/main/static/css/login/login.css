@@ -49,3 +49,9 @@
     padding-top: 6px;
     margin: 0 15vw 8vh 15vw;
 }
+#login_btn:active{
+    background-color: #FDDF76;
+}
+#join_btn:active{
+    background-color: #FDDF76;
+}
