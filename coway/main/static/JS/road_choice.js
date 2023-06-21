@@ -1,14 +1,38 @@
 let reset_floor = 1;
+let start_spot=['',''];
+let end_spot=['',''];
+const bName = document.getElementsByClassName('bName');
+const fName = document.getElementsByClassName('fName');
 
 function choiceB(event,floor){
-    const bName = document.getElementsByClassName('bName');
-    for(let i=0;i<bName.length;i++){//선택 초기화
-        // console.log(bName[i].style.backgroundColor);
+    for(let i=0;i<bName.length;i++){//건물 선택 초기화
         bName[i].style.backgroundColor = '#ffffff';
+    }
+    for(let i=0;i<fName.length;i++){//층수 선택 초기화
+        fName[i].style.backgroundColor = '#ffffff';
+    }
+    if(start_spot[0]!=='' && start_spot[1]===''){
+        start_spot[0]='';
+    }else if(end_spot[0]!==''){
+        end_spot[0]='';
     }
 
     let target = event.target;//선택된 건물 색 변경
-    target.style.backgroundColor='#C2BDB4';
+
+    if(start_spot[0]==''){//출발지
+        target.style.backgroundColor='#C2BDB4';
+        start_spot[0]=target.textContent;
+        document.querySelector('.start_b').innerHTML=target.textContent;
+    }else if(start_spot[1]=='' && end_spot[0]==''){
+        target.style.backgroundColor='#C2BDB4';
+        start_spot[0]=target.textContent;
+        document.querySelector('.start_b').textContent=target.textContent;
+    }
+    else{//도착지
+        target.style.backgroundColor='#C2BDB4';
+        end_spot[0]=target.textContent;
+        document.querySelector('.end_b').textContent=target.textContent;
+    }
 
     let floor_arr = [];
     floor_arr[0] = document.querySelector('.choiceF_1');
@@ -69,4 +93,28 @@ function choiceB(event,floor){
         }
     }
     reset_floor = floor;
+}
+
+function choiceF(event){
+    for(let i=0;i<fName.length;i++){//층수 선택 초기화
+        fName[i].style.backgroundColor = '#ffffff';
+    }
+    if(start_spot[0]==''){
+        start_spot[1]='';
+    }else if(end_spot[0]==''){
+        end_spot[1]='';
+    }
+
+    let target = event.target;
+    
+    if(end_spot[0]!==''){//도착지 층수 입력
+        target.style.backgroundColor='#C2BDB4';
+        end_spot[1]=target.textContent;
+        document.querySelector('.end_f').textContent=target.textContent;
+        // document.getElementById("choice").submit();
+    }else{//출발지 층수 입력
+        target.style.backgroundColor='#C2BDB4';
+        start_spot[1]=target.textContent;
+        document.querySelector('.start_f').textContent=target.textContent;
+    }
 }
