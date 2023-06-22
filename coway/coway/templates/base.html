@@ -16,19 +16,19 @@
     <div id="wrap">
         <nav id="main_nav">
             <div> <a href="{% url 'mainpage' %}"><img src="../static/images/logo.png" alt="logo"></a></div>
-            <div> <a href="{% url 'mainpage' %}">홈</a></div>
-            <div> <a href="{% url 'roadchoicepage' %}">길</a></div>
-            <div> <a href="{% url 'convpage' %}">편의시설</a></div>
+            <div id="nav_main"> <a href="{% url 'mainpage' %}">홈</a></div>
+            <div id="nav_road"> <a href="{% url 'roadchoicepage' %}">길</a></div>
+            <div id="nav_conv"> <a href="{% url 'convpage' %}">편의시설</a></div>
             {%if user.is_authenticated%}
-            <div> <a href="{% url 'stpcafepage' %}">도장콕</a></div>
+            <div id="nav_stamp"> <a href="{% url 'stpcafepage' %}">도장콕</a></div>
             {%else%}
-            <div> <a href="{% url 'loginpage' %}">도장콕</a></div>
+            <div id="nav_stamp"> <a href="{% url 'loginpage' %}">도장콕</a></div>
             {%endif%}
             <div> 
                 {% if user.is_authenticated %}
-                    <a href="{% url 'homepage' %}"><i class="far fa-user"></i></a>
+                    <a href="{% url 'homepage' %}"><i class="far fa-user" id="nav_home"></i></a>
                 {%else%}
-                    <a href="{% url 'loginpage' %}"><i class="far fa-user"></i></a>
+                    <a href="{% url 'loginpage' %}"><i class="far fa-user" id="nav_home"></i></a>
                 {%endif%}
             </div>
         </nav>
