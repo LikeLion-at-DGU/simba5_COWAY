@@ -118,3 +118,21 @@ function choiceF(event){
         document.querySelector('.start_f').textContent=target.textContent;
     }
 }
+
+let reset_start = document.querySelector('.start_b');
+let reset_end = document.querySelector('.end_b');
+
+reset_start.addEventListener('click',function(){
+    console.log('클릭되었엉')
+    start_spot[0]='';
+    start_spot[1]='';
+    document.querySelector('.start_b').textContent='출발';
+    document.querySelector('.start_f').textContent='출발지를 선택해주세요';
+})
+reset_end.addEventListener('click',function(){
+    console.log('클릭되었엉')
+    end_spot[0]='';
+    end_spot[1]='';
+    document.querySelector('.end_b').textContent='도착';
+    document.querySelector('.end_f').textContent='도착지를 선택해주세요';
+})

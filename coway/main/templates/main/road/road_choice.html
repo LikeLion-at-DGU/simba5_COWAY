@@ -1,25 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/road/road_choice.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/road/road_choice.css' %}?after">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
 </section>
 
 <section id="road_choice">
-    <div>
-        <div class="start_b">출발</div>
-        <div class="user_coice start_f">출발지를 선택해주세요</div>
-    </div>
-    <div>
-        <div class="end_b">도착</div>
-        <div class="user_coice end_f">도착지를 선택해주세요</div>
-    </div>
+    <form id="choice" action="{%url 'easyroadpage'%}" method='POST'>
+        {% csrf_token %}
+        <button type="submit" id="road_btn">길찾기</button>
+        <div>
+            <div class="start_b">
+                <input type="hidden" name="startBuilding" value="동대입구역">
+                출발</div>
+            <div class="user_coice start_f">
+                <input type="hidden" name="startFloor" value="6번출구">
+                출발지를 선택해주세요</div>
+        </div>
+        <div>
+            <div class="end_b">
+                <input type="hidden" name="endBuilding" value="잘 되냐">
+                도착</div>
+            <div class="user_coice end_f">
+                <input type="hidden" name="endFloor" value="뿅">
+                도착지를 선택해주세요</div>
+        </div>
+    </form>
 </section>
 
 <section id="div_building">
-    <!-- <form id="choice" action="{%url 'easyroadpage'%}" method="POST"> -->
         <table class="building">
             <tr><td class="bName" onclick="choiceB(event,11)">동대입구역</td></tr>
             <tr><td class="bName" onclick="choiceB(event,22)">충무로역</td></tr>
@@ -60,7 +71,6 @@
             <tr><td class="fName choiceF_9" onclick="choiceF(event)">9층</td></tr>
             <tr><td class="fName choiceF_10" onclick="choiceF(event)">10층</td></tr>
         </table>
-    <!-- </form> -->
 </section>
 <script src="{% static 'JS/road_choice.js' %}?after"></script>
 {% endblock %}
