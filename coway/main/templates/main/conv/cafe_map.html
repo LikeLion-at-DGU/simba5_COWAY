@@ -12,45 +12,58 @@
     <img src="{% static 'images/임시.png' %}" alt="지도">
 </section>
 
-var positions = [
-    {
-        title: '카카오', 
-        latlng: new kakao.maps.LatLng(33.450705, 126.570677)
-    },
-    {
-        title: '생태연못', 
-        latlng: new kakao.maps.LatLng(33.450936, 126.569477)
-    },
-    {
-        title: '텃밭', 
-        latlng: new kakao.maps.LatLng(33.450879, 126.569940)
-    },
-    {
-        title: '근린공원',
-        latlng: new kakao.maps.LatLng(33.451393, 126.570738)
-    }
-];
+<section id="main_img">
+    <div id="map" style="width:318px;height:237px;"></div>
+		<script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
+		<script>
+			var container = document.getElementById('map');
+			var options = {
+				center: new kakao.maps.LatLng(37.5582, 127.0006),
+				level: 3
+			};
 
-var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-    
-for (var i = 0; i < positions.length; i ++) {
-    
-    // 마커 이미지의 이미지 크기 입니다
-    var imageSize = new kakao.maps.Size(24, 35); 
-    
-    // 마커 이미지를 생성합니다    
-    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-    
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-        map: map, // 마커를 표시할 지도
-        position: positions[i].latlng, // 마커를 표시할 위치
-        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-        image : markerImage // 마커 이미지 
-    });
-}
+			var map = new kakao.maps.Map(container, options);
 
+            var positions = [
+                {
+                    title: '가온누리', 
+                    latlng: new kakao.maps.LatLng(37.5583, 126.9996)
+                },
+                {
+                    title: '그루터기', 
+                    latlng: new kakao.maps.LatLng(37.55700, 127.0027)
+                },
+                {
+                    title: '풀바셋', 
+                    latlng: new kakao.maps.LatLng(37.5584, 126.99825)
+                },
+                {
+                    title: '블루포트',
+                    latlng: new kakao.maps.LatLng(37.5589, 126.9999)
+                },
+                {
+                    title: '혜화카페',
+                    latlng: new kakao.maps.LatLng(37.55700, 127.0027)
+                }
+            ];
 
+            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+            for (var i = 0; i < positions.length; i ++) {
+    
+                var imageSize = new kakao.maps.Size(24, 35); 
+    
+                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+                var marker = new kakao.maps.Marker({
+                    map: map, // 마커를 표시할 지도
+                    position: positions[i].latlng, // 마커를 표시할 위치
+                    title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                    image : markerImage // 마커 이미지 
+                });
+            }
+
+		</script>
+        
 
 {% endblock %}
 
