@@ -14,6 +14,7 @@
 }
 /* 기능 부분 */
 #mypage1{
+    height: 35vh;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -45,6 +46,9 @@
     padding: 10px;
 }
 /* 버튼 */
+#mypage2{
+    height: 32vh;
+}
 #pwChange_btn{
     width: 50%;
     height: 45px;
