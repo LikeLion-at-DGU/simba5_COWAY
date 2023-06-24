@@ -20,11 +20,11 @@
 
 #map{
     height: 67vh;
-    width: 100vw;
+    width: 100vw; 
     padding-top: 7vh;
 }
-#map img{
+#main_img{
     height: 90%;
-    width: 100%;    
+    width: 80%;    
     border: 1px solid #FFC148;
 }

@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}?after">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'convpage' %}"><i class="fas fa-chevron-left"></i></a></div>
     <div class="title_name">카페</div>
 </section>
 
-<section id="map">
+<!-- <section id="map">
     <img src="{% static 'images/임시.png' %}" alt="지도">
-</section>
+</section> -->
 
 <section id="main_img">
-    <div id="map" style="width:318px;height:237px;"></div>
+    <!-- <div id="map" style="width:318px;height:237px;"></div> -->
+    <div id="map"></div>
+</section>
 		<script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
 		<script>
 			var container = document.getElementById('map');
@@ -63,7 +65,6 @@
             }
 
 		</script>
-        
 
 {% endblock %}
 
