@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/myhome/home.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/myhome/home.css' %}?after">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -15,17 +15,23 @@
         <div class="myinfo__email">abcdef@dgu.ac.kr</div>
     </div>
     <div id="mypg">
-        <div id="mypg__">
+        <div class="mypg_">
             <i class="fas fa-star"></i>
             <div>즐겨찾기</div>
         </div>
-        <div id="mypg__">
+        <div class="mypg_">
             <i class="fas fa-envelope"></i>
             <div>1:1 문의</div>
         </div>
-        <div id="mypg__">
+        <a href="#popup" class="mypg_ btn_open">
             <i class="fas fa-share-alt"></i>
             <div>공유하기</div>
+        </a>
+    </div>
+    <div id="popup" style="display: none;">
+        <div class="popup_share">
+            <p>링크가 복사되었습니다!</p>
+            <button type="button" class="btn_close">확인</button>
         </div>
     </div>
 </section>
@@ -36,4 +42,16 @@
 </section>
 
 <script src="{% static 'JS/nav_home.js' %}?after"></script>
+<script>
+    var shareBtn = document.querySelector('.btn_open');
+    var closeBtn = document.querySelector('.btn_close');
+    // shareBtn.addEventListener('click',alert("링크가 복사되었습니다!"));
+    shareBtn.addEventListener('click', function(){
+        var targetID = this.getAttribute('href');
+        document.querySelector(targetID).style.display = 'block';
+    });
+    closeBtn.addEventListener('click',function(){
+        this.parentNode.parentNode.style.display = 'none';
+    });
+</script>
 {% endblock %}

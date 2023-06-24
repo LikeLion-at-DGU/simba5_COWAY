@@ -13,6 +13,7 @@
     margin: 0 40px;
 }
 #explain{
+    height: 10vh;
     font-size: 1em;
     color: #848484;
     margin: 0 50px;
@@ -20,6 +21,7 @@
 }
 /* 기능 */
 #changePw{
+    height: 41vh;
     display: flex;
     flex-direction: column;
     margin: 80px 50px;
