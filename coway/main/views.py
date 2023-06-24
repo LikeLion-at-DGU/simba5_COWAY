@@ -95,10 +95,14 @@ def stpstdpage(request):
     return render(request, 'main/stamp/stamp_std.html')
 
 def easyroadpage(request):
-    # if request.method == 'POST':
-    #     sBuilding = request.POST.get('startBuilding')
-    #     sFloor = request.POST.get('startFloor')
-    return render(request, 'main/road/easy_road.html')
+    if request.method == 'POST':
+        sBuilding = request.POST.get("startBuilding")
+        sFloor = request.POST.get("startFloor")
+    context = {
+        "sBuilding" : sBuilding,
+        "sFloor" : sFloor,
+    }
+    return render(request, 'main/road/easy_road.html', context)
 
 def roadchoicepage(request):
     return render(request, 'main/road/road_choice.html')
