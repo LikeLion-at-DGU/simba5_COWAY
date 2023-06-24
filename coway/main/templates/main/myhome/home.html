@@ -6,20 +6,34 @@
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
-    <div class="title_name">abc@dgu.ac.kr</div>
+    <div class="title_name">마이페이지</div>
 </section>
 
-<section id="my_kiri">
-    <img src="{% static 'images/임시.png' %}" alt="내 코끼리 사진">
-</section>
-<!-- 충돌 확인 -->
-<section id="edit">
-    <a href="{% url 'editpage' %}"><input type="button" id="edit_btn" value="프로필 편집"></a>
+<section id="mypage1">
+    <div id="myinfo">
+        <div class="myinfo__name">홍길동</div>
+        <div class="myinfo__email">abcdef@dgu.ac.kr</div>
+    </div>
+    <div id="mypg">
+        <div id="mypg__">
+            <i class="fas fa-star"></i>
+            <div>즐겨찾기</div>
+        </div>
+        <div id="mypg__">
+            <i class="fas fa-envelope"></i>
+            <div>1:1 문의</div>
+        </div>
+        <div id="mypg__">
+            <i class="fas fa-share-alt"></i>
+            <div>공유하기</div>
+        </div>
+    </div>
 </section>
 
-<section id="plus">
-    <a href="{% url 'askpage' %}"><input type="button" id="ask_btn" value="1:1 문의"></a>
-    <a href="{% url 'logout' %}"><input type="button" id="logout_btn" value="로그아웃"></a>
+<section id="mypage2">
+    <a href="{% url 'editpage' %}" id="pwChange_btn">비밀번호 수정</a>
+    <a href="{% url 'logout' %}" id="logout_btn">로그아웃</a>
 </section>
+
 <script src="{% static 'JS/nav_home.js' %}?after"></script>
 {% endblock %}
