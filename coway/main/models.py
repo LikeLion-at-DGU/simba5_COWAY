@@ -10,10 +10,9 @@ class Info(models.Model):
     latitude = models.DecimalField(max_digits=25, decimal_places=20)
     longitude = models.DecimalField(max_digits=25, decimal_places=20)
     name = models.CharField(max_length=30, null=False, blank=False)
-    stair = models.IntegerField(blank=True)
+    floor = models.TextField(blank=True)
     depart = models.BooleanField(default=False)
     image = models.ImageField(blank=True)
-    slope = models.IntegerField(default=0)
     near = models.TextField()
 
 class conv(models.Model):
