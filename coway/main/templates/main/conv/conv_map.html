@@ -25,6 +25,19 @@
 
 			var map = new kakao.maps.Map(container, options);
 
+            if (navigator.geolocation) {
+    
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+    var lat = position.coords.latitude, 
+        lon = position.coords.longitude; 
+
+    var locPosition = new kakao.maps.LatLng(lat, lon)
+        displayMarker(locPosition, message);
+
+});
+}
+
             var positions = [
                 {
                     title: '법학관 쿱스켓 편의점', 
