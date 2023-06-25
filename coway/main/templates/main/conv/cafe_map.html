@@ -25,6 +25,7 @@
 </section>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
+<!-- <script src="{% static 'JS/conv_map.js' %}?after"></script> -->
 <script>
     var container = document.getElementById('map');
     var options = {
@@ -39,31 +40,36 @@
             title: '가온누리카페',
             location: '1관 00층 앞',
             latlng: new kakao.maps.LatLng(37.5583, 126.9996),
-            time: '월화수목금 00시~00시'
+            time: '월화수목금 00시~00시',
+            image: '.jpg'
         },
         {
             title: '그루터기',
             location: '2관 00층 앞',
             latlng: new kakao.maps.LatLng(37.55700, 127.0027),
-            time: '월화수목금 00시~00시'
+            time: '월화수목금 00시~00시',
+            image: '.jpg'
         },
         {
             title: '남산학사 카페',
             location: '3관 00층 앞',
             latlng: new kakao.maps.LatLng(37.5584, 126.99825),
-            time: '월화수목금 00시~00시'
+            time: '월화수목금 00시~00시',
+            image: '.jpg'
         },
         {
             title: '블루포트',
             location: '4관 00층 앞',
             latlng: new kakao.maps.LatLng(37.5589, 126.9999),
-            time: '월화수목금 00시~00시'
+            time: '월화수목금 00시~00시',
+            image: '.jpg'
         },
         {
             title: 'ing카페',
             location: '5관 00층 앞',
             latlng: new kakao.maps.LatLng(37.55700, 127.0027),
-            time: '월화수목금 00시~00시'
+            time: '월화수목금 00시~00시',
+            image: '.jpg'
         }
     ];
 
@@ -83,32 +89,38 @@
 
         // 팝업
         // 닫기 말고 x 버튼으로 추가해야 됨
-        var convInfo = positions[i].title + '\n' + positions[i].location;
-        console.log(convInfo);
-        document.querySelector('.info_content').textContent = convInfo;
-
-        var popUp = document.querySelector('#popup');
-        var closeBtn = document.querySelector('.btn_close');
-
         kakao.maps.event.addListener(marker, 'click', function(){
-            popUp.style.display = 'block';
+            var markerTitle = this.getTitle();
+            var markerInfo;
+            var popUp = document.querySelector('#popup');
+
+            for (var j=0; j<positions.length; j++) {
+                if (positions[j].title === markerTitle) {
+                    markerInfo = positions[j];
+                    break;
+                }
+            }
+
+            if (markerInfo) {
+                var content =
+                    '<div class="popup_content">' +
+                    '   <h3>' + markerInfo.title + '</h3>' +
+                    '   <img src="' + markerInfo.image + '">' +
+                    '   <i class="fas fa-map-marker-alt"></i>' +
+                    '   <p>' + markerInfo.location + '</p>' +
+                    '   <i class="fas fa-clock"></i>' +
+                    '   <p>운영시간: ' + markerInfo.time + '</p>' +
+                    '</div>';
+
+                document.querySelector('.info_content').innerHTML = content;
+                popUp.style.display = 'block';
+            }
         });
+
+        var closeBtn = document.querySelector('.btn_close');
         closeBtn.addEventListener('click', function(){
             this.parentNode.parentNode.style.display = 'none';
         });
-
-
-        // 오버레이
-        var overlay = new kakao.maps.CustomOverlay({
-            content: positions[i].location,
-            map: map,
-            position: marker.getPosition()
-        });
-
-        // 인포윈도우
-        // var infowindow = new kakao.maps.InfoWindow({
-        //     content: positions[i].title
-        // });
     };
 </script>
 
