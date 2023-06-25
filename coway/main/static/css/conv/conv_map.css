@@ -26,3 +26,17 @@
     margin-top: 6vh;
     margin-bottom: 11vh;
 }
+
+/* 팝업 */
+#popup{
+    position: fixed;
+    top: 25vh;
+    left: 2.5vh;
+    width: 90vw;
+    height: 40vh;
+    text-align: center;
+    background-color: rgba(252,204,111,.92);
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 1;
+}
