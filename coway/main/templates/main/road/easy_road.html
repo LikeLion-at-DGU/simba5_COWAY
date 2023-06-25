@@ -1,3 +1,4 @@
+<!-- easy_road.html -->
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -9,12 +10,12 @@
 
 <section id="road_choice">
     <div>
-        <div>{{ sBuilding }}</div> <!--{{ sBuilding }}-->
-        <div class="user_coice">{{ sFloor }}</div> <!--{{ sFloor }}-->
+        <div>{{ start_building }}</div> <!--{{ sBuilding }}-->
+        <div class="user_coice">{{ start_floor }}</div> <!--{{ sFloor }}-->
     </div>
     <div>
-        <div>도착지 건물</div> <!--{{ endBuilding }}-->
-        <div class="user_coice">도착지 층수</div> <!--{{ endFloor }}-->
+        <div>{{ end_building }}</div> <!--{{ endBuilding }}-->
+        <div class="user_coice">{{ end_floor }}</div> <!--{{ endFloor }}-->
     </div>
 </section>
 
