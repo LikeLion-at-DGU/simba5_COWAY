@@ -24,6 +24,32 @@
 
 			var map = new kakao.maps.Map(container, options);
 
+            if (navigator.geolocation) {
+    
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+    var lat = position.coords.latitude, 
+        lon = position.coords.longitude; 
+
+    var locPosition = new kakao.maps.LatLng(lat, lon)
+        displayMarker(locPosition, message);
+
+});
+} else { 
+    
+    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
+        message = 'geolocation 사용X'
+
+    displayMarker(locPosition, message);
+}
+function displayMarker(locPosition, message) {
+
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    });     
+}  
+
             var positions = [
                 {
                     title: '가온누리카페', 
@@ -34,7 +60,7 @@
                     latlng: new kakao.maps.LatLng(37.55700, 127.0027)
                 },
                 {
-                    title: '풀바셋', 
+                    title: '남산학사 카페', 
                     latlng: new kakao.maps.LatLng(37.5584, 126.99825)
                 },
                 {
