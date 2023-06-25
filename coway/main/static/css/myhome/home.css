@@ -12,44 +12,76 @@
 .title_name{
     margin: 0 40px;
 }
-
-#my_kiri{
-    width: 90%;
-    height: 350px;
-    font-size: 1.5em;
+/* 기능 부분 */
+#mypage1{
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    padding-top: 4px;
+    border: 1px solid #FFC148;
     background-color: white;
-    border: 3px solid #FFC148;
-    border-radius: 20px;
-    margin: 30px 20px;
-    margin-bottom: 1vh;
+    margin: 40px 20px;
 }
-
-#edit_btn{
+#myinfo{
+    padding: 40px 0;
+}
+.myinfo__name{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+.myinfo__email{
+    color: #848484;
+    padding: 10px 0;
+}
+#mypg{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    padding: 0 40px;
+    padding-bottom: 40px;
+}
+.mypg_ > i{
+    font-size: 2.2em;
+    padding: 10px;
+}
+/* 버튼 */
+#mypage2{
+    height: 25vh;
+}
+#pwChange_btn{
     width: 50%;
     height: 45px;
     font-size: 1.3em;
     text-align: center;
+    display: flex;
+    justify-content: center;
     background-color: white;
     border: 3px solid #FFC148;
     border-radius: 15px;
-    margin: 0 25vw;
+    margin: 10px 25vw;
+    padding: 7px 0;
 }
-
-#plus{
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    margin: 35px 50px;
-}
-#ask_btn, #logout_btn{
-    width: 60%;
+#logout_btn{
+    width: 40%;
     height: 45px;
     font-size: 1.3em;
     text-align: center;
+    display: flex;
+    justify-content: center;
     background-color: white;
     border: 3px solid #FFC148;
     border-radius: 15px;
-    margin: 1vh 60px;
+    margin: 15px 30vw;
+    padding: 7px 0;
+}
+/* 팝업창 */
+#popup{
+    position: fixed;
+    top: 40%;
+    left: 26%;
+    text-align: center;
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
 }

@@ -13,7 +13,6 @@
     <div>회원가입 후 더 많은 서비스를 이용해보세요!</div>
 </section>
 
-<!-- 기능 부분은 협업 필요함, 우선 화면만 -->
 <form id="join" action="{%url 'joinpage'%}" method="POST">
     {% csrf_token %}
     <input required type="text" id="join__id" name="username" placeholder="아이디 입력">

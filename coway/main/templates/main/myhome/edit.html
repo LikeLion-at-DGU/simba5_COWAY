@@ -6,26 +6,20 @@
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'homepage' %}"><i class="fas fa-chevron-left"></i></a></div>
-    <div class="title_name">프로필 편집</div>
+    <div class="title_name">비밀번호 수정</div>
 </section>
 
-<section id="my_kiri">
-    <img src="{% static 'images/임시.png' %}" alt="내 코끼리 사진">
+<section id="explain">
+    <div>아이디는 수정할 수 없습니다.<br>비밀번호를 수정해주세요!</div>
 </section>
 
-<section id="items">
-    <div>아이템</div>
-    <div>아이템</div>
-    <div>아이템</div>
-    <div>아이템</div>
-    <div>아이템</div>
-    <div>아이템</div>
-    <div>아이템</div>
-    <div>아이템</div>
-</section>
+<form id="changePw" action="#" method="POST">
+    {% csrf_token %}
+    <input required type="text" id="originPw" name="username" placeholder="기존 비밀번호 입력">
+    <input required type="password" id="newPw" name="password" placeholder="새로운 비밀번호 입력">
+    <input required type="password" id="checkPw" name="confirm" placeholder="비밀번호 확인">
+    <input type="submit" id="changePw_btn" value="확인">
+</form>
 
-<section id="edit">
-    <a href="{% url 'editpage' %}"><input type="button" id="edit_btn" value="편집 완료"></a>
-</section>
 <script src="{% static 'JS/nav_home.js' %}?after"></script>
 {% endblock %}
