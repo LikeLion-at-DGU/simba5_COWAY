@@ -1,3 +1,4 @@
+<!-- road_choice.html -->
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -13,19 +14,15 @@
         <button type="submit" id="road_btn">길찾기</button>
         <div>
             <div class="start_b">
-                <input type="hidden" name="startBuilding" value="동대입구역">
-                출발</div>
+                <input type="text" name="startBuilding" id="startBuildingInput" placeholder="출발" style="pointer-events: none;" required></div>
             <div class="user_coice start_f">
-                <input type="hidden" name="startFloor" value="6번출구">
-                출발지를 선택해주세요</div>
+                <input type="text" name="startFloor" id="startFloorInput" placeholder="출발지를 선택해주세요" style="pointer-events: none;" required></div>
         </div>
         <div>
             <div class="end_b">
-                <input type="hidden" name="endBuilding" value="잘 되냐">
-                도착</div>
+                <input type="text" name="endBuilding" id="endBuildingInput" placeholder="도착" style="pointer-events: none;" required></div>
             <div class="user_coice end_f">
-                <input type="hidden" name="endFloor" value="뿅">
-                도착지를 선택해주세요</div>
+                <input type="text" name="endFloor" id="endFloorInput" placeholder="도착지를 선택해주세요" style="pointer-events: none;" required></div>
         </div>
     </form>
 </section>
@@ -51,6 +48,7 @@
             <tr><td class="bName" onclick="choiceB(event,6)">정보문화관P</td></tr>
             <tr><td class="bName" onclick="choiceB(event,3)">정보문화관Q</td></tr>
             <tr><td class="bName" onclick="choiceB(event,16)">중앙도서관</td></tr><!--지하 3층 ~ 4층-->
+            <tr><td class="bName" onclick="choiceB(event,17)">학림관</td></tr><!--지하 1층 ~ 5층-->
             <tr><td class="bName" onclick="choiceB(event,13)">학술관</td></tr><!--지하 2층 ~ 4층-->
             <tr><td class="bName" onclick="choiceB(event,7)">혜화관</td></tr>
         </table>

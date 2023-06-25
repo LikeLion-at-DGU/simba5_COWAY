@@ -26,7 +26,7 @@
     text-align: center;
     line-height: 35px;
 }
-.end_f,.start_f{
+.end_f input,.start_f input{
     width: 31vw;
     color: #282828;
     font-size: 0.6em;

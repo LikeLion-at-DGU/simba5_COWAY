@@ -1,8 +1,32 @@
+// road_choice.js
 let reset_floor = 1;
 let start_spot=['',''];
 let end_spot=['',''];
+
+let startBuildingInput = document.getElementById("startBuildingInput");
+let startFloorInput = document.getElementById("startFloorInput");
+let endBuildingInput = document.getElementById("endBuildingInput");
+let endFloorInput = document.getElementById("endFloorInput");
+
 const bName = document.getElementsByClassName('bName');
 const fName = document.getElementsByClassName('fName');
+
+const floor_arr = [];
+floor_arr[0] = document.querySelector('.choiceF_1');
+floor_arr[1] = document.querySelector('.choiceF_2');
+floor_arr[2] = document.querySelector('.choiceF_3');
+floor_arr[3] = document.querySelector('.choiceF_4');
+floor_arr[4] = document.querySelector('.choiceF_5');
+floor_arr[5] = document.querySelector('.choiceF_6');
+floor_arr[6] = document.querySelector('.choiceF_7');
+floor_arr[7] = document.querySelector('.choiceF_8');
+floor_arr[8] = document.querySelector('.choiceF_9');
+floor_arr[9] = document.querySelector('.choiceF_10');
+floor_arr[10] = document.querySelector('.choiceF_6m');
+floor_arr[11] = document.querySelector('.choiceF_1m');
+floor_arr[12] = document.querySelector('.choiceF_b1');
+floor_arr[13] = document.querySelector('.choiceF_b2');
+floor_arr[14] = document.querySelector('.choiceF_b3');
 
 function choiceB(event,floor){
     for(let i=0;i<bName.length;i++){//건물 선택 초기화
@@ -17,39 +41,23 @@ function choiceB(event,floor){
         end_spot[0]='';
     }
 
-    let target = event.target;//선택된 건물 색 변경
+    let target = event.target;//선택된 건물 
 
-    if(start_spot[0]==''){//출발지
+    if(start_spot[0]===''){//출발지
         target.style.backgroundColor='#C2BDB4';
         start_spot[0]=target.textContent;
-        document.querySelector('.start_b').innerHTML=target.textContent;
+        startBuildingInput.value=start_spot[0];
+
     }else if(start_spot[1]=='' && end_spot[0]==''){
         target.style.backgroundColor='#C2BDB4';
         start_spot[0]=target.textContent;
-        document.querySelector('.start_b').textContent=target.textContent;
+        startBuildingInput.value=start_spot[0];
     }
     else{//도착지
         target.style.backgroundColor='#C2BDB4';
         end_spot[0]=target.textContent;
-        document.querySelector('.end_b').textContent=target.textContent;
+        endBuildingInput.value=end_spot[0];
     }
-
-    let floor_arr = [];
-    floor_arr[0] = document.querySelector('.choiceF_1');
-    floor_arr[1] = document.querySelector('.choiceF_2');
-    floor_arr[2] = document.querySelector('.choiceF_3');
-    floor_arr[3] = document.querySelector('.choiceF_4');
-    floor_arr[4] = document.querySelector('.choiceF_5');
-    floor_arr[5] = document.querySelector('.choiceF_6');
-    floor_arr[6] = document.querySelector('.choiceF_7');
-    floor_arr[7] = document.querySelector('.choiceF_8');
-    floor_arr[8] = document.querySelector('.choiceF_9');
-    floor_arr[9] = document.querySelector('.choiceF_10');
-    floor_arr[10] = document.querySelector('.choiceF_6m');
-    floor_arr[11] = document.querySelector('.choiceF_1m');
-    floor_arr[12] = document.querySelector('.choiceF_b1');
-    floor_arr[13] = document.querySelector('.choiceF_b2');
-    floor_arr[14] = document.querySelector('.choiceF_b3');
 
     if(reset_floor === floor){
         reset_floor = 0;
@@ -110,29 +118,24 @@ function choiceF(event){
     if(end_spot[0]!==''){//도착지 층수 입력
         target.style.backgroundColor='#C2BDB4';
         end_spot[1]=target.textContent;
-        document.querySelector('.end_f').textContent=target.textContent;
-        // document.getElementById("choice").submit();
+        endFloorInput.value = end_spot[1];
     }else{//출발지 층수 입력
         target.style.backgroundColor='#C2BDB4';
         start_spot[1]=target.textContent;
-        document.querySelector('.start_f').textContent=target.textContent;
+        startFloorInput.value = start_spot[1];
     }
 }
 
-let reset_start = document.querySelector('.start_b');
-let reset_end = document.querySelector('.end_b');
-
-reset_start.addEventListener('click',function(){
-    console.log('클릭되었엉')
+document.querySelector('.start_b').addEventListener('click',function(){
     start_spot[0]='';
     start_spot[1]='';
-    document.querySelector('.start_b').textContent='출발';
-    document.querySelector('.start_f').textContent='출발지를 선택해주세요';
+    startBuildingInput.value = null;
+    startFloorInput.value = null;
 })
-reset_end.addEventListener('click',function(){
-    console.log('클릭되었엉')
+document.querySelector('.end_b').addEventListener('click',function(){
     end_spot[0]='';
     end_spot[1]='';
-    document.querySelector('.end_b').textContent='도착';
-    document.querySelector('.end_f').textContent='도착지를 선택해주세요';
+    endBuildingInput.value = null;
+    endFloorInput.value = null;
 })
+
