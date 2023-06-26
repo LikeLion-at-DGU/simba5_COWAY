@@ -7,16 +7,27 @@
     <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
 </section>
 
-<section id="road_choice">
-    <div>
-        <div>{{ start_building }}</div> <!--{{ sBuilding }}-->
-        <div class="user_coice">{{ start_floor }}</div> <!--{{ sFloor }}-->
-    </div>
-    <div>
-        <div>{{ end_building }}</div> <!--{{ endBuilding }}-->
-        <div class="user_coice">{{ end_floor }}</div> <!--{{ endFloor }}-->
-    </div>
-</section>
+<!-- <form method="post" action="{%url 'shortroadpage'%}"> -->
+    <section id="road_choice">
+        {% csrf_token %}
+        <div>
+            <div>{{ start_building }}</div> <!--{{ sBuilding }}-->
+            <div class="user_coice">{{ start_floor }}</div> <!--{{ sFloor }}-->
+        </div>
+        <div>
+            <div>{{ end_building }}</div> <!--{{ endBuilding }}-->
+            <div class="user_coice">{{ end_floor }}</div> <!--{{ endFloor }}-->
+        </div>
+        <button id="star"><i class="far fa-star"></i></button>
+    </section>
+<!-- </form> -->
+
+<script>
+    var btn = document.getElementById('star');
+    btn.addEventListener('click',function(){
+        btn.innerHTML = '<i class="fas fa-star" style="color: #FFC148;"></i>';
+    })
+</script>
 
 <section id="map">
     <div id="map" style="width:318px;height:260px;"></div>
@@ -35,5 +46,6 @@
     <button class="select"><a href="{% url 'shortroadpage' %}">최소 시간</a></button>
     <button><a href="{% url 'easyroadpage' %}">최소 언덕</a></button>
 </section>
+
 
 {% endblock %}
