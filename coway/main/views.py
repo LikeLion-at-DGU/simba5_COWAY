@@ -118,4 +118,19 @@ def roadchoicepage(request):
     return render(request, 'main/road/road_choice.html')
 
 def shortroadpage(request):
-    return render(request, 'main/road/short_road.html')
+    if request.method == 'POST':
+        start_building = request.POST.get('startBuilding')
+        start_floor = request.POST.get('startFloor')
+        end_building = request.POST.get('endBuilding')
+        end_floor = request.POST.get('endFloor')
+
+        context = {
+            'start_building': start_building,
+            'start_floor': start_floor,
+            'end_building': end_building,
+            'end_floor': end_floor,
+        }
+
+        return render(request, 'main/road/short_road.html', context)
+    else:
+        return render(request, 'main/road/short_road.html')

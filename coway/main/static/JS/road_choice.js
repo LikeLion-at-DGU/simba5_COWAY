@@ -43,20 +43,16 @@ function choiceB(event,floor){
 
     let target = event.target;//선택된 건물 
 
-    if(start_spot[0]===''){//출발지
+    if(start_spot[0]===''||(start_spot[1]=='' && end_spot[0]=='')){//출발지
         target.style.backgroundColor='#C2BDB4';
         start_spot[0]=target.textContent;
         startBuildingInput.value=start_spot[0];
-
-    }else if(start_spot[1]=='' && end_spot[0]==''){
-        target.style.backgroundColor='#C2BDB4';
-        start_spot[0]=target.textContent;
-        startBuildingInput.value=start_spot[0];
-    }
-    else{//도착지
+        startBuildingInput.style.color = '#FEA218';
+    }else{//도착지
         target.style.backgroundColor='#C2BDB4';
         end_spot[0]=target.textContent;
         endBuildingInput.value=end_spot[0];
+        endBuildingInput.style.color = '#FEA218';
     }
 
     if(reset_floor === floor){
@@ -131,11 +127,23 @@ document.querySelector('.start_b').addEventListener('click',function(){
     start_spot[1]='';
     startBuildingInput.value = null;
     startFloorInput.value = null;
+    for(let i=0;i<bName.length;i++){//건물 선택 초기화
+        bName[i].style.backgroundColor = '#ffffff';
+    }
+    for(let i=0;i<fName.length;i++){//층수 선택 초기화
+        fName[i].style.backgroundColor = '#ffffff';
+    }
 })
 document.querySelector('.end_b').addEventListener('click',function(){
     end_spot[0]='';
     end_spot[1]='';
     endBuildingInput.value = null;
     endFloorInput.value = null;
+    for(let i=0;i<bName.length;i++){//건물 선택 초기화
+        bName[i].style.backgroundColor = '#ffffff';
+    }
+    for(let i=0;i<fName.length;i++){//층수 선택 초기화
+        fName[i].style.backgroundColor = '#ffffff';
+    }
 })
 
