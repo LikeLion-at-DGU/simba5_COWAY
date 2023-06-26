@@ -22,6 +22,7 @@
         <p class="info_content">각 편의시설 사진 및 정보</p>
         <button type="button" class="btn_close"><i class="fas fa-times"></i></button>
     </div>
+</section>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
 <!-- <script src="{% static 'JS/conv_map.js' %}?after"></script> -->
@@ -120,7 +121,8 @@
         closeBtn.addEventListener('click', function(){
             this.parentNode.parentNode.style.display = 'none';
         });
-    };
+    }
+
 </script>
 
 {% endblock %}
