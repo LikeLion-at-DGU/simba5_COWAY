@@ -13,9 +13,9 @@
     <div>아이디는 수정할 수 없습니다.<br>비밀번호를 수정해주세요!</div>
 </section>
 
-<form id="changePw" action="#" method="POST">
+<form id="changePw" action="{% url 'editpage' %}" method="POST">
     {% csrf_token %}
-    <input required type="text" id="originPw" name="username" placeholder="기존 비밀번호 입력">
+    <input required type="text" id="originPw" name="originpassword" placeholder="기존 비밀번호 입력">
     <input required type="password" id="newPw" name="password" placeholder="새로운 비밀번호 입력">
     <input required type="password" id="checkPw" name="confirm" placeholder="비밀번호 확인">
     <input type="submit" id="changePw_btn" value="확인">

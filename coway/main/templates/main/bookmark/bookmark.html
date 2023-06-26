@@ -10,30 +10,21 @@
 </section>
 
 <section id="main_content">
-    <form action="#" method="post">
+    <form action="{% url 'bookmarkpage' %}" method="post">
+        {% csrf_token %}
         <div class="top">
-            <p>전체 <span>{즐겨찾기 총개수}}</span></p>
+            <p>전체 <span>{{count}}</span></p>
             <!-- <button type="submit">삭제</button> -->
         </div>
         <div>
+            {%for bookmark in bookmarks%}
             <div>
                 <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
-                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
-                <button style="display: none;">길찾기</button>
-                <button style="display: none;" type="submit">삭제</button>
+                <span class="circle">출</span>{{bookmark.startbuilding}} {{bookmark.startfloor}}<span class="circle">도</span>{{bookmark.endbuilding}} {{bookmark.endfloor}}
+                <button style="display: none;" name="find">길찾기</button>
+                <button style="display: none;" type="submit"name="delete">삭제</button>
             </div>
-            <div>
-                <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
-                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
-                <button style="display: none;">길찾기</button>
-                <button style="display: none;" type="submit">삭제</button>
-            </div>
-            <div>
-                <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
-                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
-                <button style="display: none;">길찾기</button>
-                <button style="display: none;" type="submit">삭제</button>
-            </div>
+            {%endfor%}
         </div>
     </form>
 </section>

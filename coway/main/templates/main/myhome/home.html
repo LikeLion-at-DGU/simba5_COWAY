@@ -11,8 +11,8 @@
 
 <section id="mypage1">
     <div id="myinfo">
-        <div class="myinfo__name">홍길동</div>
-        <div class="myinfo__email">abcdef@dgu.ac.kr</div>
+        <div class="myinfo__name">{{profile.name}}</div>
+        <div class="myinfo__email">{{user.username}}</div>
     </div>
     <div id="mypg">
         <a href="{% url 'bookmarkpage' %}" class="mypg_">
