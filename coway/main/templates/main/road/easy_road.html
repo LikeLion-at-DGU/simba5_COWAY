@@ -8,7 +8,9 @@
     <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
 </section>
 
+<!-- <form method="post" action="{%url 'shortroadpage'%}"> -->
 <section id="road_choice">
+    {% csrf_token %}
     <div>
         <div>구현 중</div>
         <div class="user_coice">쉬운 길 구현 중</div>
@@ -17,7 +19,16 @@
         <div>구현 중</div>
         <div class="user_coice">쉬운 길 구현 중</div>
     </div>
+    <button id="star"><i class="far fa-star"></i></button>
 </section>
+<!-- </form> -->
+
+<script>
+    var btn = document.getElementById('star');
+    btn.addEventListener('click',function(){
+        btn.innerHTML = '<i class="fas fa-star" style="color: #FFC148;"></i>';
+    })
+</script>
 
 <section id="map">
     <div id="map" style="width:318px;height:260px;"></div>

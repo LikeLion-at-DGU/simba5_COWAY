@@ -59,3 +59,17 @@ button{
 button.select{
     background-color: #FDDF76;
 }
+#star{
+    font-size: 1.3rem;
+    /* text-align: center; */
+    border:0;
+    /* color:#FFC148; */
+    color: black;
+    position: fixed;
+    z-index: 3;
+    top: 240px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}

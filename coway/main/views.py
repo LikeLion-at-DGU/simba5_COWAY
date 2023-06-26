@@ -84,17 +84,8 @@ def editpage(request):
 def homepage(request):
     return render(request, 'main/myhome/home.html')
 
-def stpcafepage(request):
-    return render(request, 'main/stamp/stamp_cafe.html')
-
-def stpconvpage(request):
-    return render(request, 'main/stamp/stamp_conv.html')
-
-def stprestpage(request):
-    return render(request, 'main/stamp/stamp_rest.html')
-
-def stpstdpage(request):
-    return render(request, 'main/stamp/stamp_std.html')
+def bookmarkpage(request):
+    return render(request, 'main/bookmark/bookmark.html')
 
 def easyroadpage(request):
     if request.method == 'POST':
