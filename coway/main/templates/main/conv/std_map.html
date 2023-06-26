@@ -11,64 +11,127 @@
 <section id="main_img">
     <div id="map"></div>
 </section>
-		<script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
-		<script>
-			var container = document.getElementById('map');
-			var options = {
-				center: new kakao.maps.LatLng(37.5582, 127.0006),
-				level: 3
-			};
 
-			var map = new kakao.maps.Map(container, options);
+<section id="popup" style="display: none;">
+    <div class="popup_info">
+        <p class="info_content">각 편의시설 사진 및 정보</p>
+        <button type="button" class="btn_close"><i class="fas fa-times"></i></button>
+    </div>
+</section>
 
-            var positions = [
-                {
-                    title: '학림관 ispace', //학림관 1층
-                    latlng: new kakao.maps.LatLng(37.5583, 126.9996)
-                },
-                {
-                    title: '학생회관 ispace', //학생회관 1층
-                    latlng: new kakao.maps.LatLng(37.5583, 126.9996)
-                },
-                {
-                    title: '명진관 명진라운지', 
-                    latlng: new kakao.maps.LatLng(37.5583, 126.9996)
-                },
-                {
-                    title: '중앙도서관', 
-                    latlng: new kakao.maps.LatLng(37.55700, 127.0027)
-                },
-                {
-                    title: '법학관 열람실', 
-                    latlng: new kakao.maps.LatLng(37.5584, 126.99825)
-                },
-                {
-                    title: '비즈마루', //경영대 1층
-                    latlng: new kakao.maps.LatLng(37.5589, 126.9999)
-                },
-                {
-                    title: '아리수북카페',
-                    latlng: new kakao.maps.LatLng(37.55700, 127.0027)
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
+<script>
+    var container = document.getElementById('map');
+    var options = {
+        center: new kakao.maps.LatLng(37.5582, 127.0006),
+        level: 3
+    };
+
+    var map = new kakao.maps.Map(container, options);
+
+    // 사회과학관 ispace, 원흥관 ispace, 혜화관 라운지 추가 필요
+    var positions = [
+        {
+            title: '학림관 공휴라운지 샘',
+            latlng: new kakao.maps.LatLng(37.5583, 126.9996),
+            location: '학림관 1층',
+            time: '10:00~17:00',
+            image: '{% static 'images/스터디_학림관.jpg' %}'
+        },
+        {
+            title: '학생회관 ispace',
+            latlng: new kakao.maps.LatLng(37.5583, 126.9996),
+            location: '학생회관 1층',
+            time: '00:00~00:00',
+            image: '{% static 'images/스터디_학생회관.jpg' %}'
+        },
+        {
+            title: '명진관 명진라운지',
+            latlng: new kakao.maps.LatLng(37.5583, 126.9996),
+            location: '명진관 1층',
+            time: '월화수목금 09:00~17:00 <br> 토일 휴무',
+            image: '{% static 'images/스터디_명진관.jpg' %}'
+        },
+        {
+            title: '중앙도서관',
+            latlng: new kakao.maps.LatLng(37.55700, 127.0027),
+            location: '중앙도서관 지하2층~4층',
+            time: '월화수목금 09:00~17:00 <br> 토 09:00~17:00 (4층 휴무)',
+            image: '{% static 'images/중도_정문jpg' %}'
+        },
+        {
+            title: '법학관 열람실',
+            latlng: new kakao.maps.LatLng(37.5584, 126.99825),
+            location: '법학/만해관 1~3층',
+            time: '월화수목금토일 06:00~24:00 <br> 법정공휴일 운영',
+            image: '{% static 'images/법학관_1층.jpg' %}'
+        },
+        {
+            title: '비즈마루',
+            latlng: new kakao.maps.LatLng(37.5589, 126.9999),
+            location: '경영관 1층',
+            time: '00:00~00:00',
+            image: '{% static 'images/스터디_경영관.jpg' %}'
+        },
+        {
+            title: '아리수북카페',
+            latlng: new kakao.maps.LatLng(37.55700, 127.0027),
+            location: '원흥관 3층',
+            time: '00:00~00:00',
+            image: '{% static 'images/스터디_원흥관_아리수.jpg' %}'
+        }
+    ];
+
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+    for (var i = 0; i < positions.length; i++) {
+
+        var imageSize = new kakao.maps.Size(24, 35);
+
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: positions[i].latlng,
+            title: positions[i].title,
+            image: markerImage
+        });
+
+        //팝업
+        kakao.maps.event.addListener(marker, 'click', function(){
+            var markerTitle = this.getTitle();
+            var markerInfo;
+            var popUp = document.querySelector('#popup');
+
+            for (var j=0; j<positions.length; j++) {
+                if (positions[j].title === markerTitle) {
+                    markerInfo = positions[j];
+                    break;
                 }
-            ];
-
-            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-    
-            for (var i = 0; i < positions.length; i ++) {
-    
-                var imageSize = new kakao.maps.Size(24, 35); 
-    
-                var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-                var marker = new kakao.maps.Marker({
-                    map: map, 
-                    position: positions[i].latlng, 
-                    title : positions[i].title,
-                    image : markerImage 
-                });
             }
 
-		</script>
+            if (markerInfo) {
+                var content =
+                    '<div class="popup_content">' +
+                    '   <h3>' + markerInfo.title + '</h3>' +
+                    '   <img src="' + markerInfo.image + '">' +
+                    '   <i class="fas fa-map-marker-alt"></i>' +
+                    '   <p>' + markerInfo.location + '</p>' +
+                    '   <i class="fas fa-clock"></i>' +
+                    '   <p>' + markerInfo.time + '</p>' +
+                    '</div>';
+
+                document.querySelector('.info_content').innerHTML = content;
+                popUp.style.display = 'block';
+            }
+        });
+
+        var closeBtn = document.querySelector('.btn_close');
+        closeBtn.addEventListener('click', function(){
+            this.parentNode.parentNode.style.display = 'none';
+        });
+    }
+
+</script>
 
 
 {% endblock %}
-
