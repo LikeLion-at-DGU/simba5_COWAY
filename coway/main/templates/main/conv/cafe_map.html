@@ -24,8 +24,10 @@
     </div>
 </section>
 
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
 <!-- <script src="{% static 'JS/conv_map.js' %}?after"></script> -->
+
 <script>
     var container = document.getElementById('map');
     var options = {
@@ -35,7 +37,36 @@
 
     var map = new kakao.maps.Map(container, options);
 
-    // 기숙사 식당 옆 카페 추가 필요
+    if (navigator.geolocation ) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        var locPosition = new kakao.maps.LatLng(lat, lon)
+        displayMarker(locPosition);
+            
+      });
+    
+    } else {
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667) 
+        displayMarker(locPosition);
+    }
+
+    function displayMarker(locPosition) {
+
+    // 마커를 생성
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+
+    map.setCenter(locPosition);      
+}   
+
+</script>
+
+<script>
+// 기숙사 식당 옆 카페 추가 필요-> 남산학사카페
     var positions = [
         {
             title: '가온누리카페',
@@ -54,7 +85,7 @@
         {
             title: '남산학사 카페',
             location: '남산학사 1층 앞',
-            latlng: new kakao.maps.LatLng(37.5584, 126.99825),
+            latlng: new kakao.maps.LatLng(37.55819, 126.99798),
             time: '월화수목금 00시~00시',
             image: "{% static 'images/카페_남산학사.jpg' %}"
         },

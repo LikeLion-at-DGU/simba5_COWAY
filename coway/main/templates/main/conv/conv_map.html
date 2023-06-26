@@ -29,31 +29,60 @@
 
     var map = new kakao.maps.Map(container, options);
 
+    if (navigator.geolocation ) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        var locPosition = new kakao.maps.LatLng(lat, lon)
+        displayMarker(locPosition);
+            
+      });
+    
+    } else {
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667) 
+        displayMarker(locPosition);
+    }
+
+    function displayMarker(locPosition) {
+
+    // 마커를 생성
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+    
+    map.setCenter(locPosition);      
+}   
+
+</script>
+<script>
+
     var positions = [
         {
             title: '법학관 쿱스켓 편의점',
-            latlng: new kakao.maps.LatLng(37.5583, 126.9996),
+            latlng: new kakao.maps.LatLng(37.5581, 127.0011),
             location: '법학관 2층 휴게실',
             time: '',
             image: "{% static 'images/편의점_쿱스켓.png' %}"
         },
         {
             title: '문화관 쿱스켓 편의점',
-            latlng: new kakao.maps.LatLng(37.55700, 127.0027),
+            latlng: new kakao.maps.LatLng(37.5577, 127.003),
             location: '문화관 1층 입구 옆',
             time: '',
             image: "{% static 'images/편의점_쿱스켓.png' %}"
         },
         {
             title: '학림관 쿱스켓 편의점',
-            latlng: new kakao.maps.LatLng(37.5584, 126.99825),
+            latlng: new kakao.maps.LatLng(37.56029, 126.9999),
             location: '학림관 지하1층 입구',
             time: '',
             image: "{% static 'images/편의점_쿱스켓.png' %}"
         },
         {
             title: '중앙도서관 쿱스켓 편의점',
-            latlng: new kakao.maps.LatLng(37.5589, 126.9999),
+            latlng: new kakao.maps.LatLng(37.558, 126.9993),
             location: '중앙도서관 4층 휴게실',
             time: '',
             image: "{% static 'images/편의점_쿱스켓.png' %}"

@@ -28,6 +28,36 @@
     };
     var map = new kakao.maps.Map(container, options);
 
+
+    if (navigator.geolocation ) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        var locPosition = new kakao.maps.LatLng(lat, lon)
+        displayMarker(locPosition);
+            
+      });
+    
+    } else {
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667) 
+        displayMarker(locPosition);
+    }
+
+    function displayMarker(locPosition) {
+
+    // 마커를 생성
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+    
+    map.setCenter(locPosition);      
+}   
+
+</script>
+<script>
+    
     var positions = [
         {
             title: '솥앤누들 / 학생식당 / 교직원식당',

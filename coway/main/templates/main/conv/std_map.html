@@ -29,53 +29,106 @@
 
     var map = new kakao.maps.Map(container, options);
 
-    // 사회과학관 ispace, 원흥관 ispace, 혜화관 라운지 추가 필요
+
+    if (navigator.geolocation ) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        var locPosition = new kakao.maps.LatLng(lat, lon)
+        displayMarker(locPosition);
+            
+      });
+    
+    } else {
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667) 
+        displayMarker(locPosition);
+    }
+
+    function displayMarker(locPosition) {
+
+    // 마커를 생성
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+    
+    map.setCenter(locPosition);      
+}   
+
+</script>
+<script>
+
+
+    // 사회과학관 ispace, 원흥관 ispace, 혜화관 라운지 추가 필요 -> 추가완, 좌표 모두 수정완
     var positions = [
         {
             title: '학림관 공휴라운지 샘',
-            latlng: new kakao.maps.LatLng(37.5583, 126.9996),
+            latlng: new kakao.maps.LatLng(37.56032, 126.9996),
             location: '학림관 1층',
             time: '10:00~17:00',
             image: "{% static 'images/스터디_학림관.jpg' %}"
         },
         {
+            title: '사회과학관 ispace',
+            latlng: new kakao.maps.LatLng(37.5575, 127.0026),
+            location: '사회과학관 #층',
+            time: '#',
+            image: "#"
+        },
+        {
+            title: '원흥관 ispace',
+            latlng: new kakao.maps.LatLng(37.55904, 126.9986),
+            location: '원흥관 #층',
+            time: '#',
+            image: "#"
+        },
+        {
+            title: '혜화관 라운지',
+            latlng: new kakao.maps.LatLng(37.5574, 127.0018),
+            location: '학림관 1층',
+            time: '10:00~17:00',
+            image: "{% static 'images/스터디_학림관.jpg' %}"
+        },
+        
+        {
             title: '학생회관 ispace',
-            latlng: new kakao.maps.LatLng(37.5583, 126.9996),
+            latlng: new kakao.maps.LatLng(37.5601, 126.9983),
             location: '학생회관 1층',
             time: '00:00~00:00',
             image: "{% static 'images/스터디_학생회관.jpg' %}"
         },
         {
             title: '명진관 명진라운지',
-            latlng: new kakao.maps.LatLng(37.5583, 126.9996),
+            latlng: new kakao.maps.LatLng(37.55769, 127.00),
             location: '명진관 1층',
             time: '월화수목금 09:00~17:00 <br> 토일 휴무',
             image: "{% static 'images/스터디_명진관.jpg' %}"
         },
         {
             title: '중앙도서관',
-            latlng: new kakao.maps.LatLng(37.55700, 127.0027),
+            latlng: new kakao.maps.LatLng(37.55789, 126.9991),
             location: '중앙도서관 지하2층~4층',
             time: '월화수목금 09:00~17:00 <br> 토 09:00~17:00 (4층 휴무)',
             image: "{% static 'images/중도_정문jpg' %}"
         },
         {
             title: '법학관 열람실',
-            latlng: new kakao.maps.LatLng(37.5584, 126.99825),
+            latlng: new kakao.maps.LatLng(37.5583, 127.0009),
             location: '법학/만해관 1~3층',
             time: '월화수목금토일 06:00~24:00 <br> 법정공휴일 운영',
             image: "{% static 'images/법학관_1층.jpg' %}"
         },
         {
             title: '비즈마루',
-            latlng: new kakao.maps.LatLng(37.5589, 126.9999),
+            latlng: new kakao.maps.LatLng(37.5571, 127.0029),
             location: '경영관 1층',
             time: '00:00~00:00',
             image: "{% static 'images/스터디_경영관.jpg' %}"
         },
         {
             title: '아리수북카페',
-            latlng: new kakao.maps.LatLng(37.55700, 127.0027),
+            latlng: new kakao.maps.LatLng(37.55876, 126.999),
             location: '원흥관 3층',
             time: '00:00~00:00',
             image: "{% static 'images/스터디_원흥관_아리수.jpg' %}"
