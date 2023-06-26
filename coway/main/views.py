@@ -128,6 +128,8 @@ def create(request):
     new_post.title = request.POST['title']
     new_post.body = request.POST['body']
     new_post.author = request.user
+    pro = Profile.objects.get(user=request.user)
+    new_post.email = pro.name
     new_post.save()
     return redirect('homepage')
 
@@ -155,7 +157,7 @@ def bookmarkpage(request):
         new_bookmark.startbuilding = request.POST['startBuilding']
         new_bookmark.startfloor = request.POST['startFloor']
         new_bookmark.endbuilding = request.POST['endBuilding']
-        new_bookmark.endfloor = request.POST['endfloor']
+        new_bookmark.endfloor = request.POST['endFloor']
         new_bookmark.save()
     bookmark = Bookmark.objects.filter(user=request.user)
     count = 0
