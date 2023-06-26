@@ -13,6 +13,7 @@
 }
 
 #explain{
+    height: 5vh;
     font-size: 1em;
     color: #848484;
     margin: 0 50px;
@@ -20,9 +21,10 @@
 }
 /* 기능 부분은 협업 필요함, 우선 화면만 */
 #join{
+    height: 50vh;
     display: flex;
     flex-direction: column;
-    margin: 90px 50px;
+    margin: 90px 50px 30px 50px;
 }
 #join__id, #join__pw, #join__pwcheck{
     border: 1px solid #d9d9d9;
