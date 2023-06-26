@@ -32,3 +32,10 @@ class Post(models.Model):
         return self.title
     def summary(self):
         return self.body[:30]
+    
+class Bookmark(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    startbuilding = models.CharField(max_length=30)
+    startfloor = models.CharField(max_length=30)
+    endbuilding = models.CharField(max_length=30)
+    endfloor = models.CharField(max_length=30)
