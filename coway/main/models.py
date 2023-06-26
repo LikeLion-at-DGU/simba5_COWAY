@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    attendance = models.PositiveIntegerField(default=0)
+    name = models.CharField(max_length=30, blank=True)
 
 class Info(models.Model):
     latitude = models.DecimalField(max_digits=25, decimal_places=20)
