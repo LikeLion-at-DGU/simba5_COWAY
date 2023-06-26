@@ -42,4 +42,5 @@ urlpatterns = [
     path('shortroad/', views.shortroadpage, name="shortroadpage"),
 
     path('bookmark/', views.bookmarkpage, name="bookmarkpage"),
+    path('deletebookmark/<int:id>', views.deletebookmark, name="deletebookmark"),
 ]
