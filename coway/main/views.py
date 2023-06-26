@@ -128,6 +128,8 @@ def create(request):
     new_post.title = request.POST['title']
     new_post.body = request.POST['body']
     new_post.author = request.user
+    pro = Profile.objects.get(user=request.user)
+    new_post.email = pro.name
     new_post.save()
     return redirect('homepage')
 
