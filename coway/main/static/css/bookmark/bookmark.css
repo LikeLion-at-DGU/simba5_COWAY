@@ -1,0 +1,72 @@
+/* nav */
+#nav_bookmark{
+    font-weight: 900;
+}
+/* 제목 */
+#title{
+    height: 12vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+    margin: 0 10px;
+}
+.back_icon{
+    float: left;
+}
+.title_name{
+    margin: 0 40px;
+}
+
+/* 컨텐츠 시작 */
+.top{
+    padding: 0 5px 0 20px;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #FFC148;
+}
+.top button{
+    width: 50px;
+    height: 30px;
+    color: #3A3939;
+    text-align: center;
+    font-size: 0.8em;
+    background-color: white;
+    border: 1.5px solid rgb(209, 209, 209);
+}
+.top span{
+    color: #FF5C00;
+    font-weight: 800;
+}
+
+#main_content{
+    min-height: 65vh;
+    font-size: 1.3rem;
+}
+table{
+    border-bottom: 1px solid #FFC148;
+    width: 100vw;
+    height: 10vh;
+    padding: 0 10px;
+}
+table span{
+    width: 30px;
+    height: 30px;
+    font-size: 0.8em;
+    display: inline-block;
+    background-color: white;
+    margin: 0 5px;
+    text-align: center;
+    padding-top: 2px;
+    border: 1px solid black;
+    border-radius: 40px;
+    font-weight: 600;
+}
+input[type=checkbox] {
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+}
