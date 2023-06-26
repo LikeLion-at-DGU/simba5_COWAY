@@ -21,10 +21,7 @@ class Command(BaseCommand):
             longitude=row['longitude']
             name=row['name']
             floor=row['floor']
-            if row['depart'] == 'TRUE':
-                depart = True
-            else:
-                depart = False
+            depart=row['depart']
             near=row['near']
             image=row['image']
             if pd.notnull(image):  # 이미지 필드가 비어 있지 않고, NaN 값이 아닌 경우에만 처리
