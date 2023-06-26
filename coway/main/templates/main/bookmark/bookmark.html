@@ -17,14 +17,14 @@
             <!-- <button type="submit">삭제</button> -->
         </div>
         <div>
-            {%for bookmark in bookmarks%}
+            {% for bookmark in bookmarks %}
             <div>
                 <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
-                <span class="circle">출</span>{{bookmark.startbuilding}} {{bookmark.startfloor}}<span class="circle">도</span>{{bookmark.endbuilding}} {{bookmark.endfloor}}
+                <span class="circle">출</span>{{bookmark.startbuilding}} {{ bookmark.startfloor }}<span class="circle">도</span>{{ bookmark.endbuilding }} {{ bookmark.endfloor }}
                 <button style="display: none;" name="find">길찾기</button>
                 <button style="display: none;" type="submit"name="delete">삭제</button>
             </div>
-            {%endfor%}
+            {% endfor %}
         </div>
     </form>
 </section>
