@@ -157,7 +157,7 @@ def bookmarkpage(request):
         new_bookmark.startbuilding = request.POST['startBuilding']
         new_bookmark.startfloor = request.POST['startFloor']
         new_bookmark.endbuilding = request.POST['endBuilding']
-        new_bookmark.endfloor = request.POST['endfloor']
+        new_bookmark.endfloor = request.POST['endFloor']
         new_bookmark.save()
     bookmark = Bookmark.objects.filter(user=request.user)
     count = 0
