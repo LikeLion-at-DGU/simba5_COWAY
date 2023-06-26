@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/bookmark/bookmark.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/bookmark/bookmark.css' %}?after">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -13,12 +13,53 @@
     <form action="#" method="post">
         <div class="top">
             <p>전체 <span>{즐겨찾기 총개수}}</span></p>
-            <button type="submit">삭제</button>
+            <!-- <button type="submit">삭제</button> -->
         </div>
-        <table>
-            <tr><td><input type="checkbox"></td><td><span>출</span>{건물}} {층수}}</td><td><span>도</span>{건물}} {층수}}</td></tr>
-        </table>
+        <div>
+            <div>
+                <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
+                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
+                <button style="display: none;">길찾기</button>
+                <button style="display: none;" type="submit">삭제</button>
+            </div>
+            <div>
+                <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
+                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
+                <button style="display: none;">길찾기</button>
+                <button style="display: none;" type="submit">삭제</button>
+            </div>
+            <div>
+                <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
+                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
+                <button style="display: none;">길찾기</button>
+                <button style="display: none;" type="submit">삭제</button>
+            </div>
+        </div>
     </form>
 </section>
+
+<script>
+    var previousRadio = null;
+
+    function btnSelect(radio) {
+        var div = radio.parentNode;
+        var buttons = div.getElementsByTagName('button');
+
+        // 이전에 선택된 라디오버튼 -> 해당 버튼 숨김 처리
+        if (previousRadio !== null && previousRadio !== radio){
+            var previousDiv = previousRadio.parentNode;
+            var previousBtn = previousDiv.getElementsByTagName('button');
+            for (var i=0; i<previousBtn.length; i++){
+                previousBtn[i].style.display = 'none';
+            }
+        }
+        // 현재 선택된 라디오버튼 -> 해당 버튼 보이게 변경
+        for (var i=0; i<buttons.length; i++){
+            buttons[i].style.display = radio.checked ? 'block' : 'none';
+        }
+        // 이전 선택 상태 업데이트
+        previousRadio = radio.checked ? radio : null;
+    }
+</script>
 
 {% endblock %}

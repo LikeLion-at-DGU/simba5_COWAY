@@ -36,15 +36,23 @@
     height: 40vh;
     background-color: rgba(252,204,111,.92);
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 10px 18px;
     z-index: 1;
 }
 #popup img{
-    width: 310px;
+    /* 일반 사진의 경우 cover가 나을 것 같고,
+    쿱스켓 이미지의 경우 contain이 나을 것 같음 */
+    object-fit: cover;
+    width: 317px;
     height: 150px;
+    border-radius: 10px;
+    margin: 10px 0 5px 0;
 }
-h3{
-    margin: 0 0 10px 0;
+#popup h3{
+    margin: 0;
+}
+#popup p{
+    margin: 5px 0;
 }
 button{
     background-color: transparent;
@@ -55,4 +63,5 @@ button{
     top: 220px;
     right: 30px;
     z-index: 3;
+    padding-top: 3px;
 }

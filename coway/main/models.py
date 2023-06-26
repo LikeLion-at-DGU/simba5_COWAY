@@ -11,7 +11,7 @@ class Info(models.Model):
     longitude = models.DecimalField(max_digits=25, decimal_places=20)
     name = models.CharField(max_length=30, null=False, blank=False)
     floor = models.TextField(blank=True)
-    depart = models.BooleanField(default=False)
+    depart = models.IntegerField()
     image = models.ImageField(blank=True)
     near = models.TextField()
 
@@ -32,3 +32,10 @@ class Post(models.Model):
         return self.title
     def summary(self):
         return self.body[:30]
+    
+class Bookmark(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    startbuilding = models.CharField(max_length=30)
+    startfloor = models.CharField(max_length=30)
+    endbuilding = models.CharField(max_length=30)
+    endfloor = models.CharField(max_length=30)
