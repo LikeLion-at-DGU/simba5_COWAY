@@ -10,47 +10,20 @@
 </section>
 
 <section id="main_content">
-    <form action="{% url 'bookmarkpage' %}" method="post">
-        {% csrf_token %}
         <div class="top">
             <p>전체 <span>{{count}}</span></p>
             <!-- <button type="submit">삭제</button> -->
         </div>
         <div>
             {%for bookmark in bookmarks%}
-            <div>
-                <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
                 <span class="circle">출</span>{{bookmark.startbuilding}} {{bookmark.startfloor}}<span class="circle">도</span>{{bookmark.endbuilding}} {{bookmark.endfloor}}
-                <button style="display: none;" name="find">길찾기</button>
-                <button style="display: none;" type="submit"name="delete">삭제</button>
-            </div>
+                <br>
+                <a href="{%url 'shortroadpage'%}?startBuilding={{ bookmark.startbuilding }}&endBuilding={{ bookmark.endbuilding }}&startFloor={{ bookmark.startfloor }}&endFloor={{ bookmark.endfloor }}">길찾기</a>
+                <a href="{%url 'deletebookmark' bookmark.id%}">삭제</a>
+                <hr>
             {%endfor%}
         </div>
-    </form>
 </section>
 
-<script>
-    var previousRadio = null;
-
-    function btnSelect(radio) {
-        var div = radio.parentNode;
-        var buttons = div.getElementsByTagName('button');
-
-        // 이전에 선택된 라디오버튼 -> 해당 버튼 숨김 처리
-        if (previousRadio !== null && previousRadio !== radio){
-            var previousDiv = previousRadio.parentNode;
-            var previousBtn = previousDiv.getElementsByTagName('button');
-            for (var i=0; i<previousBtn.length; i++){
-                previousBtn[i].style.display = 'none';
-            }
-        }
-        // 현재 선택된 라디오버튼 -> 해당 버튼 보이게 변경
-        for (var i=0; i<buttons.length; i++){
-            buttons[i].style.display = radio.checked ? 'block' : 'none';
-        }
-        // 이전 선택 상태 업데이트
-        previousRadio = radio.checked ? radio : null;
-    }
-</script>
 
 {% endblock %}
