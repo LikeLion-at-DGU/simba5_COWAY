@@ -12,13 +12,12 @@
 <section id="main_content">
         <div class="top">
             <p>전체 <span>{{count}}</span></p>
-            <!-- <button type="submit">삭제</button> -->
         </div>
-        <div>
+        <div class="bookmark_list">
             {%for bookmark in bookmarks%}
-                <span class="circle">출</span>{{bookmark.startbuilding}} {{bookmark.startfloor}}<span class="circle">도</span>{{bookmark.endbuilding}} {{bookmark.endfloor}}
+                <section class="list_start">{{bookmark.startbuilding}} {{bookmark.startfloor}}</section><i class="fas fa-long-arrow-alt-right"></i><section class="list_end">{{bookmark.endbuilding}} {{bookmark.endfloor}}</section>
                 <br>
-                <a href="{%url 'shortroadpage'%}?startBuilding={{ bookmark.startbuilding }}&endBuilding={{ bookmark.endbuilding }}&startFloor={{ bookmark.startfloor }}&endFloor={{ bookmark.endfloor }}">길찾기</a>
+                <a href="{%url 'shortroadpage'%}?startBuilding={{ bookmark.startbuilding }}&endBuilding={{ bookmark.endbuilding }}&startFloor={{ bookmark.startfloor }}&endFloor={{ bookmark.endfloor }}" class="list_map">길찾기</a>
                 <a href="{%url 'deletebookmark' bookmark.id%}">삭제</a>
                 <hr>
             {%endfor%}
