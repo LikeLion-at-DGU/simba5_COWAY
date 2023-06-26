@@ -16,23 +16,58 @@
 }
 /* 컨텐츠 시작 */
 #road_choice{
-    height: 10vh;
+    height: 12vh;
+}
+#choice{
     margin: 0 30px 20px 30px;
-    font-size: 1.4em;
-    font-weight: bold;
+    color: #282828;
+    font-size: 2em;
     display: flex;
     justify-content: space-around;
     align-items: center;
     text-align: center;
     line-height: 35px;
 }
-.end_f,.start_f{
+
+#startBuildingInput,#endBuildingInput{
     width: 31vw;
     color: #282828;
-    font-size: 0.6em;
+    font-size: 1.5rem;
     font-weight: 100;
+}
+#startFloorInput,#endFloorInput{
+    width: 31vw;
+    color: #282828;
+    font-size: 1rem;
+    font-weight: 100;
+    padding-top: 6px;
     border-top: 2px solid #FFC148;
 }
+#startFloorInput::placeholder,#endFloorInput::placeholder{
+    font-size: 0.8rem;
+}
+#road_btn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;height: 50px;
+    font-size: 1em;
+    background-color:black;
+    color:white;
+    border-radius:60px;
+    z-index: 3;
+}
+input{
+    background-color:#FFF7E8;
+    border:0px;
+    text-align:center;
+    font-family: 'SUIT-Regular';
+}
+input::placeholder {
+    color: black;
+    font-family: 'SUIT-Regular';
+}
+/* 왜안돼 */
 
 #div_building{
     display: flex;
@@ -61,5 +96,4 @@ table{
 }
 td:active{
     background-color: #C2BDB4;
-    /* 선택시 색 변하게 하는 거 못했음..ㅜㅜ */
 }

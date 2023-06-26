@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'convpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -20,7 +20,7 @@
 <section id="popup" style="display: none;">
     <div class="popup_info">
         <p class="info_content">각 편의시설 사진 및 정보</p>
-        <button type="button" class="btn_close">닫기</button>
+        <button type="button" class="btn_close"><i class="fas fa-times"></i></button>
     </div>
 </section>
 
@@ -38,38 +38,38 @@
     var positions = [
         {
             title: '가온누리카페',
-            location: '1관 00층 앞',
+            location: '중앙도서관 정문 옆',
             latlng: new kakao.maps.LatLng(37.5583, 126.9996),
-            time: '월화수목금 00시~00시',
-            image: '.jpg'
+            time: '월화수목금 08:00~18:30',
+            image: '{% static 'images/카페_가온누리.jpg' %}'
         },
         {
             title: '그루터기',
-            location: '2관 00층 앞',
+            location: '경영관,사화과학관 2층 앞',
             latlng: new kakao.maps.LatLng(37.55700, 127.0027),
-            time: '월화수목금 00시~00시',
-            image: '.jpg'
+            time: '월화수목금 08:00~19:00',
+            image: '{% static 'images/카페_그루터기.jpg' %}'
         },
         {
             title: '남산학사 카페',
-            location: '3관 00층 앞',
+            location: '남산학사 1층 앞',
             latlng: new kakao.maps.LatLng(37.5584, 126.99825),
             time: '월화수목금 00시~00시',
-            image: '.jpg'
+            image: '{% static 'images/카페_남산학사.jpg' %}'
         },
         {
             title: '블루포트',
-            location: '4관 00층 앞',
+            location: '본관 1층 앞',
             latlng: new kakao.maps.LatLng(37.5589, 126.9999),
             time: '월화수목금 00시~00시',
-            image: '.jpg'
+            image: '{% static 'images/카페_블루팟.jpg' %}'
         },
         {
             title: 'ing카페',
-            location: '5관 00층 앞',
+            location: '혜화관 1층 옆',
             latlng: new kakao.maps.LatLng(37.55700, 127.0027),
             time: '월화수목금 00시~00시',
-            image: '.jpg'
+            image: '{% static 'images/카페_ing.jpg' %}'
         }
     ];
 

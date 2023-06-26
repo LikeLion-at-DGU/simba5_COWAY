@@ -3,6 +3,8 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from .models import Profile, Post
 from django.utils import timezone
+from django.http import HttpResponse
+
 # Create your views here.
 def mainpage(request):
     return render(request, 'main/main.html')
@@ -96,16 +98,39 @@ def stpstdpage(request):
 
 def easyroadpage(request):
     if request.method == 'POST':
-        sBuilding = request.POST.get("startBuilding")
-        sFloor = request.POST.get("startFloor")
-    context = {
-        "sBuilding" : sBuilding,
-        "sFloor" : sFloor,
-    }
-    return render(request, 'main/road/easy_road.html', context)
+        start_building = request.POST.get('startBuilding')
+        start_floor = request.POST.get('startFloor')
+        end_building = request.POST.get('endBuilding')
+        end_floor = request.POST.get('endFloor')
+
+        context = {
+            'start_building': start_building,
+            'start_floor': start_floor,
+            'end_building': end_building,
+            'end_floor': end_floor,
+        }
+
+        return render(request, 'main/road/easy_road.html', context)
+    else:
+        return render(request, 'main/road/easy_road.html')
 
 def roadchoicepage(request):
     return render(request, 'main/road/road_choice.html')
 
 def shortroadpage(request):
-    return render(request, 'main/road/short_road.html')
+    if request.method == 'POST':
+        start_building = request.POST.get('startBuilding')
+        start_floor = request.POST.get('startFloor')
+        end_building = request.POST.get('endBuilding')
+        end_floor = request.POST.get('endFloor')
+
+        context = {
+            'start_building': start_building,
+            'start_floor': start_floor,
+            'end_building': end_building,
+            'end_floor': end_floor,
+        }
+
+        return render(request, 'main/road/short_road.html', context)
+    else:
+        return render(request, 'main/road/short_road.html')
