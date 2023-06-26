@@ -2,28 +2,24 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/road/road_choice.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/road/road_choice.css' %}">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
 </section>
 
 <section id="road_choice">
-    <form id="choice" action="{%url 'easyroadpage'%}" method='POST'>
+    <form id="choice" action="{%url 'shortroadpage'%}" method='POST'>
         {% csrf_token %}
-        <button type="submit" id="road_btn">길찾기</button>
         <div>
-            <div class="start_b">
-                <input type="text" name="startBuilding" id="startBuildingInput" placeholder="출발" style="pointer-events: none;" required></div>
-            <div class="user_coice start_f">
-                <input type="text" name="startFloor" id="startFloorInput" placeholder="출발지를 선택해주세요" style="pointer-events: none;" required></div>
+            <div class="start_b"><input type="text" name="startBuilding" id="startBuildingInput" placeholder="출발" style="pointer-events: none;"></div>
+            <div class="user_coice start_f"><input type="text" name="startFloor" id="startFloorInput" placeholder="출발지를 선택해주세요" style="pointer-events: none;"></div>
         </div>
         <div>
-            <div class="end_b">
-                <input type="text" name="endBuilding" id="endBuildingInput" placeholder="도착" style="pointer-events: none;" required></div>
-            <div class="user_coice end_f">
-                <input type="text" name="endFloor" id="endFloorInput" placeholder="도착지를 선택해주세요" style="pointer-events: none;" required></div>
+            <div class="end_b"><input type="text" name="endBuilding" id="endBuildingInput" placeholder="도착" style="pointer-events: none;"></div>
+            <div class="user_coice end_f"><input type="text" name="endFloor" id="endFloorInput" placeholder="도착지를 선택해주세요" style="pointer-events: none;"></div>
         </div>
+        <button type="submit" id="road_btn"><i class="fas fa-arrow-right"></i></button>
     </form>
 </section>
 
@@ -70,5 +66,5 @@
             <tr><td class="fName choiceF_10" onclick="choiceF(event)">10층</td></tr>
         </table>
 </section>
-<script src="{% static 'JS/road_choice.js' %}?after"></script>
+<script src="{% static 'JS/road_choice.js' %}"></script>
 {% endblock %}
