@@ -22,13 +22,9 @@ urlpatterns = [
     path('', views.mainpage, name="mainpage"),
     
     path('conv/', views.convpage, name="convpage"),
-    path('cafeinfo/', views.cafeInfopage, name="cafeInfopage"),
     path('cafemap/', views.cafeMappage, name="cafeMappage"),
-    path('convinfo/', views.convInfopage, name="convInfopage"),
     path('convmap/', views.convMappage, name="convMappage"),
-    path('stdinfo/', views.stdInfopage, name="stdInfopage"),
     path('stdmap/', views.stdMappage, name="stdMappage"),
-    path('restinfo/', views.restInfopage, name="restInfopage"),
     path('restmap/', views.restMappage, name="restMappage"),
     
     path('join/', views.joinpage, name="joinpage"),
@@ -41,11 +37,10 @@ urlpatterns = [
     path('edit/', views.editpage, name="editpage"),
     path('home/', views.homepage, name="homepage"),
     
-    path('stpcafe/', views.stpcafepage, name="stpcafepage"),
-    path('stpconv/', views.stpconvpage, name="stpconvpage"),
-    path('stprest/', views.stprestpage, name="stprestpage"),
-    path('stpstd/', views.stpstdpage, name="stpstdpage"),
     path('easyroad/', views.easyroadpage, name="easyroadpage"),
     path('roadchoice/', views.roadchoicepage, name="roadchoicepage"),
     path('shortroad/', views.shortroadpage, name="shortroadpage"),
+
+    path('bookmark/', views.bookmarkpage, name="bookmarkpage"),
+    path('deletebookmark/<int:id>', views.deletebookmark, name="deletebookmark"),
 ]

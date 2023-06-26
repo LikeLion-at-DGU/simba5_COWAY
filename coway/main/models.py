@@ -4,16 +4,15 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    attendance = models.PositiveIntegerField(default=0)
+    name = models.CharField(max_length=30, blank=True)
 
 class Info(models.Model):
     latitude = models.DecimalField(max_digits=25, decimal_places=20)
     longitude = models.DecimalField(max_digits=25, decimal_places=20)
     name = models.CharField(max_length=30, null=False, blank=False)
-    stair = models.IntegerField(blank=True)
-    depart = models.BooleanField(default=False)
+    floor = models.TextField(blank=True)
+    depart = models.IntegerField()
     image = models.ImageField(blank=True)
-    slope = models.IntegerField(default=0)
     near = models.TextField()
 
 class conv(models.Model):
@@ -29,7 +28,15 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     body = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.TextField(blank=True)
     def __str__(self):
         return self.title
     def summary(self):
         return self.body[:30]
+    
+class Bookmark(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    startbuilding = models.CharField(max_length=30)
+    startfloor = models.CharField(max_length=30)
+    endbuilding = models.CharField(max_length=30)
+    endfloor = models.CharField(max_length=30)

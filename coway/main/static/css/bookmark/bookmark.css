@@ -1,0 +1,79 @@
+/* nav */
+#nav_bookmark{
+    font-weight: 900;
+}
+/* 제목 */
+#title{
+    height: 12vh;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: 5vh;
+    margin: 0 10px;
+}
+.back_icon{
+    float: left;
+}
+.title_name{
+    margin: 0 40px;
+}
+
+/* 컨텐츠 시작 */
+.top{
+    padding: 0 5px 0 20px;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #FFC148;
+}
+.top span{
+    color: #FF5C00;
+    font-weight: 800;
+    margin-left: 5px;
+    font-size: 1.4rem;
+}
+
+.bookmark_list{
+    padding: 15px 8px;
+}
+.bookmark_list a{
+    /* margin: 10px; */
+    padding: 3px 7px;
+    color: #3A3939;
+    text-align: center;
+    font-size: 0.8em;
+    background-color: white;
+    border: 1.5px solid rgb(209, 209, 209);
+}
+.bookmark_list i{
+    float: left;
+    margin: 8px 4px;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+hr{
+    border: 1px solid #FFC148;
+}
+.list_start, .list_end{
+    float: left;
+    width: 43vw;
+    text-align: start;
+    margin: 5px 3px;
+    margin-bottom: 10px;
+}
+.list_map{
+    margin-left: 65vw;
+    margin-right: 5px;
+}
+#main_content{
+    min-height: 65vh;
+    font-size: 1.3rem;
+}
+
+input[type=radio] {
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+}

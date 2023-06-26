@@ -2,24 +2,56 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/myhome/home.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/myhome/home.css' %}?after">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
-    <div class="title_name">abc@dgu.ac.kr</div>
+    <div class="title_name">마이페이지</div>
 </section>
 
-<section id="my_kiri">
-    <img src="{% static 'images/임시.png' %}" alt="내 코끼리 사진">
+<section id="mypage1">
+    <div id="myinfo">
+        <div class="myinfo__name">{{profile.name}}</div>
+        <div class="myinfo__email">{{user.username}}</div>
+    </div>
+    <div id="mypg">
+        <a href="{% url 'bookmarkpage' %}" class="mypg_">
+            <i class="fas fa-star"></i>
+            <div>즐겨찾기</div>
+        </a>
+        <a href="{% url 'askpage' %}" class="mypg_">
+            <i class="fas fa-envelope"></i>
+            <div>1:1 문의</div>
+        </a>
+        <a href="#popup" class="mypg_ btn_open">
+            <i class="fas fa-share-alt"></i>
+            <div>공유하기</div>
+        </a>
+    </div>
+    <div id="popup" style="display: none;">
+        <div class="popup_share">
+            <p>링크가 복사되었습니다!</p>
+            <button type="button" class="btn_close">확인</button>
+        </div>
+    </div>
 </section>
 
-<section id="edit">
-    <a href="{% url 'editpage' %}"><input type="button" id="edit_btn" value="프로필 편집"></a>
+<section id="mypage2">
+    <a href="{% url 'editpage' %}" id="pwChange_btn">비밀번호 수정</a>
+    <a href="{% url 'logout' %}" id="logout_btn">로그아웃</a>
 </section>
 
-<section id="plus">
-    <a href="{% url 'askpage' %}"><input type="button" id="ask_btn" value="1:1 문의"></a>
-    <a href="{% url 'logout' %}"><input type="button" id="logout_btn" value="로그아웃"></a>
-</section>
 <script src="{% static 'JS/nav_home.js' %}?after"></script>
+<script>
+    var shareBtn = document.querySelector('.btn_open');
+    var closeBtn = document.querySelector('.btn_close');
+    // shareBtn.addEventListener('click',alert("링크가 복사되었습니다!"));
+    shareBtn.addEventListener('click', function(){
+        var targetID = this.getAttribute('href');
+        document.querySelector(targetID).style.display = 'block';
+    });
+    closeBtn.addEventListener('click',function(){
+        this.parentNode.parentNode.style.display = 'none';
+    });
+</script>
 {% endblock %}

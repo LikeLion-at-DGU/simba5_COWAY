@@ -13,6 +13,7 @@
 }
 
 #explain{
+    height: 5vh;
     font-size: 1em;
     color: #848484;
     margin: 0 50px;
@@ -20,6 +21,7 @@
 }
 /* 아이디입력 ~ */
 #login{
+    height: 50vh;
     display: flex;
     flex-direction: column;
     margin: 70px 50px;

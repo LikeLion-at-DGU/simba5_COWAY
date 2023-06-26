@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/login/join.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/login/join.css' %}?after">
 
 <section id="title">
     <div class="back_icon"><a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -13,10 +13,10 @@
     <div>회원가입 후 더 많은 서비스를 이용해보세요!</div>
 </section>
 
-<!-- 기능 부분은 협업 필요함, 우선 화면만 -->
 <form id="join" action="{%url 'joinpage'%}" method="POST">
     {% csrf_token %}
-    <input required type="text" id="join__id" name="username" placeholder="아이디 입력">
+    <input required type="email" id="join__id" name="username" placeholder="아이디(이메일) 입력">
+    <input required type="text" id="join__id" name="name" placeholder="닉네임 입력">
     <input required type="password" id="join__pw" name="password" placeholder="비밀번호 입력">
     <input required type="password" id="join__pwcheck" name="confirm" placeholder="비밀번호 확인">
     <input type="submit" id="join_btn" value="확인">
