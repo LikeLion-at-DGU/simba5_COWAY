@@ -44,8 +44,8 @@
 </section>
 
 <section id="select_road">
-    <button><a href="{% url 'shortroadpage' %}">최소 시간</a></button>
-    <button class="select"><a href="{% url 'easyroadpage' %}">최소 언덕</a></button>
+    <button><a href="{% url 'shortroadpage' %}?startBuilding={{ start_building }}&endBuilding={{ end_building }}&startFloor={{ start_floor }}&endFloor={{ end_floor }}">최소 시간</a></button>
+    <button class="select"><a href="{% url 'easyroadpage' %}?startBuilding={{ start_building }}&endBuilding={{ end_building }}&startFloor={{ start_floor }}&endFloor={{ end_floor }}">최소 언덕</a></button>
 </section>
 
 {% endblock %}
