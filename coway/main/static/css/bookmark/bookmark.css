@@ -35,7 +35,7 @@
 }
 
 .bookmark_list{
-    padding: 15px;
+    padding: 15px 8px;
 }
 .bookmark_list a{
     /* margin: 10px; */
@@ -48,20 +48,22 @@
 }
 .bookmark_list i{
     float: left;
-    margin: 7px 10px 0 10px;
+    margin: 8px 4px;
+    margin-bottom: 0;
+    font-size: 1.2rem;
 }
 hr{
     border: 1px solid #FFC148;
 }
 .list_start, .list_end{
     float: left;
-    width: 40vw;
+    width: 43vw;
     text-align: start;
     margin: 5px 3px;
     margin-bottom: 10px;
 }
 .list_map{
-    margin-left: 265px;
+    margin-left: 65vw;
     margin-right: 5px;
 }
 #main_content{
