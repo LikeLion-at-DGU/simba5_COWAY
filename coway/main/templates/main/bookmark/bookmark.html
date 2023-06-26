@@ -12,28 +12,18 @@
 <section id="main_content">
     <form action="#" method="post">
         <div class="top">
-            <p>전체 <span>{즐겨찾기 총개수}}</span></p>
+            <p>전체 <span>{ 여기 총 개수는 모르겠어요.. 부탁드립니다..ㅜ }}</span></p>
             <!-- <button type="submit">삭제</button> -->
         </div>
         <div>
+            {% for bookmark in bookmarks %}
             <div>
                 <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
-                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
+                <span class="circle">출</span>{{ bookmark.startbuilding }} {{ bookmark.startfloor }}<span class="circle">도</span>{{ bookmark.endbuilding }} {{ bookmark.endfloor }}
                 <button style="display: none;">길찾기</button>
                 <button style="display: none;" type="submit">삭제</button>
             </div>
-            <div>
-                <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
-                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
-                <button style="display: none;">길찾기</button>
-                <button style="display: none;" type="submit">삭제</button>
-            </div>
-            <div>
-                <input type="radio" name="road_choice" value="" onclick="btnSelect(this)">
-                <span class="circle">출</span>{건물}} {층수}}<span class="circle">도</span>{건물}} {층수}}
-                <button style="display: none;">길찾기</button>
-                <button style="display: none;" type="submit">삭제</button>
-            </div>
+            {% endfor %}
         </div>
     </form>
 </section>

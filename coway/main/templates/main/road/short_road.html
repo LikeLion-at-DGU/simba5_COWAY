@@ -7,20 +7,20 @@
     <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
 </section>
 
-<!-- <form method="post" action="{%url 'shortroadpage'%}"> -->
+<form method='POST' action="{%url 'bookmarkpage'%}">
     <section id="road_choice">
         {% csrf_token %}
         <div>
-            <div>{{ start_building }}</div> <!--{{ sBuilding }}-->
-            <div class="user_coice">{{ start_floor }}</div> <!--{{ sFloor }}-->
+            <input type="text" name="startBuilding" value="{{ start_building }}">
+            <div class="user_coice"><input type="text" name="startFloor" value="{{ start_floor }}"></div>
         </div>
         <div>
-            <div>{{ end_building }}</div> <!--{{ endBuilding }}-->
-            <div class="user_coice">{{ end_floor }}</div> <!--{{ endFloor }}-->
+            <input type="text" name="endBuilding" value="{{ end_building }}">
+            <div class="user_coice"><input type="text" name="endFloor" value="{{ end_floor }}"></div>
         </div>
-        <button id="star"><i class="far fa-star"></i></button>
+        <button id="star" type="submit"><i class="far fa-star"></i></button>
     </section>
-<!-- </form> -->
+</form>
 
 <script>
     var btn = document.getElementById('star');

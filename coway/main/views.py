@@ -138,13 +138,13 @@ def homepage(request):
     return render(request, 'main/myhome/home.html')
 
 def bookmarkpage(request):
-    if request.mothod == 'POST':
+    if request.method == 'POST':
         new_bookmark = Bookmark()
         new_bookmark.user = request.user
         new_bookmark.startbuilding = request.POST['startBuilding']
         new_bookmark.startfloor = request.POST['startFloor']
         new_bookmark.endbuilding = request.POST['endBuilding']
-        new_bookmark.endfloor = request.POST['endfloor']
+        new_bookmark.endfloor = request.POST['endFloor']
         new_bookmark.save()
     bookmark = Bookmark.objects.filter(user=request.user)
     return render(request, 'main/bookmark/bookmark.html', {'bookmarks':bookmark})
