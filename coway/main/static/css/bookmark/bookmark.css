@@ -45,13 +45,13 @@
     min-height: 65vh;
     font-size: 1.3rem;
 }
-table{
+/* table{
     border-bottom: 1px solid #FFC148;
     width: 100vw;
     height: 10vh;
     padding: 0 10px;
-}
-table span{
+} */
+.circle{
     width: 30px;
     height: 30px;
     font-size: 0.8em;
@@ -64,7 +64,7 @@ table span{
     border-radius: 40px;
     font-weight: 600;
 }
-input[type=checkbox] {
+input[type=radio] {
     -ms-transform: scale(1.5); /* IE */
     -moz-transform: scale(1.5); /* FF */
     -webkit-transform: scale(1.5); /* Safari and Chrome */
