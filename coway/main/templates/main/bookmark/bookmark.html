@@ -10,7 +10,8 @@
 </section>
 
 <section id="main_content">
-    <form action="#" method="post">
+    <form action="{% url 'bookmarkpage' %}" method="post">
+        {% csrf_token %}
         <div class="top">
             <p>전체 <span>{ 여기 총 개수는 모르겠어요.. 부탁드립니다..ㅜ }}</span></p>
             <!-- <button type="submit">삭제</button> -->

@@ -96,8 +96,8 @@ def joinpage(request):
                 username=request.POST['username'],
                 password=request.POST['password']
             )
-            profile=Profile(user=user)
-            profile.attendance += 1
+            name=request.POST['name']
+            profile=Profile(user=user, name=name)
             profile.save()
             auth.login(request, user)
             return redirect('mainpage')
@@ -132,10 +132,21 @@ def create(request):
     return redirect('homepage')
 
 def editpage(request):
+    if request.method == 'POST':
+        origin = request.POST['originpassword']
+        password = request.POST['password']
+        confirm = request.POST['confirm']
+        if origin is not password and password == confirm:
+            user = request.user
+            user.set_password(password)
+            user.save()
+            auth.logout(request)
+            return redirect('loginpage')
     return render(request, 'main/myhome/edit.html')
 
 def homepage(request):
-    return render(request, 'main/myhome/home.html')
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'main/myhome/home.html', {'profile': profile})
 
 def bookmarkpage(request):
     if request.method == 'POST':
@@ -147,7 +158,10 @@ def bookmarkpage(request):
         new_bookmark.endfloor = request.POST['endFloor']
         new_bookmark.save()
     bookmark = Bookmark.objects.filter(user=request.user)
-    return render(request, 'main/bookmark/bookmark.html', {'bookmarks':bookmark})
+    count = 0
+    for book in bookmark:
+        count += 1
+    return render(request, 'main/bookmark/bookmark.html', {'bookmarks':bookmark, 'count':count})
 
 def deletebookmark(request, id):
     delete_bookmark = Bookmark.objects.get(id=id)

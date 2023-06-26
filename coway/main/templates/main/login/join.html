@@ -15,7 +15,8 @@
 
 <form id="join" action="{%url 'joinpage'%}" method="POST">
     {% csrf_token %}
-    <input required type="text" id="join__id" name="username" placeholder="아이디 입력">
+    <input required type="email" id="join__id" name="username" placeholder="아이디(이메일) 입력">
+    <input required type="text" id="join__id" name="name" placeholder="닉네임 입력">
     <input required type="password" id="join__pw" name="password" placeholder="비밀번호 입력">
     <input required type="password" id="join__pwcheck" name="confirm" placeholder="비밀번호 확인">
     <input type="submit" id="join_btn" value="확인">
