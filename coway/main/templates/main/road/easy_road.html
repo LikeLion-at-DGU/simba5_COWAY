@@ -1,37 +1,40 @@
-<!-- easy_road.html -->
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/road/easy_road.css' %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'css/road/easy_road.css' %}?after">
+<div id="notice">최소 언덕은 현재 구현 중입니다.</div>
 <section id="title">
     <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
 </section>
 
-<!-- <form method="post" action="{%url 'shortroadpage'%}"> -->
-<section id="road_choice">
-    {% csrf_token %}
-    <div>
-        <div>{{ start_building }}</div>
-        <div class="user_coice">{{ start_floor }}</div>
-    </div>
-    <div>
-        <div>{{ end_building }}</div> <!--{{ endBuilding }}-->
-        <div class="user_coice">{{ end_floor }}</div> <!--{{ endFloor }}-->
-    </div>
-    <button id="star"><i class="far fa-star"></i></button>
-</section>
-<!-- </form> -->
+<form method='POST' action="{%url 'bookmarkpage'%}">
+    <section id="road_choice">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="startBuilding" value="{{ start_building }}" style="pointer-events: none;">
+            <div class="user_coice"><input type="text" name="startFloor" value="{{ start_floor }}" style="pointer-events: none;"></div>
+        </div>
+        <div>
+            <input type="text" name="endBuilding" value="{{ end_building }}" style="pointer-events: none;">
+            <div class="user_coice"><input type="text" name="endFloor" value="{{ end_floor }}" style="pointer-events: none;"></div>
+        </div>
+        {%if exist == 1%} 
+            <button id="star" type="submit"><i class="fas fa-star" style="color: #FFC148;"></i></button>
+        {%else%}
+            <button id="star" type="submit"><i class="far fa-star"></i></button>
+        {%endif%}
+    </section>
+</form>
 
-<script>
-    var btn = document.getElementById('star');
-    btn.addEventListener('click',function(){
-        btn.innerHTML = '<i class="fas fa-star" style="color: #FFC148;"></i>';
-    })
-</script>
+<section id="popup" style="display: none;">
+    <div class="popup_info">
+        <p class="info_content">각 길 사진 및 정보</p>
+        <button type="button" class="btn_close"><i class="fas fa-times"></i></button>
+    </div>
+</section>
 
 <section id="map">
-    <div id="map" style="width:318px;height:260px;"></div>
+    <div id="map"></div>
 		<script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
 		<script>
 			var container = document.getElementById('map');
@@ -66,7 +69,93 @@
     
             map.setCenter(locPosition);      
             }   
-		</script>
+
+            var info = [
+            {% for info in infos %}
+                    {
+                    title: '{{ info.name }}',
+                    latlng: new kakao.maps.LatLng({{ info.latitude }}, {{ info.longitude }}),
+                    floor: '{{info.floor}}',
+                    check: '{{info.depart}}',
+                    img: '{{info.image}}',
+                    },
+            {% endfor %}
+                ];
+            var linePath = [
+                {% for info in infos %}
+                new kakao.maps.LatLng({{ info.latitude }}, {{ info.longitude }}),
+                {% endfor %}
+            ];
+            var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+            // 마커 이미지의 이미지 크기 입니다
+            var linePth;
+            // var mapping ={};
+
+            for (var i = 0 ; i < info.length ; i++){
+                console.log(info[i].check);
+                
+                if (info[i].check == '1'){
+                    var imageSize = new kakao.maps.Size(24, 35); 
+                    // 마커 이미지를 생성합니다    
+                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+                    // 마커를 생성합니다
+
+                    // mapping[info[i].title] = info[i].img;
+                    
+                    var marker = new kakao.maps.Marker({
+                        map: map, // 마커를 표시할 지도
+                        position: info[i].latlng, // 마커를 표시할 위치
+                        title : info[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                        image : markerImage, // 마커 이미지 
+                    });
+                }
+            }
+            
+            // 마커에 클릭이벤트를 등록합니다
+            kakao.maps.event.addListener(marker, 'click', function() {
+
+                // debugger;
+                var title = this.getTitle(); 
+                var img = mapping[this.getTitle()];
+
+                console.log("Title: " + title);
+                console.log("img: " + img);
+
+                var popUp = document.querySelector('#popup');
+
+                // for(let i=0; i<info.length;i++){
+                //     if(title == info[i].title){
+                //         var content =
+                //             '<div class="popup_content">' +
+                //             '   <h3>' + info[i].title + '</h3>' +
+                //             '   <p>' + info[i].floor + '</p>' +
+                //             '   <img src="' + info[i].image + '">' +
+                //             '</div>';
+
+                //         document.querySelector('.info_content').innerHTML = content;
+                //         popUp.style.display = 'block';
+                //         break;
+                //     }
+                // }
+                
+            });
+            // 팝업 창 닫기
+            var closeBtn = document.querySelector('.btn_close');
+            closeBtn.addEventListener('click', function(){
+                this.parentNode.parentNode.style.display = 'none';
+            });
+
+            var polyline = new kakao.maps.Polyline({
+                path: linePath, // 선을 구성하는 좌표배열 입니다
+                strokeWeight: 5, // 선의 두께 입니다
+                strokeColor: '#FFAE00', // 선의 색깔입니다
+                strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                strokeStyle: 'solid' // 선의 스타일입니다
+            });
+            // 지도에 선을 표시합니다 
+            polyline.setMap(map);
+
+        </script>
 </section>
 
 <section id="select_road">
@@ -74,7 +163,5 @@
     <button class="select"><a href="{% url 'easyroadpage' %}?startBuilding={{ start_building }}&endBuilding={{ end_building }}&startFloor={{ start_floor }}&endFloor={{ end_floor }}">최소 언덕</a></button>
 </section>
 
+
 {% endblock %}
-
-
-

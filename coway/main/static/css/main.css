@@ -1,11 +1,11 @@
 /* nav */
-#nav_main{
-    font-weight: 900;
+#nav_main a,#nav_road a,#nav_conv a,#nav_bookmark a{
+    visibility:hidden;
 }
 
 /* 제목 */
 #title{
-    height: 15vh;
+    height: 127px;
     font-size: 1.6em;
     font-weight: bold;
     padding: 30px 40px;
@@ -17,11 +17,11 @@
 
 /* 지도 */
 #main_img{
-    padding: 3vh 40px 2vh 40px;
+    padding: 25px 35px;
 }
 #main_img_map{
-    height: 25vh;
-    width: 80vw;
+    height: 211px;
+    width: 312px;
     /* margin: 30px 40px 20px 40px; */
 }
 #map{
@@ -32,14 +32,14 @@
 /* 버튼 */
 #main_btn{
     /* height: 34vh; */
-    height: 35vh;
-    width: 100vw;
+    height: 295px;
+    width: 390px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 30px 0;
+    padding-bottom: 40px;
 }
 #main_btn a{
     width: 301px;
