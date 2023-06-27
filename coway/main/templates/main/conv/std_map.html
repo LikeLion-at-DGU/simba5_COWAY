@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'convpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -70,32 +70,32 @@
             image: "{% static 'images/스터디_학림관.jpg' %}"
         },
         {
-            title: '사회과학관 ispace',
+            title: '사회과학관 i Space',
             latlng: new kakao.maps.LatLng(37.5575, 127.0026),
-            location: '사회과학관 #층',
-            time: '#',
-            image: "#"
+            location: '사회과학관 2층',
+            time: '09:00~17:00',
+            image: "{% static 'images/스터디_사과관.jpg' %}"
         },
         {
-            title: '원흥관 ispace',
+            title: '원흥관 i Space',
             latlng: new kakao.maps.LatLng(37.55904, 126.9986),
-            location: '원흥관 #층',
-            time: '#',
-            image: "#"
+            location: '원흥관 3층',
+            time: '09:00~17:00',
+            image: "{% static 'images/스터디_원흥관.jpg' %}"
         },
         {
             title: '혜화관 라운지',
             latlng: new kakao.maps.LatLng(37.5574, 127.0018),
-            location: '학림관 1층',
+            location: '혜화관 1층',
             time: '10:00~17:00',
-            image: "{% static 'images/스터디_학림관.jpg' %}"
+            image: "{% static 'images/스터디_혜화관.jpg' %}"
         },
         
         {
             title: '학생회관 ispace',
             latlng: new kakao.maps.LatLng(37.5601, 126.9983),
             location: '학생회관 1층',
-            time: '00:00~00:00',
+            time: '09:00~24:00',
             image: "{% static 'images/스터디_학생회관.jpg' %}"
         },
         {
@@ -110,7 +110,7 @@
             latlng: new kakao.maps.LatLng(37.55789, 126.9991),
             location: '중앙도서관 지하2층~4층',
             time: '월화수목금 09:00~17:00 <br> 토 09:00~17:00 (4층 휴무)',
-            image: "{% static 'images/중도_정문jpg' %}"
+            image: "{% static 'images/중도_정문.jpg' %}"
         },
         {
             title: '법학관 열람실',
