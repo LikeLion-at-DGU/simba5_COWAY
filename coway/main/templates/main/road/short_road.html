@@ -7,7 +7,7 @@
     <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
 </section>
 
-<form method='POST' action="{%url 'bookmarkpage'%}">
+<form method='POST' action="{%url 'bookmarkpage'%}" onsubmit="alert('즐겨찾기 반영되었습니다.')">
     <section id="road_choice">
         {% csrf_token %}
         <div>
@@ -19,7 +19,7 @@
             <div class="user_coice"><input type="text" name="endFloor" value="{{ end_floor }}" style="pointer-events: none;"></div>
         </div>
         {%if exist == 1%} 
-            <button id="star" type="submit"><i class="far fa-star"></i></button>
+            <button id="star" type="submit"><i class="fas fa-star" style="color: #FFC148;"></i></button>
         {%else%}
             <button id="star" type="submit"><i class="far fa-star"></i></button>
         {%endif%}
@@ -32,13 +32,6 @@
         <button type="button" class="btn_close"><i class="fas fa-times"></i></button>
     </div>
 </section>
-
-<script>
-    var btn = document.getElementById('star');
-    btn.addEventListener('click',function(){
-        btn.innerHTML = '<i class="fas fa-star" style="color: #FFC148;"></i>';
-    })
-</script>
 
 <section id="map">
     <div id="map" style="width:318px;height:260px;"></div>
