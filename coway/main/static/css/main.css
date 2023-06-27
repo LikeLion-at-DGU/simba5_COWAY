@@ -21,7 +21,7 @@
 }
 #main_img_map{
     height: 211px;
-    width: 312px;
+    width: 300px;
     /* margin: 30px 40px 20px 40px; */
 }
 #map{
@@ -33,7 +33,7 @@
 #main_btn{
     /* height: 34vh; */
     height: 285px;
-    width: 390px;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -42,11 +42,11 @@
     padding-bottom: 40px;
 }
 #main_btn a{
-    width: 301px;
+    width: 250px;
     height: 58px;
-    font-size: 1.6em;
+    font-size: 1.4rem;
     text-align: center;
-    padding-top: 8px;
+    padding-top: 10px;
 
     background-color: white;
     border: 5px solid #FFC148;
