@@ -234,21 +234,32 @@ def shortroadpage(request):
             path.append(curr)
             curr = prev[curr]
         infos = [get_object_or_404(Info,id=a) for a in path[::-1]]
-        bookmarks = Bookmark.objects.filter(user=request.user)
-        exist = 0;
-        for bookmark in bookmarks:
-            if bookmark.startbuilding == start_building and bookmark.startfloor == start_floor and bookmark.endbuilding == end_building and bookmark.endfloor == end_floor:
-                exist = 1;
-        context = {
-            "infos": infos,
-            'start_building': start_building,
-            'start_floor': start_floor,
-            'end_building': end_building,
-            'end_floor': end_floor,
-            'distance': distance,
-            'time': time,
-            'exist': exist,
-        }
+        if request.user.is_authenticated:
+            bookmarks = Bookmark.objects.filter(user=request.user)
+            exist = 0;
+            for bookmark in bookmarks:
+                if bookmark.startbuilding == start_building and bookmark.startfloor == start_floor and bookmark.endbuilding == end_building and bookmark.endfloor == end_floor:
+                    exist = 1;
+            context = {
+                "infos": infos,
+                'start_building': start_building,
+                'start_floor': start_floor,
+                'end_building': end_building,
+                'end_floor': end_floor,
+                'distance': distance,
+                'time': time,
+                'exist': exist,
+            }
+        else:
+            context = {
+                "infos": infos,
+                'start_building': start_building,
+                'start_floor': start_floor,
+                'end_building': end_building,
+                'end_floor': end_floor,
+                'distance': distance,
+                'time': time,
+            }
 
         return render(request, 'main/road/short_road.html', context)
     elif request.method == 'GET':
@@ -272,21 +283,32 @@ def shortroadpage(request):
             path.append(curr)
             curr = prev[curr]
         infos = [get_object_or_404(Info,id=a) for a in path[::-1]]
-        bookmarks = Bookmark.objects.filter(user=request.user)
-        exist = 0;
-        for bookmark in bookmarks:
-            if bookmark.startbuilding == start_building and bookmark.startfloor == start_floor and bookmark.endbuilding == end_building and bookmark.endfloor == end_floor:
-                exist = 1;
-        context = {
-            "infos": infos,
-            'start_building': start_building,
-            'start_floor': start_floor,
-            'end_building': end_building,
-            'end_floor': end_floor,
-            'distance': distance,
-            'time': time,
-            'exist': exist,
-        }
+        if request.user.is_authenticated:
+            bookmarks = Bookmark.objects.filter(user=request.user)
+            exist = 0;
+            for bookmark in bookmarks:
+                if bookmark.startbuilding == start_building and bookmark.startfloor == start_floor and bookmark.endbuilding == end_building and bookmark.endfloor == end_floor:
+                    exist = 1;
+            context = {
+                "infos": infos,
+                'start_building': start_building,
+                'start_floor': start_floor,
+                'end_building': end_building,
+                'end_floor': end_floor,
+                'distance': distance,
+                'time': time,
+                'exist': exist,
+            }
+        else:
+            context = {
+                "infos": infos,
+                'start_building': start_building,
+                'start_floor': start_floor,
+                'end_building': end_building,
+                'end_floor': end_floor,
+                'distance': distance,
+                'time': time,
+            }
         return render(request, 'main/road/short_road.html', context)
     else:
         return redirect('roadchoicepage')
