@@ -12,7 +12,7 @@ class Info(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False)
     floor = models.TextField(blank=True)
     depart = models.IntegerField()
-    image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True, upload_to="info/")
     near = models.TextField()
 
 class conv(models.Model):
