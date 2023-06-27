@@ -1,7 +1,7 @@
 /* 제목 */
 #title{
     height: 84px;
-    font-size: 1.6em;
+    font-size: 1.6rem;
     font-weight: bold;
     padding-top: 42px;
     margin: 0 10px;
@@ -17,21 +17,20 @@
 #explain{
     height: 17px;
     /* height: 3vh; */
-    font-size: 1em;
+    font-size: 1rem;
     color: #848484;
-    padding: 0 50px;
-    margin-top: 8px;
+    padding: 0 50px 0 40px;
+/*     margin-top: 8px; */
 }
 
 /* 기능 */
 #ask_form{
-    height: 548px;
     padding: 0 20px;
-    margin-top: 17px;
+    margin-top: 30px;
 }
 #ask_form div{
     padding: 10px;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     color: #3A3939;
     display: flex;
     flex-direction: row;
