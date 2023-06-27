@@ -24,11 +24,11 @@
             {%else%}
             <div id="nav_bookmark"> <a href="{% url 'loginpage' %}">즐겨찾기</a></div>
             {%endif%}
-            <div> 
+            <div id="nav_home"> 
                 {% if user.is_authenticated %}
-                    <a href="{% url 'homepage' %}"><i class="far fa-user" id="nav_home"></i></a>
+                    <a href="{% url 'homepage' %}"><i class="far fa-user" id="nav_home_i"></i></a>
                 {%else%}
-                    <a href="{% url 'loginpage' %}"><i class="far fa-user" id="nav_home"></i></a>
+                    <a href="{% url 'loginpage' %}"><i class="far fa-user" id="nav_home_i"></i></a>
                 {%endif%}
             </div>
         </nav>

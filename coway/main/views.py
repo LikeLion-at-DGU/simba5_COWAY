@@ -57,7 +57,7 @@ def Dijkstra(start, end):
                 prev[i] = v
                 heapq.heappush(heap, (dist[i], i))
                 if i == end:  # 도착점에 도달한 경우, 최단 경로를 찾았으므로 탐색 종료
-                    return
+                    return dist[i]
 
 def mainpage(request):
     return render(request, 'main/main.html')
@@ -219,7 +219,8 @@ def shortroadpage(request):
         end_in = Info.objects.filter(name=end_building)
         start_info = start_in.get(floor=start_floor)
         end_info = end_in.get(floor=end_floor)
-        Dijkstra(start_info.id, end_info.id)
+        distance = round(Dijkstra(start_info.id, end_info.id))
+        time = round(distance / 65)
         path = []
         curr = end_info.id
         while curr != 0:
@@ -232,6 +233,8 @@ def shortroadpage(request):
             'start_floor': start_floor,
             'end_building': end_building,
             'end_floor': end_floor,
+            'distance': distance,
+            'time': time,
         }
 
         return render(request, 'main/road/short_road.html', context)
@@ -248,7 +251,8 @@ def shortroadpage(request):
         end_in = Info.objects.filter(name=end_building)
         start_info = start_in.get(floor=start_floor)
         end_info = end_in.get(floor=end_floor)
-        Dijkstra(start_info.id, end_info.id)
+        distance = round(Dijkstra(start_info.id, end_info.id))
+        time = round(distance / 65)
         path = []
         curr = end_info.id
         while curr != 0:
@@ -261,8 +265,9 @@ def shortroadpage(request):
             'start_floor': start_floor,
             'end_building': end_building,
             'end_floor': end_floor,
+            'distance': distance,
+            'time': time,
         }
-
         return render(request, 'main/road/short_road.html', context)
     else:
         return redirect('roadchoicepage')

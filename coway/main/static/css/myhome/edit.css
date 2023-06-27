@@ -12,19 +12,20 @@
 .title_name{
     margin: 0 40px;
 }
+/* 설명 */
 #explain{
-    height: 10vh;
+    height: 9vh;
     font-size: 1em;
     color: #848484;
     margin: 0 50px;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
 /* 기능 */
 #changePw{
-    height: 41vh;
+    height: 40vh;
     display: flex;
     flex-direction: column;
-    margin: 80px 50px;
+    margin: 10vh 50px;
 }
 #originPw, #newPw, #checkPw{
     border: 1px solid #d9d9d9;

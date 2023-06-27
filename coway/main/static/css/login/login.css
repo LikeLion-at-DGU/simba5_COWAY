@@ -1,3 +1,4 @@
+/* 제목 */
 #title{
     height: 10vh;
     font-size: 1.6em;
@@ -12,19 +13,21 @@
     margin: 0 40px;
 }
 
+/* 설명 */
 #explain{
-    height: 12vh;
+    height: 9vh;
     font-size: 1em;
     color: #848484;
     margin: 0 50px;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
-/* 아이디입력 ~ */
+
+/* 기능*/
 #login{
-    height: 38vh;
+    height: 40vh;
     display: flex;
     flex-direction: column;
-    margin: 70px 50px;
+    margin: 10vh 50px;
 }
 #user_id, #user_pw{
     border: 1px solid #d9d9d9;
@@ -45,9 +48,13 @@
     border-radius: 15px;
 }
 #login_btn{
-    margin: 4vh 15vw 3vh 15vw;
+    height: 55px;
+    padding-bottom: 2px;
+    margin: 4vh 15vw 2vh 15vw;
 }
 #join_btn{
+    height: 55px;
+    padding-bottom: 2px;
     padding-top: 6px;
     margin: 0 15vw 8vh 15vw;
 }

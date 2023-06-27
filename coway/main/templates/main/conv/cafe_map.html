@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'convpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -37,36 +37,36 @@
 
     var map = new kakao.maps.Map(container, options);
 
-    if (navigator.geolocation ) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        
-        var lat = position.coords.latitude, // 위도
-            lon = position.coords.longitude; // 경도
-        var locPosition = new kakao.maps.LatLng(lat, lon)
-        displayMarker(locPosition);
-            
-      });
-    
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+
+            var lat = position.coords.latitude, // 위도
+                lon = position.coords.longitude; // 경도
+            var locPosition = new kakao.maps.LatLng(lat, lon)
+            displayMarker(locPosition);
+
+        });
+
     } else {
-        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667) 
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667)
         displayMarker(locPosition);
     }
 
     function displayMarker(locPosition) {
 
-    // 마커를 생성
-    var marker = new kakao.maps.Marker({  
-        map: map, 
-        position: locPosition
-    }); 
+        // 마커를 생성
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: locPosition
+        });
 
-    map.setCenter(locPosition);      
-}   
+        map.setCenter(locPosition);
+    }
 
 </script>
 
 <script>
-// 기숙사 식당 옆 카페 추가 필요-> 남산학사카페
+    // 기숙사 식당 옆 카페 추가 필요-> 남산학사카페
     var positions = [
         {
             title: '가온누리카페',
@@ -120,14 +120,13 @@
         });
 
         // 팝업
-        kakao.maps.event.addListener(marker, 'click', function(){
-            // console.log(this);
+        kakao.maps.event.addListener(marker, 'click', function () {
             var markerTitle = this.getTitle();
             console.log(markerTitle);
             var markerInfo;
             var popUp = document.querySelector('#popup');
 
-            for (var j=0; j<positions.length; j++) {
+            for (var j = 0; j < positions.length; j++) {
                 if (positions[j].title === markerTitle) {
                     markerInfo = positions[j];
                     break;
@@ -151,7 +150,7 @@
         });
 
         var closeBtn = document.querySelector('.btn_close');
-        closeBtn.addEventListener('click', function(){
+        closeBtn.addEventListener('click', function () {
             this.parentNode.parentNode.style.display = 'none';
         });
     }
