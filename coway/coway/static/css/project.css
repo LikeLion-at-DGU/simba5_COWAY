@@ -14,10 +14,11 @@ html, body {
 #wrap {
     min-height: 100%;
     position: relative;
-    padding-bottom: 18vh;
+    padding-bottom: 15vh;
 }
 
 body{
+    height: 100vh;
     background-color: #FFF7E8;
     margin: 0;
     padding: 0;
@@ -28,24 +29,26 @@ a{
     text-decoration: none;
     color: black;
 }
-
+/* nav바 */
 #main_nav{
     height: 5vh;
     background-color: #FFC148;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    font-size: 17px;
 }
 #main_nav img{
     height: 5vh;
     padding-top: 5px;
 }
-.visited{
-    font-weight: bold;
+.fa-user{
+    padding-top: 2px;
+    font-size: 1.2em;
 }
-
+/* footer */
 footer{
-    /* height: 18vh; */
+    height: 15vh;
     width: 100%;
     font-size: 0.7em;
     position: absolute;

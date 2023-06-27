@@ -1,3 +1,4 @@
+/* 제목 */
 #title{
     height: 10vh;
     font-size: 1.6em;
@@ -12,19 +13,21 @@
     margin: 0 40px;
 }
 
+/* 설명 */
 #explain{
-    height: 5vh;
+    height: 4vh;
     font-size: 1em;
     color: #848484;
     margin: 0 50px;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
-/* 기능 부분은 협업 필요함, 우선 화면만 */
+
+/* 기능 */
 #join{
     height: 50vh;
     display: flex;
     flex-direction: column;
-    margin: 90px 50px 30px 50px;
+    margin: 10vh 50px 5vh 50px;
 }
 #join__id, #join__pw, #join__pwcheck{
     border: 1px solid #d9d9d9;
@@ -44,6 +47,7 @@
     border: 3px solid #FFC148;
     border-radius: 15px;
     margin: 4vh 15vw 5vh 15vw;
+    padding-bottom: 3px;
 }
 #join_btn:active{
     background-color: #FDDF76;
