@@ -44,12 +44,16 @@ input{
 }
 
 #map{
-    height: 50vh;
+    height: 73vh;
     border: 1px solid #FFC148;
 }
 
 #select_road{
     height: 10vh;
+    width: 100vw;
+    z-index: 15;
+    position: absolute;
+    top: 750px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -62,7 +66,6 @@ button{
     border-radius: 15px;
     background-color: white;
     border: 3px solid #FFC148;
-
 }
 button.select{
     background-color: #FDDF76;
@@ -85,14 +88,14 @@ button.select{
 /* 팝업 */
 #popup{
     position: fixed;
-    top: 25vh;
+    top: 32vh;
     left: 2.5vh;
     width: 90vw;
-    height: 40vh;
+    height: 49vh;
     background-color: rgba(252,204,111,.92);
     border-radius: 20px;
     padding: 10px 18px;
-    z-index: 1;
+    z-index: 3;
 }
 #popup img{
     /* 일반 사진의 경우 cover가 나을 것 같고,
@@ -115,8 +118,9 @@ button.select{
     font-size: 1.5rem;
     border: 0;
     position: fixed;
-    top: 220px;
-    right: 30px;
+    top: 275px;
+    right: 50px;
     z-index: 3;
     padding-top: 3px;
+    width : 0;
 }
