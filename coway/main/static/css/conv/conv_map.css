@@ -1,3 +1,5 @@
+/* footer */
+
 /* nav */
 #nav_conv{
     font-weight: 900;
@@ -19,18 +21,20 @@
 }
 
 #map{
+    width: 100%;
     height: 675px;
 }
 #main_img{
+    width: 100%;
     border: 1px solid #FFC148;
-    margin-top: 42px;
+    margin-top: 18px;
 }
 
 /* 팝업 */
 #popup{
     position: fixed;
     top: 211px;
-    left: 21px;
+    left: 7px;
     width: 351px;
     height: 480px;
     background-color: rgba(252,204,111,.92);
@@ -61,7 +65,7 @@
     border: 0;
     position: fixed;
     top: 230px;
-    left: 325px;
+    left: 312px;
     z-index: 3;
     padding-top: 3px;
 }
