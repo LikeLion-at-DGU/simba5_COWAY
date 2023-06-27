@@ -27,8 +27,9 @@ class Command(BaseCommand):
             if pd.notnull(image):  # 이미지 필드가 비어 있지 않고, NaN 값이 아닌 경우에만 처리
                 if isinstance(image, str) and os.path.exists(image):
                     with open(image, 'rb') as file:
-                        photo_file = File(file)
-                        info = Info(latitude=latitude, longitude=longitude, name=name, floor=floor, depart=depart, near=near, image=photo_file)
+                        relative_path = '/'.join(image.split('/')[2:])
+                        info = Info(latitude=latitude, longitude=longitude, name=name, floor=floor, depart=depart, near=near)
+                        info.image = relative_path
                         info.save()
                 else:
                     print(f"Invalid image path: {image}")
