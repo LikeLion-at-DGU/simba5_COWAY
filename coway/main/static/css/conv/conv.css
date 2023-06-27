@@ -21,7 +21,7 @@
 /* 내용 */
 #conv_btn{
     height: 500px;
-    width: 100%;
+    width: 390px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -32,9 +32,9 @@
     width: 301px;
     height: 70px;
     margin: 0 10px;
-    font-size: 1.6em;
+    font-size: 1.4rem;
     text-align: center;
-    padding-top: 14px;
+    padding-top: 16px;
     background-color: white;
     border: 5px solid #FFC148;
     border-radius: 20px;
