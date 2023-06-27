@@ -8,56 +8,7 @@ from django.utils import timezone
 from django.http import HttpResponse
 
 # Create your views here.
-arr = [[-1 for j in range(246)] for i in range(246)]
-infos = Info.objects.all()
-cnt = 1
-for i in infos:
-    num = i.near.split(" ")
-    for j in num:
-        spot = (i.latitude, i.longitude)
-        num2 = Info.objects.get(id=j)
-        spot2 = (num2.latitude, num2.longitude)
-        if spot == spot2:
-            arr[cnt][int(j)] = 0
-        else:
-            arr[cnt][int(j)] = haversine(spot, spot2) * 1000
-    cnt += 1
-for i in range(cnt):
-    for j in range(cnt):
-        if arr[i][j] == -1:
-            arr[i][j] = float('inf')
-visit = [0] * cnt
-dist = [float('inf')] * cnt
-prev = [0] * cnt
-def find():
-    min = float('inf')
-    v = 0
-    for i in range(cnt):
-        if visit[i] == 0 and min > dist[i]:
-            min = dist[i]
-            v = i
-    return v
-def check():
-    for i in range(cnt):
-        if visit[i] == 0:
-            return 1
-    return 0
-def Dijkstra(start, end):
-    dist[start] = 0
-    heap = [(0, start)]  # 우선순위 큐 (거리, 노드)로 구성
-    while heap:
-        d, v = heapq.heappop(heap)
-        if v == end:
-            break
-        if d > dist[v]:
-            continue
-        for i in range(cnt):
-            if dist[i] > dist[v] + arr[v][i]:
-                dist[i] = dist[v] + arr[v][i]
-                prev[i] = v
-                heapq.heappush(heap, (dist[i], i))
-                if i == end:  # 도착점에 도달한 경우, 최단 경로를 찾았으므로 탐색 종료
-                    return dist[i]
+
 
 def mainpage(request):
     return render(request, 'main/main.html')
