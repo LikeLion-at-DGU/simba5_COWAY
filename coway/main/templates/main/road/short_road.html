@@ -117,28 +117,26 @@
     
                     // debugger;
                     var title = this.getTitle(); 
+                    // var floor = this.getFloor(); 
                     // var img = mapping[this.getTitle()];
-                    var img = mapping[title].slice(13);
+                    var img = mapping[title];
+                    // var img = mapping[title].slice(13);
     
                     console.log("Title: " + title);
                     console.log("img: " + img);
     
                     var popUp = document.querySelector('#popup');
-                    for(let i=0; i<info.length;i++){
-                        if(title == info[i].title){
-                            var content =
-                                '<div class="popup_content">' +
-                                '   <h3>' + info[i].title + '</h3>' +
-                                '   <p>' + info[i].floor + '</p>' +
-                                '   <img src="{% static ' + info[i].img + "'"+' %}" >' +
-                            // <!-- <img src="{% static 'images/정P_3층_정문_2niGInL.jpg' %}" > -->
-                                '</div>';
+                    var content =
+                        '<div class="popup_content">' +
+                        '   <h3>' + title + '</h3>' +
+                        // '   <p>' + floor + '</p>' +
+                        '   <img src="{% static ' + img + "'"+' %}" >' +
+                    // <!-- <img src="{% static 'images/정P_3층_정문_2niGInL.jpg' %}" > -->
+                        '</div>';
 
-                            document.querySelector('.info_content').innerHTML = content;
-                            popUp.style.display = 'block';
-                            break;
-                        }
-                    }
+                    document.querySelector('.info_content').innerHTML = content;
+                    popUp.style.display = 'block';                   
+                    
                 })
             }
             
