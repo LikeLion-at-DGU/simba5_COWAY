@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/bookmark/bookmark.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/bookmark/bookmark.css' %}">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -13,7 +13,7 @@
     <div class="top">
         <p>전체 <span>{{count}}</span></p>
     </div>
-    <div class="bookmark_list">
+    <!-- <div class="bookmark_list">
         {%for bookmark in bookmarks%}
         <div class="list">
             <div class="startend">
@@ -32,7 +32,7 @@
         </div>
         <hr>
         {%endfor%}
-    </div>
+    </div> -->
     <!-- <div class="bookmark_list">
             {%for bookmark in bookmarks%}
                 <div><section class="list_start"><p class="circle">출</p><p>{{bookmark.startbuilding}} {{bookmark.startfloor}}</p></section></div>
@@ -44,15 +44,23 @@
                 <hr>
             {%endfor%}
         </div> -->
-    <!-- <div class="bookmark_list">
-            {%for bookmark in bookmarks%}
-                <section class="list_start">{{bookmark.startbuilding}} {{bookmark.startfloor}}</section><i class="fas fa-long-arrow-alt-right"></i><section class="list_end">{{bookmark.endbuilding}} {{bookmark.endfloor}}</section>
-                <br>
-                <a href="{%url 'shortroadpage'%}?startBuilding={{ bookmark.startbuilding }}&endBuilding={{ bookmark.endbuilding }}&startFloor={{ bookmark.startfloor }}&endFloor={{ bookmark.endfloor }}" class="list_map">길찾기</a>
-                <a href="{%url 'deletebookmark' bookmark.id%}">삭제</a>
-                <hr>
-            {%endfor%}
-        </div> -->
+    <div class="bookmark_list">
+        {%for bookmark in bookmarks%}
+        <div class="list_div">
+            <section class="list_start">{{bookmark.startbuilding}} {{bookmark.startfloor}}</section>
+            <i class="fas fa-long-arrow-alt-right"></i>
+            <section class="list_end">{{bookmark.endbuilding}} {{bookmark.endfloor}}</section>
+        </div>
+        <div><i class="fas fa-ellipsis-v"></i></div>
+        <hr>
+        <!-- style="display: none;" -->
+        <div class="list_btn" style="display: none;">
+            <a href="{%url 'shortroadpage'%}?startBuilding={{ bookmark.startbuilding }}&endBuilding={{ bookmark.endbuilding }}&startFloor={{ bookmark.startfloor }}&endFloor={{ bookmark.endfloor }}"
+                class="list_map">길찾기</a>
+            <a href="{%url 'deletebookmark' bookmark.id%}">삭제</a>
+        </div>
+        {%endfor%}
+    </div>
 </section>
 
 
