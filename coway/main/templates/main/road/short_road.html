@@ -18,7 +18,11 @@
             <input type="text" name="endBuilding" value="{{ end_building }}" style="pointer-events: none;">
             <div class="user_coice"><input type="text" name="endFloor" value="{{ end_floor }}" style="pointer-events: none;"></div>
         </div>
-        <button id="star" type="submit"><i class="far fa-star"></i></button>
+        {%if exist == 1%} 
+            <button id="star" type="submit"><i class="far fa-star"></i></button>
+        {%else%}
+            <button id="star" type="submit"><i class="far fa-star"></i></button>
+        {%endif%}
     </section>
 </form>
 
@@ -104,16 +108,13 @@
                     // 마커를 생성합니다
 
                     // mapping[info[i].title] = info[i].img;
-
+                    
                     var marker = new kakao.maps.Marker({
                         map: map, // 마커를 표시할 지도
                         position: info[i].latlng, // 마커를 표시할 위치
                         title : info[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
                         image : markerImage, // 마커 이미지 
                     });
-    
-                    
-
                 }
             }
             
