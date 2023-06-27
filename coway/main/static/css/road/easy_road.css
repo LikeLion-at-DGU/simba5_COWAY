@@ -22,7 +22,6 @@
     left: 100px;
     background-color:beige;
 }
-
 #road_choice{
     height: 84px;
     margin: 0 20px;
@@ -51,6 +50,16 @@ input{
     border-top: 2px solid #FFC148;
 }
 
+#roadinfo{
+    text-align: end;
+    padding: 0 10px 5px 0;
+    color: #444444;
+}
+#roadinfo span{
+    color: #000000;
+    font-weight: 600;
+}
+
 #map{
     height: 616px;
     border: 1px solid #FFC148;
@@ -59,16 +68,17 @@ input{
 #select_road{
     height: 84px;
     width: 390px;
-    z-index: 15;
+    z-index: 5;
     position: absolute;
     top: 750px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 0px 20px;
-
+    
 }
 button{
+    font-size: 1rem;
     width: 160px;
     height: 42px;
     border-radius: 15px;
@@ -83,11 +93,10 @@ button.select{
     /* text-align: center; */
     border:0;
     /* color:#FFC148; */
-    color: black;
     position: absolute;
-    z-index: 3;
-    top: 240px;
-    left: 345px;
+    z-index: 5;
+    top: 250px;
+    left: 340px;
     width: 35px;
     height: 35px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -99,18 +108,16 @@ button.select{
     top: 270px;
     left: 21px;
     width: 351px;
-    height: 413px;
+    height: 350px;
     background-color: rgba(252,204,111,.92);
     border-radius: 20px;
-    padding: 10px 18px;
-    z-index: 3;
+    padding: 20px;
+    z-index: 6;
 }
 #popup img{
     /* 일반 사진의 경우 cover가 나을 것 같고,
     쿱스켓 이미지의 경우 contain이 나을 것 같음 */
-    object-fit: cover;
-    width: 317px;
-    height: 150px;
+    width: 315px;
     border-radius: 10px;
     margin: 10px 0 5px 0;
 }
@@ -127,8 +134,8 @@ button.select{
     border: 0;
     position: fixed;
     top: 275px;
-    right: 50px;
-    z-index: 3;
+    left: 330px;
+    z-index: 7;
     padding-top: 3px;
     width : 0;
 }

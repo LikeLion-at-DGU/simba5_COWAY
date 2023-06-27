@@ -24,11 +24,15 @@
         {%if exist == 1%} 
             <button id="star" type="submit"><i class="fas fa-star" style="color: #FFC148;"></i></button>
         {%else%}
-            <button id="star" type="submit"><i class="far fa-star"></i></button>
+            <button id="star" type="submit"><i class="far fa-star" style= "color: black;"></i></button>
         {%endif%}
         {%endif%}
     </section>
 </form>
+
+<section id="roadinfo">
+    거리  {{ distance }}m &nbsp;<span>|</span>&nbsp; 소요시간  {{ time }}분
+</section>
 
 <section id="popup" style="display: none;">
     <div class="popup_info">
