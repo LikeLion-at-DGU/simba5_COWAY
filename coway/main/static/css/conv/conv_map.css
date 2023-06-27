@@ -43,7 +43,7 @@
     /* 일반 사진의 경우 cover가 나을 것 같고,
     쿱스켓 이미지의 경우 contain이 나을 것 같음 */
     /* object-fit: cover; */
-    width: 317px;
+    width: 313px;
     /* height: 150px; */
     border-radius: 10px;
     margin: 20px 0;
@@ -61,7 +61,7 @@
     border: 0;
     position: fixed;
     top: 230px;
-    right: 30px;
+    left: 325px;
     z-index: 3;
     padding-top: 3px;
 }
