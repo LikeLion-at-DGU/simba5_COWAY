@@ -14,13 +14,13 @@
 }
 /* 기능 부분 */
 #mypage1{
-    height: 295px;
+    height: 290px;
     display: flex;
     flex-direction: column;
     text-align: center;
     border: 1px solid #FFC148;
     background-color: white;
-    margin: 5vh 20px;
+    margin: 42px 20px;
 }
 #myinfo{
     padding: 40px 0;
@@ -47,7 +47,8 @@
 }
 /* 버튼 */
 #mypage2{
-    height: 211px;
+    height: 200px;
+    padding-top: 20px;
 }
 #pwChange_btn{
     width: 50%;

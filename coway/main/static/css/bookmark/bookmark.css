@@ -71,12 +71,12 @@ hr{
     margin-bottom: 10px;
     font-size: 20px;
 }
-/* 버튼 */
-.list_btn{
+/* 버튼 팝업 */
+#list_btn_i{
     position: absolute;
     right: 10px;
 }
-.list_btn a{
+#list_btn_i a{
     margin: 2px;
     padding:  1px 3px;
     color: #3A3939;
