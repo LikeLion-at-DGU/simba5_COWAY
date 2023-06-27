@@ -43,6 +43,16 @@ input{
     border-top: 2px solid #FFC148;
 }
 
+#roadinfo{
+    text-align: end;
+    padding: 0 10px 5px 0;
+    color: #444444;
+}
+#roadinfo span{
+    color: #000000;
+    font-weight: 600;
+}
+
 #map{
     height: 616px;
     border: 1px solid #FFC148;
@@ -58,9 +68,10 @@ input{
     justify-content: space-around;
     align-items: center;
     padding: 0px 20px;
-
+    
 }
 button{
+    font-size: 1rem;
     width: 160px;
     height: 42px;
     border-radius: 15px;
@@ -77,7 +88,7 @@ button.select{
     /* color:#FFC148; */
     position: absolute;
     z-index: 5;
-    top: 225px;
+    top: 250px;
     left: 340px;
     width: 35px;
     height: 35px;
