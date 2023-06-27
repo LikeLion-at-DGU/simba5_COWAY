@@ -11,12 +11,12 @@
     <section id="road_choice">
         {% csrf_token %}
         <div>
-            <input type="text" name="startBuilding" value="{{ start_building }}">
-            <div class="user_coice"><input type="text" name="startFloor" value="{{ start_floor }}"></div>
+            <input type="text" name="startBuilding" value="{{ start_building }}" style="pointer-events: none;">
+            <div class="user_coice"><input type="text" name="startFloor" value="{{ start_floor }}" style="pointer-events: none;"></div>
         </div>
         <div>
-            <input type="text" name="endBuilding" value="{{ end_building }}">
-            <div class="user_coice"><input type="text" name="endFloor" value="{{ end_floor }}"></div>
+            <input type="text" name="endBuilding" value="{{ end_building }}" style="pointer-events: none;">
+            <div class="user_coice"><input type="text" name="endFloor" value="{{ end_floor }}" style="pointer-events: none;"></div>
         </div>
         <button id="star" type="submit"><i class="far fa-star"></i></button>
     </section>
@@ -24,7 +24,7 @@
 
 <section id="popup" style="display: none;">
     <div class="popup_info">
-        <p class="info_content">각 편의시설 사진 및 정보</p>
+        <p class="info_content">각 길 사진 및 정보</p>
         <button type="button" class="btn_close"><i class="fas fa-times"></i></button>
     </div>
 </section>
@@ -34,8 +34,6 @@
     btn.addEventListener('click',function(){
         btn.innerHTML = '<i class="fas fa-star" style="color: #FFC148;"></i>';
     })
-
-    
 </script>
 
 <section id="map">
@@ -48,6 +46,32 @@
 				level: 3
 			};
 			var map = new kakao.maps.Map(container, options);
+
+            if (navigator.geolocation ) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+        
+                var lat = position.coords.latitude, // 위도
+                    lon = position.coords.longitude; // 경도
+                var locPosition = new kakao.maps.LatLng(lat, lon)
+                displayMarker(locPosition);
+            
+            });
+    
+            } else {
+                var locPosition = new kakao.maps.LatLng(37.5582, 127.0006) 
+                displayMarker(locPosition);
+            }
+
+            function displayMarker(locPosition) {
+
+            // 마커를 생성
+            var marker = new kakao.maps.Marker({  
+                map: map, 
+                position: locPosition
+            }); 
+    
+            map.setCenter(locPosition);      
+            }   
 
         var info = [
         {% for info in infos %}
@@ -79,38 +103,50 @@
                     map: map, // 마커를 표시할 지도
                     position: info[i].latlng, // 마커를 표시할 위치
                     title : info[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                    image : markerImage // 마커 이미지 
+                    image : markerImage, // 마커 이미지 
                 });
-                var iwContent = '<div style="padding:5px;">Hello World!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-                iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+                marker.img = info[i].img;
 
-                // 인포윈도우를 생성합니다
-                var infowindow = new kakao.maps.InfoWindow({
-                    content : iwContent,
-                    removable : iwRemoveable
-                });
+                // marker.setOptions({ img: info[i].img });
+                // marker.setImgData({ img: info[i].img });
+                // marker.setImgData(info[i].img);
 
                 // 마커에 클릭이벤트를 등록합니다
                 kakao.maps.event.addListener(marker, 'click', function() {
-                    // 마커 위에 인포윈도우를 표시합니다
-                    infowindow.open(map, marker);  
-                    var markerTitle = this.getTitle();
-                    var markerInfo;
+                    debugger;
+                    var title = this.getTitle(); // Get the marker's title
+                    var img = this.getImg(); // Get the marker's img information
+
+                    console.log("Title: " + title);
+                    console.log("img: " + img);
+
                     var popUp = document.querySelector('#popup');
-
-                    if (markerInfo) {
-                        var content =
-                            '<div class="popup_content">' +
-                            '   <h3>' + markerInfo.title + '</h3>' +
-                            '   <img src="' + markerInfo.image + '">' +
-                            '</div>';
-
-                        document.querySelector('.info_content').innerHTML = content;
-                        popUp.style.display = 'block';
-                    }
-                    });
+        
+                    // for(let i=0; i<info.length;i++){
+                    //     if(title == info[i].title){
+                    //         var content =
+                    //             '<div class="popup_content">' +
+                    //             '   <h3>' + info[i].title + '</h3>' +
+                    //             '   <p>' + info[i].floor + '</p>' +
+                    //             '   <img src="' + info[i].image + '">' +
+                    //             '</div>';
+        
+                    //         document.querySelector('.info_content').innerHTML = content;
+                    //         popUp.style.display = 'block';
+                    //         break;
+                    //     }
+                    // }
+                    
+                });
+                // 팝업 창 닫기
+                var closeBtn = document.querySelector('.btn_close');
+                closeBtn.addEventListener('click', function(){
+                    this.parentNode.parentNode.style.display = 'none';
+                });
             }
         }
+
+
         var polyline = new kakao.maps.Polyline({
             path: linePath, // 선을 구성하는 좌표배열 입니다
             strokeWeight: 5, // 선의 두께 입니다

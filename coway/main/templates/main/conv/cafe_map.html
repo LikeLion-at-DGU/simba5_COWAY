@@ -122,6 +122,7 @@
         // 팝업
         kakao.maps.event.addListener(marker, 'click', function () {
             var markerTitle = this.getTitle();
+            console.log(markerTitle);
             var markerInfo;
             var popUp = document.querySelector('#popup');
 
