@@ -152,13 +152,20 @@ def homepage(request):
 
 def bookmarkpage(request):
     if request.method == 'POST':
-        new_bookmark = Bookmark()
-        new_bookmark.user = request.user
-        new_bookmark.startbuilding = request.POST['startBuilding']
-        new_bookmark.startfloor = request.POST['startFloor']
-        new_bookmark.endbuilding = request.POST['endBuilding']
-        new_bookmark.endfloor = request.POST['endFloor']
-        new_bookmark.save()
+        find = False
+        bookmarks = Bookmark.objects.filter(user=request.user)
+        for bookmark in bookmarks:
+            if bookmark.startbuilding == request.POST['startBuilding'] and bookmark.startfloor == request.POST['startFloor'] and bookmark.endbuilding == request.POST['endBuilding'] and bookmark.endfloor == request.POST['endFloor']:
+                bookmark.delete()
+                find = True
+        if find == False:
+            new_bookmark = Bookmark()
+            new_bookmark.user = request.user
+            new_bookmark.startbuilding = request.POST['startBuilding']
+            new_bookmark.startfloor = request.POST['startFloor']
+            new_bookmark.endbuilding = request.POST['endBuilding']
+            new_bookmark.endfloor = request.POST['endFloor']
+            new_bookmark.save()
     bookmark = Bookmark.objects.filter(user=request.user)
     count = 0
     for book in bookmark:
@@ -227,6 +234,11 @@ def shortroadpage(request):
             path.append(curr)
             curr = prev[curr]
         infos = [get_object_or_404(Info,id=a) for a in path[::-1]]
+        bookmarks = Bookmark.objects.filter(user=request.user)
+        exist = 0;
+        for bookmark in bookmarks:
+            if bookmark.startbuilding == start_building and bookmark.startfloor == start_floor and bookmark.endbuilding == end_building and bookmark.endfloor == end_floor:
+                exist = 1;
         context = {
             "infos": infos,
             'start_building': start_building,
@@ -235,6 +247,7 @@ def shortroadpage(request):
             'end_floor': end_floor,
             'distance': distance,
             'time': time,
+            'exist': exist,
         }
 
         return render(request, 'main/road/short_road.html', context)
@@ -259,6 +272,11 @@ def shortroadpage(request):
             path.append(curr)
             curr = prev[curr]
         infos = [get_object_or_404(Info,id=a) for a in path[::-1]]
+        bookmarks = Bookmark.objects.filter(user=request.user)
+        exist = 0;
+        for bookmark in bookmarks:
+            if bookmark.startbuilding == start_building and bookmark.startfloor == start_floor and bookmark.endbuilding == end_building and bookmark.endfloor == end_floor:
+                exist = 1;
         context = {
             "infos": infos,
             'start_building': start_building,
@@ -267,6 +285,7 @@ def shortroadpage(request):
             'end_floor': end_floor,
             'distance': distance,
             'time': time,
+            'exist': exist,
         }
         return render(request, 'main/road/short_road.html', context)
     else:
