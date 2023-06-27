@@ -22,10 +22,11 @@ body{
 }
 #wrap {
     width: 390px;
-    min-height: 844px;
+    height: 844px;
     position: relative;
     padding-bottom: 127px;
     background-color: #FFF7E8;
+    overflow: scroll;
 }
 a{
     text-decoration: none;
