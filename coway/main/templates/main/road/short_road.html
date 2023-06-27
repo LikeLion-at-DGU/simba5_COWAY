@@ -20,10 +20,12 @@
             <input type="text" name="endBuilding" value="{{ end_building }}" style="pointer-events: none;">
             <div class="user_coice"><input type="text" name="endFloor" value="{{ end_floor }}" style="pointer-events: none;"></div>
         </div>
+        {%if user.is_authenticated%}
         {%if exist == 1%} 
             <button id="star" type="submit"><i class="fas fa-star" style="color: #FFC148;"></i></button>
         {%else%}
             <button id="star" type="submit"><i class="far fa-star"></i></button>
+        {%endif%}
         {%endif%}
     </section>
 </form>
