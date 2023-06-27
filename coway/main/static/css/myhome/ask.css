@@ -1,9 +1,9 @@
 /* 제목 */
 #title{
-    height: 10vh;
+    height: 84px;
     font-size: 1.6em;
     font-weight: bold;
-    padding-top: 5vh;
+    padding-top: 42px;
     margin: 0 10px;
 }
 .back_icon{
@@ -15,19 +15,19 @@
 
 /* 설명 */
 #explain{
-    height: 2vh;
+    height: 17px;
     /* height: 3vh; */
     font-size: 1em;
     color: #848484;
     padding: 0 50px;
-    margin-top: 1vh;
+    margin-top: 8px;
 }
 
 /* 기능 */
 #ask_form{
-    height: 65vh;
+    height: 548px;
     padding: 0 20px;
-    margin-top: 2vh;
+    margin-top: 17px;
 }
 #ask_form div{
     padding: 10px;
@@ -39,7 +39,7 @@
     align-content: center;
 }
 #ask_title{
-    height: 8vh;
+    height: 62px;
     border-bottom: 3px solid rgba(255, 193, 72, .3);
     padding-bottom: 20px;
 }
@@ -49,7 +49,7 @@
 }
 #ask_body{
     margin: 20px 0;
-    height: 42vh;
+    height: 354px;
 }
 
 .postname{
@@ -77,7 +77,7 @@ input,textarea{
     background-color: white;
     border: 3px solid #FFC148;
     border-radius: 15px;
-    margin: 0 25vw;
+    margin: 0 97px;
     margin-bottom: 4
 }
 #ask_btn:active{
