@@ -1,3 +1,4 @@
+/* 제목 */
 #title{
     height: 10vh;
     font-size: 1.6em;
@@ -12,16 +13,21 @@
     margin: 0 40px;
 }
 
+/* 설명 */
 #explain{
+    height: 2vh;
+    /* height: 3vh; */
     font-size: 1em;
     color: #848484;
     padding: 0 50px;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
 
+/* 기능 */
 #ask_form{
+    height: 65vh;
     padding: 0 20px;
-    margin-top: 60px;
+    margin-top: 2vh;
 }
 #ask_form div{
     padding: 10px;
@@ -62,7 +68,7 @@ input,textarea{
 ::placeholder{
     color: #616161;
 }
-
+/* 버튼 */
 #ask_btn{
     width: 40%;
     height: 45px;

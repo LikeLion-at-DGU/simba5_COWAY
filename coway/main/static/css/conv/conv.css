@@ -18,8 +18,9 @@
     margin: 0 40px;
 }
 
+/* 내용 */
 #conv_btn{
-    height: 57vh;
+    height: 60vh;
     width: 100vw;
     display: flex;
     flex-direction: column;

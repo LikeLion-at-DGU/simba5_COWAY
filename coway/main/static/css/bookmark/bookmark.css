@@ -2,9 +2,10 @@
 #nav_bookmark{
     font-weight: 900;
 }
+
 /* 제목 */
 #title{
-    height: 12vh;
+    height: 15vh;
     font-size: 1.6em;
     font-weight: bold;
     padding-top: 5vh;
@@ -18,6 +19,10 @@
 }
 
 /* 컨텐츠 시작 */
+#main_content{
+    min-height: 65vh;
+    font-size: 1.3rem;
+}
 .top{
     padding: 0 5px 0 20px;
     height: 5vh;
@@ -100,10 +105,6 @@ hr{
 .list_map{
     /* margin-left: 40vw; */
     margin-right: 5px;
-}
-#main_content{
-    min-height: 65vh;
-    font-size: 1.3rem;
 }
 
 input[type=radio] {
