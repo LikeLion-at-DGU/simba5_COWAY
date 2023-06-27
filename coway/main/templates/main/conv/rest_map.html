@@ -26,30 +26,59 @@
         center: new kakao.maps.LatLng(37.5582, 127.0006),
         level: 3
     };
-
     var map = new kakao.maps.Map(container, options);
 
+
+    if (navigator.geolocation ) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        var locPosition = new kakao.maps.LatLng(lat, lon)
+        displayMarker(locPosition);
+            
+      });
+    
+    } else {
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667) 
+        displayMarker(locPosition);
+    }
+
+    function displayMarker(locPosition) {
+
+    // 마커를 생성
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+    
+    map.setCenter(locPosition);      
+}   
+
+</script>
+<script>
+    
     var positions = [
         {
             title: '솥앤누들 / 학생식당 / 교직원식당',
             latlng: new kakao.maps.LatLng(37.55709, 126.99976),
             location: '상록원 1~3층 (2층 방학 중 운영중단)',
             time: '1층 평일 11:00~18:00 (브레이크 15:00~16:00) <br> 3층 평일 11:00~14:00, 17:00~18:00',
-            image: '{% static 'images/상록원.jpg' %}'
+            image: "{% static 'images/상록원.jpg' %}"
         },
         {
             title: '가든쿡',
             latlng: new kakao.maps.LatLng(37.55789, 127.0032),
             location: '학술문화관 지하1층',
             time: '방학 중 운영중단',
-            image: '{% static 'images/식당_가든쿡.jpg' %}'
+            image: "{% static 'images/식당_가든쿡.jpg' %}"
         },
         {
             title: '기숙사식당',
             latlng: new kakao.maps.LatLng(37.5584, 126.9981),
             location: '남산학사 1층',
             time: '',
-            image: '{% static 'images/식당_남산학사.jpg' %}'
+            image: "{% static 'images/식당_남산학사.jpg' %}"
         }
     ];
 

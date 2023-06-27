@@ -24,8 +24,10 @@
     </div>
 </section>
 
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
 <!-- <script src="{% static 'JS/conv_map.js' %}?after"></script> -->
+
 <script>
     var container = document.getElementById('map');
     var options = {
@@ -35,42 +37,71 @@
 
     var map = new kakao.maps.Map(container, options);
 
-    // 기숙사 식당 옆 카페 추가 필요
+    if (navigator.geolocation ) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        
+        var lat = position.coords.latitude, // 위도
+            lon = position.coords.longitude; // 경도
+        var locPosition = new kakao.maps.LatLng(lat, lon)
+        displayMarker(locPosition);
+            
+      });
+    
+    } else {
+        var locPosition = new kakao.maps.LatLng(33.450701, 126.570667) 
+        displayMarker(locPosition);
+    }
+
+    function displayMarker(locPosition) {
+
+    // 마커를 생성
+    var marker = new kakao.maps.Marker({  
+        map: map, 
+        position: locPosition
+    }); 
+
+    map.setCenter(locPosition);      
+}   
+
+</script>
+
+<script>
+// 기숙사 식당 옆 카페 추가 필요-> 남산학사카페
     var positions = [
         {
             title: '가온누리카페',
             location: '중앙도서관 정문 옆',
             latlng: new kakao.maps.LatLng(37.5583, 126.9996),
             time: '월화수목금 08:00~18:30',
-            image: '{% static 'images/카페_가온누리.jpg' %}'
+            image: "{% static 'images/카페_가온누리.jpg' %}"
         },
         {
             title: '그루터기',
             location: '경영관,사화과학관 2층 앞',
             latlng: new kakao.maps.LatLng(37.55700, 127.0027),
             time: '월화수목금 09:00~17:30 <br> 토일 휴무',
-            image: '{% static 'images/카페_그루터기.jpg' %}'
+            image: "{% static 'images/카페_그루터기.jpg' %}"
         },
         {
             title: '남산학사 카페',
             location: '남산학사 1층 앞',
-            latlng: new kakao.maps.LatLng(37.5584, 126.99825),
+            latlng: new kakao.maps.LatLng(37.55819, 126.99798),
             time: '월화수목금 00시~00시',
-            image: '{% static 'images/카페_남산학사.jpg' %}'
+            image: "{% static 'images/카페_남산학사.jpg' %}"
         },
         {
             title: '블루포트',
             location: '본관 1층 앞',
             latlng: new kakao.maps.LatLng(37.5589, 126.9999),
             time: '월화수목금 00시~00시',
-            image: '{% static 'images/카페_블루팟.jpg' %}'
+            image: "{% static 'images/카페_블루팟.jpg' %}"
         },
         {
             title: 'ing카페',
             location: '혜화관 1층 옆',
-            latlng: new kakao.maps.LatLng(37.55700, 127.0027),
+            latlng: new kakao.maps.LatLng(37.55724, 127.00157),
             time: '월화수목금 09:00~17:00 <br> 토일 및 공휴일 12:00~17:00',
-            image: '{% static 'images/카페_ing.jpg' %}'
+            image: "{% static 'images/카페_ing.jpg' %}"
         }
     ];
 
