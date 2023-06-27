@@ -72,16 +72,16 @@ hr{
     font-size: 20px;
 }
 /* 버튼 팝업 */
-#list_btn_i{
+.btn_click{
     position: absolute;
     right: 10px;
 }
-#list_btn_i a{
+.list_map, .list_del{
     margin: 2px;
     padding:  1px 3px;
     color: #3A3939;
     text-align: center;
     font-size: 0.8em;
-    background-color: white;
-    border: 1.5px solid rgb(209, 209, 209);
+    background-color: #ffd279;
+    /* border: 1.5px solid rgb(209, 209, 209); */
 }
