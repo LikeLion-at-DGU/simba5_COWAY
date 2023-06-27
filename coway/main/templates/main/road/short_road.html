@@ -18,7 +18,11 @@
             <input type="text" name="endBuilding" value="{{ end_building }}" style="pointer-events: none;">
             <div class="user_coice"><input type="text" name="endFloor" value="{{ end_floor }}" style="pointer-events: none;"></div>
         </div>
-        <button id="star" type="submit"><i class="far fa-star"></i></button>
+        {%if exist == 1%} 
+            <button id="star" type="submit"><i class="far fa-star"></i></button>
+        {%else%}
+            <button id="star" type="submit"><i class="far fa-star"></i></button>
+        {%endif%}
     </section>
 </form>
 
@@ -113,7 +117,7 @@
 
                 // 마커에 클릭이벤트를 등록합니다
                 kakao.maps.event.addListener(marker, 'click', function() {
-                    debugger;
+                    // debugger;
                     var title = this.getTitle(); // Get the marker's title
                     var img = this.getImg(); // Get the marker's img information
 
