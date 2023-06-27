@@ -19,12 +19,13 @@
 }
 
 #map{
-    height: 50vh;
+    height: 81vh;
 }
 #main_img{
     border: 1px solid #FFC148;
-    margin-top: 6vh;
-    margin-bottom: 11vh;
+    margin-top: 4vh;
+    /* margin-top: 6vh;
+    margin-bottom: 11vh; */
 }
 
 /* 팝업 */
