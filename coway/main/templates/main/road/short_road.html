@@ -24,7 +24,7 @@
         {%if exist == 1%} 
             <button id="star" type="submit"><i class="fas fa-star" style="color: #FFC148;"></i></button>
         {%else%}
-            <button id="star" type="submit"><i class="far fa-star"></i></button>
+            <button id="star" type="submit"><i class="far fa-star" style= "color: black;"></i></button>
         {%endif%}
         {%endif%}
     </section>
@@ -121,10 +121,8 @@
     
                     // debugger;
                     var title = this.getTitle(); 
-                    // var floor = this.getFloor(); 
                     // var img = mapping[this.getTitle()];
-                    var img = mapping[title];
-                    // var img = mapping[title].slice(13);
+                    var img = mapping[title].slice(13);
     
                     console.log("Title: " + title);
                     console.log("img: " + img);
@@ -140,9 +138,11 @@
                             // <!-- <img src="{% static 'images/정P_3층_정문_2niGInL.jpg' %}" > -->
                                 '</div>';
 
-                    document.querySelector('.info_content').innerHTML = content;
-                    popUp.style.display = 'block';                   
-                    
+                            document.querySelector('.info_content').innerHTML = content;
+                            popUp.style.display = 'block';
+                            break;
+                        }
+                    }
                 })
             }
             
