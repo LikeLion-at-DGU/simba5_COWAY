@@ -13,7 +13,7 @@
     <div class="top">
         <p>전체 <span>{{count}}</span></p>
     </div>
-    <div class="bookmark_list">
+    <!-- <div class="bookmark_list">
         {%for bookmark in bookmarks%}
         <div class="list_div">
             <section class="list_start">{{bookmark.startbuilding}} {{bookmark.startfloor}}</section>
@@ -32,5 +32,21 @@
     </div>
 </section>
 
+<script>
+// var listBtns = document.querySelectorAll('.list_btn_i');
+
+// listBtns.forEach(function(listBtn) {
+//     listBtn.addEventListener('click', function() {
+//         var listBtnParent = this.parentElement;
+//         var listBtnNextSibling = listBtnParent.nextElementSibling;
+
+//         if (listBtnNextSibling.style.display === 'none') {
+//             listBtnNextSibling.style.display = 'block';
+//         } else {
+//             listBtnNextSibling.style.display = 'none';
+//         }
+//     });
+// });
+</script>
 
 {% endblock %}
