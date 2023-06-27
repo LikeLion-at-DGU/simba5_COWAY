@@ -61,13 +61,13 @@ input{
 }
 
 #map{
-    height: 616px;
+    height: 630px;
     border: 1px solid #FFC148;
 }
 
 #select_road{
     height: 84px;
-    width: 390px;
+    width: 100%;
     z-index: 5;
     position: absolute;
     top: 750px;
@@ -79,7 +79,7 @@ input{
 }
 button{
     font-size: 1rem;
-    width: 160px;
+    width: 150px;
     height: 42px;
     border-radius: 15px;
     background-color: white;
@@ -96,7 +96,7 @@ button.select{
     position: absolute;
     z-index: 5;
     top: 250px;
-    left: 340px;
+    left: 320px;
     width: 35px;
     height: 35px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -106,8 +106,8 @@ button.select{
 #popup{
     position: fixed;
     top: 270px;
-    left: 21px;
-    width: 351px;
+    left: 17px;
+    width: 330px;
     height: 350px;
     background-color: rgba(252,204,111,.92);
     border-radius: 20px;
@@ -117,7 +117,7 @@ button.select{
 #popup img{
     /* 일반 사진의 경우 cover가 나을 것 같고,
     쿱스켓 이미지의 경우 contain이 나을 것 같음 */
-    width: 315px;
+    width: 292px;
     border-radius: 10px;
     margin: 10px 0 5px 0;
 }
@@ -134,8 +134,16 @@ button.select{
     border: 0;
     position: fixed;
     top: 275px;
-    left: 330px;
+    left: 310px;
     z-index: 7;
     padding-top: 3px;
     width : 0;
+}
+#wrap {
+    width: 390px;
+    min-height: 844px;
+    position: relative;
+    padding-bottom: 127px;
+    background-color: #FFF7E8;
+    overflow: scroll;
 }

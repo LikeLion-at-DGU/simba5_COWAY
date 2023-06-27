@@ -22,7 +22,7 @@
 /* 즐겨찾기 개수 */
 #main_content{
     min-height: 548px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 .top{
     padding: 0 5px 0 20px;
@@ -65,16 +65,17 @@ hr{
 }
 .list_start, .list_end{
     float: left;
-    width: 163px;
+    width: 150px;
     text-align: center;
     margin: 5px 3px;
-    margin-bottom: 10px;
-    font-size: 20px;
+    padding-top: 3px;
+    font-size: 1rem;
 }
 /* 버튼 팝업 */
 .btn_click{
     position: absolute;
     right: 10px;
+    
 }
 .list_map, .list_del{
     margin: 2px;
