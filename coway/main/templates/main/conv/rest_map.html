@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/conv/conv_map.css' %}?after">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'convpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -115,7 +115,7 @@
                     '   <h3>' + markerInfo.title + '</h3>' +
                     '   <img src="' + markerInfo.image + '">' +
                     '   <i class="fas fa-map-marker-alt"></i>' +
-                    '   <p>' + markerInfo.location + '</p>' +
+                    '   <p>' + markerInfo.location + '</p></br>' +
                     '   <i class="fas fa-clock"></i>' +
                     '   <p>' + markerInfo.time + '</p>' +
                     '</div>';

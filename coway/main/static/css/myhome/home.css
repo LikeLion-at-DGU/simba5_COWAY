@@ -1,9 +1,9 @@
 /* 제목 */
 #title{
-    height: 10vh;
+    height: 84px;
     font-size: 1.6em;
     font-weight: bold;
-    padding-top: 5vh;
+    padding-top: 42px;
     margin: 0 10px;
 }
 .back_icon{
@@ -14,7 +14,7 @@
 }
 /* 기능 부분 */
 #mypage1{
-    height: 35vh;
+    height: 295px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -47,7 +47,7 @@
 }
 /* 버튼 */
 #mypage2{
-    height: 25vh;
+    height: 211px;
 }
 #pwChange_btn{
     width: 50%;
@@ -59,7 +59,7 @@
     background-color: white;
     border: 3px solid #FFC148;
     border-radius: 15px;
-    margin: 10px 25vw;
+    margin: 10px 97px;
     padding: 7px 0;
 }
 #logout_btn{
@@ -72,7 +72,7 @@
     background-color: white;
     border: 3px solid #FFC148;
     border-radius: 15px;
-    margin: 15px 30vw;
+    margin: 15px 117px;
     padding: 7px 0;
 }
 /* 팝업창 */
