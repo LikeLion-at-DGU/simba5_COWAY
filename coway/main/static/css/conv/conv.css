@@ -5,10 +5,10 @@
 
 /* 제목 */
 #title{
-    height: 20vh;
+    height: 169px;
     font-size: 1.6em;
     font-weight: bold;
-    padding-top: 5vh;
+    padding-top: 42px;
     margin: 0 10px;
 }
 .back_icon{
@@ -20,8 +20,8 @@
 
 /* 내용 */
 #conv_btn{
-    height: 60vh;
-    width: 100vw;
+    height: 500px;
+    width: 390px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -30,11 +30,11 @@
 }
 #conv_btn a{
     width: 301px;
-    height: 58px;
+    height: 70px;
     margin: 0 10px;
     font-size: 1.6em;
     text-align: center;
-    padding-top: 8px;
+    padding-top: 14px;
     background-color: white;
     border: 5px solid #FFC148;
     border-radius: 20px;

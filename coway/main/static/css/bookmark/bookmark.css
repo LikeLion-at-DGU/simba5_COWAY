@@ -5,10 +5,10 @@
 
 /* 제목 */
 #title{
-    height: 15vh;
+    height: 126px;
     font-size: 1.6em;
     font-weight: bold;
-    padding-top: 5vh;
+    padding-top: 42px;
     margin: 0 10px;
 }
 .back_icon{
@@ -21,12 +21,12 @@
 /* 기능 */
 /* 즐겨찾기 개수 */
 #main_content{
-    min-height: 65vh;
+    min-height: 548px;
     font-size: 1.3rem;
 }
 .top{
     padding: 0 5px 0 20px;
-    height: 5vh;
+    height: 42px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,13 +58,14 @@
 }
 
 hr{
+    width: 100%;
     border: 1px solid #FFC148;
     z-index: 1;
     margin-bottom: 5px;
 }
 .list_start, .list_end{
     float: left;
-    width: 42vw;
+    width: 163px;
     text-align: center;
     margin: 5px 3px;
     margin-bottom: 10px;
