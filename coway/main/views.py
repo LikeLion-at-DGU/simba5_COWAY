@@ -8,7 +8,6 @@ from django.utils import timezone
 from django.http import HttpResponse
 
 # Create your views here.
-
 arr = [[-1 for j in range(246)] for i in range(246)]
 infos = Info.objects.all()
 cnt = 1
@@ -59,8 +58,6 @@ def Dijkstra(start, end):
                 heapq.heappush(heap, (dist[i], i))
                 if i == end:  # 도착점에 도달한 경우, 최단 경로를 찾았으므로 탐색 종료
                     return dist[i]
-
-
 
 def mainpage(request):
     return render(request, 'main/main.html')

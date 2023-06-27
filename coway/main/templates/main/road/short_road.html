@@ -81,7 +81,11 @@
                     latlng: new kakao.maps.LatLng({{ info.latitude }}, {{ info.longitude }}),
                     floor: '{{info.floor}}',
                     check: '{{info.depart}}',
-                    img: '{{info.image}}',
+                    {%if info.image %}
+                    img: '{{info.image.url}}',
+                    {%else%}
+                    img: '',
+                    {%endif%}
                     },
             {% endfor %}
                 ];
@@ -126,13 +130,15 @@
                     console.log("img: " + img);
     
                     var popUp = document.querySelector('#popup');
-                    var content =
-                        '<div class="popup_content">' +
-                        '   <h3>' + title + '</h3>' +
-                        // '   <p>' + floor + '</p>' +
-                        '   <img src="{% static ' + img + "'"+' %}" >' +
-                    // <!-- <img src="{% static 'images/정P_3층_정문_2niGInL.jpg' %}" > -->
-                        '</div>';
+                    for(let i=0; i<info.length;i++){
+                        if(title == info[i].title){
+                            var content =
+                                '<div class="popup_content">' +
+                                '   <h3>' + info[i].title + '</h3>' +
+                                '   <p>' + info[i].floor + '</p>' +
+                                '   <img src=' + info[i].img + '>' +
+                            // <!-- <img src="{% static 'images/정P_3층_정문_2niGInL.jpg' %}" > -->
+                                '</div>';
 
                     document.querySelector('.info_content').innerHTML = content;
                     popUp.style.display = 'block';                   
