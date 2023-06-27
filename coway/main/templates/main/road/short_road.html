@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/road/short_road.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/road/short_road.css' %}">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -22,11 +22,20 @@
     </section>
 </form>
 
+<section id="popup" style="display: none;">
+    <div class="popup_info">
+        <p class="info_content">각 편의시설 사진 및 정보</p>
+        <button type="button" class="btn_close"><i class="fas fa-times"></i></button>
+    </div>
+</section>
+
 <script>
     var btn = document.getElementById('star');
     btn.addEventListener('click',function(){
         btn.innerHTML = '<i class="fas fa-star" style="color: #FFC148;"></i>';
     })
+
+    
 </script>
 
 <section id="map">
@@ -80,10 +89,25 @@
                     content : iwContent,
                     removable : iwRemoveable
                 });
+
                 // 마커에 클릭이벤트를 등록합니다
                 kakao.maps.event.addListener(marker, 'click', function() {
                     // 마커 위에 인포윈도우를 표시합니다
                     infowindow.open(map, marker);  
+                    var markerTitle = this.getTitle();
+                    var markerInfo;
+                    var popUp = document.querySelector('#popup');
+
+                    if (markerInfo) {
+                        var content =
+                            '<div class="popup_content">' +
+                            '   <h3>' + markerInfo.title + '</h3>' +
+                            '   <img src="' + markerInfo.image + '">' +
+                            '</div>';
+
+                        document.querySelector('.info_content').innerHTML = content;
+                        popUp.style.display = 'block';
+                    }
                     });
             }
         }
