@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/road/short_road.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/road/short_road.css' %}?after">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
+    <!-- <img src="coway/static/images/정P_3층_정문_2niGInL.jpg" alt=""> -->
+    <!-- <img src="{% static 'images/정P_3층_정문_2niGInL.jpg' %}" alt=""> -->
 </section>
 
 <form method='POST' action="{%url 'bookmarkpage'%}">
@@ -34,15 +36,15 @@
 </section>
 
 <section id="map">
-    <div id="map" style="width:318px;height:260px;"></div>
-		<script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
-		<script>
-			var container = document.getElementById('map');
-			var options = {
-				center: new kakao.maps.LatLng(37.5582, 127.0006),
-				level: 3
-			};
-			var map = new kakao.maps.Map(container, options);
+    <div id="map"></div>
+      <script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=33ccb9ed924f4f71c3407b8f585df918"></script>
+      <script>
+         var container = document.getElementById('map');
+         var options = {
+            center: new kakao.maps.LatLng(37.5582, 127.0006),
+            level: 3
+         };
+         var map = new kakao.maps.Map(container, options);
 
             if (navigator.geolocation ) {
             navigator.geolocation.getCurrentPosition(function(position) {
@@ -89,7 +91,7 @@
             var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
             // 마커 이미지의 이미지 크기 입니다
             var linePth;
-            // var mapping ={};
+            var mapping ={};
 
             for (var i = 0 ; i < info.length ; i++){
                 console.log(info[i].check);
@@ -100,7 +102,7 @@
                     var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
                     // 마커를 생성합니다
 
-                    // mapping[info[i].title] = info[i].img;
+                    mapping[info[i].title] = info[i].img;
                     
                     var marker = new kakao.maps.Marker({
                         map: map, // 마커를 표시할 지도
@@ -109,19 +111,36 @@
                         image : markerImage, // 마커 이미지 
                     });
                 }
+                kakao.maps.event.addListener(marker, 'click', function() {
+    
+                    // debugger;
+                    var title = this.getTitle(); 
+                    // var img = mapping[this.getTitle()];
+                    var img = mapping[title].slice(13);
+    
+                    console.log("Title: " + title);
+                    console.log("img: " + img);
+    
+                    var popUp = document.querySelector('#popup');
+                    for(let i=0; i<info.length;i++){
+                        if(title == info[i].title){
+                            var content =
+                                '<div class="popup_content">' +
+                                '   <h3>' + info[i].title + '</h3>' +
+                                '   <p>' + info[i].floor + '</p>' +
+                                '   <img src="{% static ' + info[i].img + "'"+' %}" >' +
+                            // <!-- <img src="{% static 'images/정P_3층_정문_2niGInL.jpg' %}" > -->
+                                '</div>';
+
+                            document.querySelector('.info_content').innerHTML = content;
+                            popUp.style.display = 'block';
+                            break;
+                        }
+                    }
+                })
             }
             
             // 마커에 클릭이벤트를 등록합니다
-            kakao.maps.event.addListener(marker, 'click', function() {
-
-                // debugger;
-                var title = this.getTitle(); 
-                var img = mapping[this.getTitle()];
-
-                console.log("Title: " + title);
-                console.log("img: " + img);
-
-                var popUp = document.querySelector('#popup');
 
                 // for(let i=0; i<info.length;i++){
                 //     if(title == info[i].title){
@@ -138,7 +157,7 @@
                 //     }
                 // }
                 
-            });
+            // });
             // 팝업 창 닫기
             var closeBtn = document.querySelector('.btn_close');
             closeBtn.addEventListener('click', function(){
