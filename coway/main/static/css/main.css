@@ -18,11 +18,11 @@
 /* 지도 */
 #main_img{
     padding: 25px 35px;
+    width: 100%;
 }
 #main_img_map{
     height: 211px;
-    width: 300px;
-    /* margin: 30px 40px 20px 40px; */
+    margin: 0;
 }
 #map{
     width: 100%;
