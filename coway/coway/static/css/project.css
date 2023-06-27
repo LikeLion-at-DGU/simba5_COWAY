@@ -41,7 +41,8 @@ a{
     font-size: 17px;
 }
 #main_nav img{
-    height: 42px;
+    height: 36px;
+    margin-top: 6px;
 }
 .fa-user{
     padding-top: 2px;
