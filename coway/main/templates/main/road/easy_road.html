@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/road/easy_road.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/road/easy_road.css' %}">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'roadchoicepage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -12,8 +12,8 @@
 <section id="road_choice">
     {% csrf_token %}
     <div>
-        <div>구현 중</div>
-        <div class="user_coice">쉬운 길 구현 중</div>
+        <div>{{ start_building }}</div>
+        <div class="user_coice">{{ start_floor }}</div>
     </div>
     <div>
         <div>{{ end_building }}</div> <!--{{ endBuilding }}-->
