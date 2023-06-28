@@ -48,11 +48,11 @@
 /* 버튼 */
 #mypage2{
     height: 200px;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 #pwChange_btn{
     width: 50%;
-    height: 45px;
+    height: 48px;
     font-size: 1.3em;
     text-align: center;
     display: flex;
@@ -65,7 +65,7 @@
 }
 #logout_btn{
     width: 40%;
-    height: 45px;
+    height: 48px;
     font-size: 1.3em;
     text-align: center;
     display: flex;
@@ -73,7 +73,7 @@
     background-color: white;
     border: 3px solid #FFC148;
     border-radius: 15px;
-    margin: 15px 117px;
+    margin: 20px 117px 15px 117px;
     padding: 7px 0;
 }
 /* 팝업창 */
