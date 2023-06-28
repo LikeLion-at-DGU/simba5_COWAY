@@ -39,13 +39,14 @@
 
 #changePw_btn{
     width: 60%;
-    height: 45px;
+    height: 48px;
     font-size: 1.3em;
     text-align: center;
     background-color: white;
     border: 3px solid #FFC148;
     border-radius: 15px;
-    margin: 42px 58px;
+    margin: 32px 58px;
+    padding-bottom: 2px;
 }
 #changePw_btn:active{
     background-color: #FDDF76;
