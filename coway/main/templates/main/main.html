@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?after">
 
 <section id="title">
     <div class="title_name">학교안에서 <br /> 길찾기 어려우셨죠?</div>
@@ -59,16 +59,8 @@
     {%endif%}
 </section>
 
-<video id="splash_video" autoplay muted>
+<!-- <video id="splash_video" autoplay muted>
     <source src="{% static 'video.mp4' %}" type="video/mp4">
-</video>
+</video> -->
 
-<script>
-    window.onload = function () {
-        var splashVideo = document.getElementById('splash_video');
-        splashVideo.addEventListener('ended', function () {
-            splashVideo.style.display = 'none';
-        });
-    }
-</script>
 {% endblock %}
