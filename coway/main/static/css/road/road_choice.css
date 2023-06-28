@@ -51,8 +51,8 @@
 #road_btn{
     position: fixed;
     border: 0;
-    top: 795px;
-    left: 290px;
+    top: 775px;
+    left: 320px;
     width: 50px;
     height: 50px;
     font-size: 1em;
@@ -82,14 +82,14 @@ table{
     margin-bottom: 50px;
 }
 .building td{
-    width: 220px;
+    width: 250px;
     height: 42px;
     text-align: center;
     border: 1px solid #FFC148;
     background-color: #ffffff;
 }
 .floor td{
-    width: 145px;
+    width: 140px;
     height: 48px;
     text-align: center;
     border: 1px solid #FFC148;
@@ -108,5 +108,5 @@ td:active{
     position: relative;
     padding-bottom: 127px;
     background-color: #FFF7E8;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
