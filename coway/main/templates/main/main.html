@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
 <section id="title">
     <div class="title_name">학교안에서 <br /> 길찾기 어려우셨죠?</div>
@@ -21,30 +21,30 @@
             };
 
             var map = new kakao.maps.Map(container, options);
-            if (navigator.geolocation ) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+
                     var lat = position.coords.latitude, // 위도
                         lon = position.coords.longitude; // 경도
                     var locPosition = new kakao.maps.LatLng(lat, lon)
                     displayMarker(locPosition);
-                
+
                 });
-        
-                } else {
-                    var locPosition = new kakao.maps.LatLng(37.5582, 127.0006) 
-                    displayMarker(locPosition);
-                }
-    
-                function displayMarker(locPosition) {
-    
+
+            } else {
+                var locPosition = new kakao.maps.LatLng(37.5582, 127.0006)
+                displayMarker(locPosition);
+            }
+
+            function displayMarker(locPosition) {
+
                 // 마커를 생성
-                var marker = new kakao.maps.Marker({  
-                    map: map, 
+                var marker = new kakao.maps.Marker({
+                    map: map,
                     position: locPosition
-                }); 
-        
-                map.setCenter(locPosition);      
+                });
+
+                map.setCenter(locPosition);
             }   
         </script>
     </section>
@@ -64,9 +64,11 @@
 </video>
 
 <script>
-    var splashVideo = document.getElementById('splash_video');
-    splashVideo.addEventListener('ended', function() {
-        splashVideo.style.display = 'none';
-    });
+    window.onload = function () {
+        var splashVideo = document.getElementById('splash_video');
+        splashVideo.addEventListener('ended', function () {
+            splashVideo.style.display = 'none';
+        });
+    }
 </script>
 {% endblock %}
