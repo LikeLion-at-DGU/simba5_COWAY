@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/bookmark/bookmark.css' %}?after">
+<link rel="stylesheet" type="text/css" href="{% static 'css/bookmark/bookmark.css' %}">
 
 <section id="title">
     <div class="back_icon"> <a href="{% url 'mainpage' %}"><i class="fas fa-chevron-left"></i></a></div>
@@ -19,15 +19,13 @@
             <section class="list_start">{{bookmark.startbuilding}} {{bookmark.startfloor}}</section>
             <i class="fas fa-long-arrow-alt-right"></i>
             <section class="list_end">{{bookmark.endbuilding}} {{bookmark.endfloor}}</section>
+            <div id="list_btn_i_{{forloop.counter}}" class="btn_click">
+                <a href="{%url 'shortroadpage'%}?startBuilding={{ bookmark.startbuilding }}&endBuilding={{ bookmark.endbuilding }}&startFloor={{ bookmark.startfloor }}&endFloor={{ bookmark.endfloor }}"
+                    class="list_map"><i class="fas fa-location-arrow" style="color: #3A3939;"></i></a>
+                <a href="{%url 'deletebookmark' bookmark.id%}" class="list_del"><i class="fas fa-trash-alt" style="color:#3A3939;"></i></a>
+            </div>
         </div>
-        <a href="#list_btn_i_{{forloop.counter}}" class="list_btn_i"><i class="fas fa-ellipsis-v"></i></a>
         <hr>
-        <!-- style="display: none;" -->
-        <div id="list_btn_i_{{forloop.counter}}" class="btn_click" style="display: none;">
-            <a href="{%url 'shortroadpage'%}?startBuilding={{ bookmark.startbuilding }}&endBuilding={{ bookmark.endbuilding }}&startFloor={{ bookmark.startfloor }}&endFloor={{ bookmark.endfloor }}"
-                class="list_map">길찾기</a>
-            <a href="{%url 'deletebookmark' bookmark.id%}" class="list_del">삭제</a>
-        </div>
         {%endfor%}
     </div>
 </section>
