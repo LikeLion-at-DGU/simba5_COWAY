@@ -62,6 +62,9 @@ def Dijkstra(start, end):
 def mainpage(request):
     return render(request, 'main/main.html')
 
+def videopage(request):
+    return render(request, 'main/video.html')
+
 def convpage(request):
     return render(request, 'main/conv/conv.html')
 

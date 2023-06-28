@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoWay</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/video.css' %}?after">
+</head>
+
+<body>
+    <video id="splash_video" autoplay muted>
+        <source src="{% static 'video1.mp4' %}" type="video/mp4">
+    </video>
+
+    <script>
+        // setTimeout('go_url()', 1000)
+
+        // function go_url() {
+        //     location.href = "{% url 'mainpage' %}"
+        // }
+
+
+        var splashVideo = document.getElementById('splash_video');
+        splashVideo.addEventListener('ended', function () {
+            // splashVideo.style.display = 'none';
+            // function go_url() {
+                location.href = "{% url 'mainpage' %}"
+            // }
+        });
+    </script>
+</body>
+
+</html>
