@@ -26,15 +26,15 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 }
 #conv_btn a{
-    width: 301px;
-    height: 70px;
+    width: 270px;
+    height: 65px;
     margin: 0 10px;
     font-size: 1.4rem;
     text-align: center;
-    padding-top: 16px;
+    padding-top: 14px;
     background-color: white;
     border: 5px solid #FFC148;
     border-radius: 20px;
