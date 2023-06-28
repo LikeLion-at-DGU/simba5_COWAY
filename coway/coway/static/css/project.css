@@ -21,7 +21,7 @@ body{
     font-family: 'SUIT-Regular';
 }
 #wrap {
-    overflow: scroll;
+    /* overflow: scroll; */
     width: 100%;
     min-height: 844px;
     position: relative;

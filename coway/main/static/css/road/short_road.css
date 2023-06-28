@@ -89,7 +89,7 @@ button.select{
     position: absolute;
     z-index: 5;
     top: 250px;
-    left: 320px;
+    left: 340px;
     width: 35px;
     height: 35px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -100,7 +100,7 @@ button.select{
     position: fixed;
     top: 270px;
     left: 17px;
-    width: 330px;
+    width: 351px;
     height: 350px;
     background-color: rgba(252,204,111,.92);
     border-radius: 20px;
@@ -110,7 +110,7 @@ button.select{
 #popup img{
     /* 일반 사진의 경우 cover가 나을 것 같고,
     쿱스켓 이미지의 경우 contain이 나을 것 같음 */
-    width: 292px;
+    width: 313px;
     border-radius: 10px;
     margin: 10px 0 5px 0;
 }
@@ -127,7 +127,7 @@ button.select{
     border: 0;
     position: fixed;
     top: 275px;
-    left: 310px;
+    left: 328px;
     z-index: 7;
     padding-top: 3px;
     width : 0;
@@ -138,5 +138,5 @@ button.select{
     position: relative;
     padding-bottom: 127px;
     background-color: #FFF7E8;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
