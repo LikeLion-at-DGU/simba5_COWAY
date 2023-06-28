@@ -31,15 +31,14 @@
 </section>
 
 <script>
-
-    var listBtns = document.querySelectorAll('.list_btn_i');
+    var listBtns = document.querySelectorAll('.btn_click');
     console.log(listBtns);
 
     listBtns.forEach(function (listBtn) {
         listBtn.addEventListener('click', function () {
-            var btnId = this.getAttribute('href');
+            var btnId = this.getAttribute('id');
             console.log(btnId);
-            document.querySelector(btnId).style.display = 'block';
+            document.querySelector('#' + btnId).style.display = 'block';
         });
     })
 </script>
